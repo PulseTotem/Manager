@@ -12,23 +12,16 @@ angular
   .module('pulsetotemManagerApp')
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
-      // All other stuff
-      .when('/', {
-        templateUrl: '../common/views/home.html',
-        controller: 'PulseTotemCommon.HomeCtrl',
-        reloadOnSearch: false
-      })
-
       // Routes for authentication
-      .when('/login', {
+      .when('/', {
         templateUrl: '../common/views/login.html',
         controller: 'PulseTotemCommon.LoginCtrl'
       })
 
       // Routes for Dashboard
       .when('/dashboard', {
-        templateUrl: '../common/views/login.html',
-        controller: 'PulseTotemCommon.LoginCtrl'
+        templateUrl: '../common/views/home.html',
+        controller: 'PulseTotemCommon.HomeCtrl'
       })
 
       // All other stuff

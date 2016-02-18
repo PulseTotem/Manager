@@ -25,11 +25,11 @@ angular.module('PulseTotemCommon')
                 var successBackendInit = function() {
 
                   if(user.remember) {
-                    delete($cookies.tmpPulseTotemToken);
-                    $cookies.pulseTotemToken = data.token;
+                    delete($cookies.tmpAdminT6SToken);
+                    $cookies.adminT6SToken = data.token;
                   } else {
-                    delete($cookies.pulseTotemToken);
-                    $cookies.tmpPulseTotemToken = data.token;
+                    delete($cookies.adminT6SToken);
+                    $cookies.tmpAdminT6SToken = data.token;
                   }
 
                   $rootScope.header = "default";
@@ -44,8 +44,8 @@ angular.module('PulseTotemCommon')
 
                 var failBackendInit = function(errorDesc) {
                   console.error(errorDesc); //TODO: Manage error during post => display error message
-                  delete($cookies.pulseTotemToken);
-                  delete($cookies.tmpPulseTotemToken);
+                  delete($cookies.adminT6SToken);
+                  delete($cookies.tmpAdminT6SToken);
                   $rootScope.header = "home";
                   if(next.templateUrl != "../common/views/home.html") {
                     if (!$rootScope.$$phase) {

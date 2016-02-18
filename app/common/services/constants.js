@@ -11,8 +11,11 @@ angular.module('PulseTotemCommon')
         //backendUrl: 'http://localhost:4000/',
         //backendUrl: 'http://backend.pulsetotem.fr/',
         backendUrl: 'http://backend-test.pulsetotem.fr/',
+
+        adminBackendPath: 'admins',
         loginBackendPath: 'login',
         loginFromTokenBackendPath: 'loginFromToken',
+
         homeRoute: '/',
         afterLoginRoute: '/dashboard'
     });

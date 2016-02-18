@@ -26,6 +26,7 @@ module.exports = function(config) {
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-sanitize/angular-sanitize.js',
+      'bower_components/angular-messages/angular-messages.js',
       'bower_components/angular-socket-io/socket.js',
       'bower_components/jsSHA/src/sha.js',
       'bower_components/angular-translate/angular-translate.js',

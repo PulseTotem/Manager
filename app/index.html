@@ -9,21 +9,21 @@
         <meta name="description" content="Manager - PulseTotem">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <meta name="robots" content="noydir">
-      <meta name="description" content="Bienvenue sur le manager de PulseTotem. Welcome on PulseTotem's Manager.">
-      <meta name="keywords" content="affichage dynamique, interaction, affichage numérique, affichage digital, affichage, digital, digital signage, pulse, totem, totem interactif, pulsetotem, totem dynamique, totem digital">
-      <link rel="canonical" href="http://manager.pulsetotem.fr/">
-      <meta property="og:locale" content="fr_FR">
-      <meta property="og:title" content="PulseTotem">
-      <meta property="og:description" content="Bienvenue sur le manager de PulseTotem. Welcome on PulseTotem's Manager.">
-      <meta property="og:url" content="http://manager.pulsetotem.fr/">
-      <meta property="og:site_name" content="PulseTotem">
-      <meta property="og:image" content="http://www.pulsetotem.fr/images/logos/pulseTotem_logo_h60.png">
-      <meta property="og:image" content="http://www.pulsetotem.fr/images/icons/apple-icon-180x180.png">
-      <meta name="twitter:card" content="summary">
-      <meta name="twitter:site" content="@pulsetotem">
-      <meta name="twitter:domain" content="PulseTotem">
-      <meta name="twitter:creator" content="@pulsetotem">
+        <meta name="robots" content="noydir">
+        <meta name="description" content="Bienvenue sur le manager de PulseTotem. Welcome on PulseTotem's Manager.">
+        <meta name="keywords" content="affichage dynamique, interaction, affichage numérique, affichage digital, affichage, digital, digital signage, pulse, totem, totem interactif, pulsetotem, totem dynamique, totem digital">
+        <link rel="canonical" href="http://manager.pulsetotem.fr/">
+        <meta property="og:locale" content="fr_FR">
+        <meta property="og:title" content="PulseTotem">
+        <meta property="og:description" content="Bienvenue sur le manager de PulseTotem. Welcome on PulseTotem's Manager.">
+        <meta property="og:url" content="http://manager.pulsetotem.fr/">
+        <meta property="og:site_name" content="PulseTotem">
+        <meta property="og:image" content="http://www.pulsetotem.fr/images/logos/pulseTotem_logo_h60.png">
+        <meta property="og:image" content="http://www.pulsetotem.fr/images/icons/apple-icon-180x180.png">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@pulsetotem">
+        <meta name="twitter:domain" content="PulseTotem">
+        <meta name="twitter:creator" content="@pulsetotem">
 
 
 
@@ -66,46 +66,20 @@
         <!-- endSocketIO -->
 
     </head>
-  <body layout="column" layout-fill ng-app="pulsetotemApp" ng-controller="PulseTotemCommon.GlobalCtrl">
+  <body layout="column" layout-fill ng-app="pulsetotemManagerApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+    <div ng-if="typeof(user) == 'undefined' || typeof(user.id) == 'undefined'" layout="column" layout-fill ng-view>
 
-    <!-- Show sm -->
-    <div layout="row" ng-if="screenIsSmall" ng-controller="PulseTotemCommon.MenuCtrl" class="home_toolbar_sm_container">
-      <md-toolbar ng-class="{'home_toolbar' : header == 'home' && scroll <= 150, 'home_toolbar home_toolbar_opaque' : header == 'home' && scroll > 150}" scroll-position="scroll" ng-include="'common/views/menu-' + header + '-sm.html'" ng-controller="PulseTotemCommon.MenuCtrl">
+    </div>
 
-      </md-toolbar>
-
-      <md-sidenav class="md-sidenav-left md-whiteframe-z2 home_toolbar_sm_sidenav" md-component-id="left" ng-include="'common/views/sidenav-' + header + '-sm.html'" ng-controller="PulseTotemCommon.MenuCtrl">
-
-      </md-sidenav>
-
+    <div ng-if="typeof(user) != 'undefined' && typeof(user.id) != 'undefined'" layout="row">
       <div layout="column" layout-fill ng-view>
 
       </div>
     </div>
-
-
-
-
-    <!-- Show gt-md -->
-    <md-toolbar ng-if="!screenIsSmall" ng-class="{'home_toolbar' : header == 'home' && scroll <= 150, 'home_toolbar home_toolbar_opaque' : header == 'home' && scroll > 150}" scroll-position="scroll" ng-include="'common/views/menu-' + header + '.html'" ng-controller="PulseTotemCommon.MenuCtrl" hide show-gt-md>
-
-    </md-toolbar>
-
-    <div ng-if="! screenIsSmall" layout="column" layout-fill ng-view>
-
-    </div>
-
-    <!-- div class="footer">
-      <div class="container-fluid">
-        <p>&copy; PulseTotem / 2015 from the <a href="http://www.pulsetotem.fr/">PulseTotem team</a></p>
-      </div>
-    </div -->
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -114,7 +88,7 @@
        r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
        }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-69426538-1', 'auto');
+       ga('create', 'UA-XXXXX-X', 'auto');
        ga('send', 'pageview');
     </script>
 
@@ -127,6 +101,7 @@
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-socket-io/socket.js"></script>
     <script src="bower_components/jsSHA/src/sha.js"></script>
     <script src="bower_components/angular-translate/angular-translate.js"></script>
@@ -135,7 +110,6 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -148,12 +122,9 @@
     <script src="common/services/constants.js"></script>
     <script src="common/services/backendSocket.js"></script>
     <script src="common/services/callbackManager.js"></script>
-    <script src="common/directives/scrollPosition.js"></script>
-    <script src="common/controllers/global.js"></script>
     <script src="common/controllers/menu.js"></script>
     <script src="common/controllers/home.js"></script>
     <script src="common/controllers/login.js"></script>
-
     <!-- endbuild -->
 </body>
 </html>

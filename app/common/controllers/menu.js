@@ -20,8 +20,8 @@ angular.module('PulseTotemCommon')
         $scope.logout = function() {
           $rootScope.user = {};
 
-          delete($cookies.tmpPulseTotemToken);
-          delete($cookies.pulseTotemToken);
+          delete($cookies.tmpAdminT6SToken);
+          delete($cookies.adminT6SToken);
 
           backendSocket.exit();
 
