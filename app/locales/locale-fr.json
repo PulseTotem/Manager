@@ -1,0 +1,141 @@
+{
+    "MENU" : {
+        "ADMIN_PANEL" : "Panneau d'administration",
+        "LANGUAGE" : "Langage",
+        "ENGLISH" : "English",
+        "FRENCH" : "Fran&ccedil;ais",
+        "HOME": "Accueil",
+        "SOLUTION": "Produit",
+        "PRODUCTIONS": "Réalisations",
+        "ABOUTUS": "Equipe",
+        "WHERE" : "Où nous trouver ?",
+        "CONTACTUS": "Contactez Nous",
+        "SUPPORTERS": "Merci pour votre soutien !",
+        "BLOG" : "Blog"
+    },
+    "MAIN" : {
+      "ADMIN_PANEL" : "The 6th Screen : Panneau d'administration",
+      "LOGIN" : "Connexion",
+      "LOGOUT" : "Se Déconnecter",
+      "USERNAME_OR_EMAIL" : "Pseudo ou adresse mail",
+      "PASSWORD" : "Mot de passe",
+      "LOGIN_BUTTON" : "Se connecter",
+      "PASSWORD_LOST" : "Mot de passe perdu ?",
+      "REMEMBER_ME" : "Se souvenir de moi",
+      "EDIT" : "Modifier",
+      "EMPTY" : "Sans nom"
+    },
+    "DASHBOARD" : {
+        "WELCOME" : "Bienvenue {{username}}, voici les SDI auxquels vous avez acc&egrave;s.",
+        "SDI_NAME" : "Nom",
+        "SDI_DESCRIPTION" : "Description"
+    },
+    "HOME": {
+      "SUBTITLE" : "Réinventons l'affichage dynamique ensemble !",
+      "MULTICONTENT": {
+        "TITLE": "Gagnez du temps sur votre communication",
+        "SUBTITLE": "Centralisez vos contenus existants et automatisez leur diffusion"
+      },
+      "COMMUNITY": {
+        "TITLE": "Renforcez le dynamisme de vos écrans",
+        "SUBTITLE": "Avec PulseTotem, laissez votre communauté s'exprimer en temps réel sur vos écrans"
+      },
+      "INTERACTION": {
+        "TITLE": "Améliorez votre visibilité, Engagez votre audience",
+        "SUBTITLE": "Impliquez vos utilisateurs grâce à de multiples interactions possibles"
+      },
+      "DYNAMIZE": {
+        "TITLE": "Différenciez vous, soyez innovants dans vos communications numériques",
+        "SUBTITLE": "Appuyez vous sur l'équipe de PulseTotem et construisons ensemble la solution qui VOUS convient"
+      },
+      "MORE" : "En savoir plus",
+      "CONTACTUS" : "Contactez nous !"
+    },
+    "SOLUTION": {
+      "DESCRIPTION" : "propose une solution logicielle d'affichage dynamique s'appuyant sur des informations en temps réel, en interaction avec vos utilisateurs et fortement personnalisable pour s'adapter à vos besoins",
+      "FEATURES": {
+        "INTERACTION": {
+          "TITLE": "Interactions multiples",
+          "DESCRIPTION": "Engagez vos usagers en leur permettant d'interagir directement avec vos écrans via leur smartphone, par le geste ou encore par la parole !"
+        },
+        "REALTIME": {
+          "TITLE": "Temps réel",
+          "DESCRIPTION": "Conservez votre audience réceptive en diffusant les contenus les plus récents en temps réel !"
+        },
+        "SOCIAL": {
+          "TITLE": "Réseaux sociaux",
+          "DESCRIPTION": "Utilisez notre plateforme pour récupérer de manière automatisée les contenus de votre communauté !"
+        },
+        "CENTRALIZATION": {
+          "TITLE": "Centralisation des contenus",
+          "DESCRIPTION": "Fini le casse tête pour la gestion de vos différents médias : gérez tous vos contenus depuis une unique plateforme !"
+        },
+        "DYNAMICEVENTS": {
+          "TITLE": "Dynamisation des événements",
+          "DESCRIPTION": "Faire participer votre communauté, permettre à vos invités d'interagir avec vos écrans, autant d'ingrédients à votre disposition pour booster vos évènements !"
+        },
+        "CUSTOMIZATION": {
+          "TITLE": "Personnalisation",
+          "DESCRIPTION": "Profitez des avantages de personnalisation et des interfaces simplifiées de notre solution pour adapter la diffusion à votre image !"
+        },
+        "FULLWEB": {
+          "TITLE": "Haute disponibilité",
+          "DESCRIPTION": "Simplifiez vous la vie : notre solution ne nécessite qu'un navigateur web pour être utilisée et administrée !"
+        },
+        "TEAM": {
+          "TITLE": "L'équipe PulseTotem",
+          "DESCRIPTION": "Ne perdez plus de temps : faites vous accompagner par notre équipe pour booster votre communication !"
+        }
+      }
+    },
+    "PRODUCTIONS" : {
+      "DESCRIPTION" : "a été déployé dans plusieurs événements regroupant jusqu'à 4000 personnes",
+      "JM2L": {
+        "TITLE": "JM2L 2015",
+        "SUBTITLE": "Démonstration de l'utilisation d'une retransmission vidéo en direct de conférences lors d'un salon associatif"
+      },
+      "FETESCIENCE": {
+        "TITLE": "Fête de la science 2015",
+        "SUBTITLE": "Démonstration d'une prise de contrôle de l'écran avec une tablette pour laisser un message dans notre livre d'or interactif"
+      },
+      "MANGAME": {
+        "TITLE": "MangameShow 2015",
+        "SUBTITLE": "Démonstration d'une prise de contrôle de l'écran avec son smartphone, pour déclencher la prise d'une photo par l'écran lui-même"
+      },
+      "PANDAPERO": {
+        "TITLE": "Panda'Pero #3",
+        "SUBTITLE": "Démonstration d'un écran multi-contenus à l'occasion du Panda'Pero 3ème édition, en juin 2015, organisé par Panda'Events"
+      },
+      "CHORALIES": {
+        "TITLE": "Les Choralies 2013",
+        "SUBTITLE": "Mise en place de 9 écrans (dont 2 géants) sur 10 jours à Vaison-La-Romaine à l'occasion des Choralies 2013 rassemblant plus de 4000 participants"
+      }
+    },
+    "ABOUTUS" : {
+      "COFOUNDER" : "Co-Fondateur",
+      "MESSAGE" : {
+        "CHRISTIAN" : "Des utilisateurs comblés, de l'interaction, encore de l'interaction, et toujours plus d'interaction ! Voici mon rêve !",
+        "SIMON" : "Réalisons ensemble des outils performants et évolutifs pour une communication qui soit, enfin !, réellement innovante et accrocheuse !"
+      },
+      "QUOTE" : {
+        "CHRISTIAN" : "Que la force soit avec vous !",
+        "SIMON" : "Sans imagination, pas d'innovation !"
+      }
+    },
+    "CONTACTUS" : {
+      "FIRSTNAME" : "Prénom",
+      "LASTNAME" : "Nom",
+      "EMAIL" : "Email",
+      "COMPANY" : "Entreprise",
+      "FUNCTION" : "Fonction",
+      "MESSAGE" : "Message",
+      "SEND" : "Envoyer",
+      "REQUIRED_FIELD" : "Ce champs est requis.",
+      "EMAIL_FIELD" : "La valeur doit être une adresse email valide.",
+      "MAIL_SENT" : "Merci pour votre message !",
+      "MAIL_ERROR" : "Une erreur est survenue durant l'envoi de votre message. Désolé, nous ne sommes pas parfaits... Utiliser l'adresse mail 'contact@pulsetotem.fr' pour nous contacter and exprimer toute votre haine envers nous !"
+    },
+    "FOOTER" : {
+      "RECENT_BLOG_POSTS" : "Blog : Articles récents"
+    }
+}

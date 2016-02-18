@@ -1,0 +1,316 @@
+<!-- div data-sr-container='{ "reset":true }' -->
+<div>
+  <div layout="column" id="home">
+    <div layout="column" id="pp_block_content">
+      <div layout="row" ng-class="{'pp_block_subtitle' : scroll2 <= 150, 'pp_block_subtitle pp_block_subtitle_none' : scroll2 > 150}" scroll-position="scroll2">
+        {{ 'HOME.SUBTITLE' | translate}}
+      </div>
+      <div layout="row" class="pp_carousel_container">
+          <ul rn-carousel rn-carousel-index="ppCarouselIndex" rn-carousel-auto-slide=10 rn-carousel-controls-allow-loop class="pp_carousel">
+            <li ng-repeat="pp in ppArray">
+              <div class="pp_background" style="background-image: url('{{pp.image}}')" >
+              </div>
+              <div class="pp_container">
+                <div translate="{{pp.title}}" class="pp_title"></div>
+                <div translate="{{pp.subtitle}}" class="pp_subtitle"></div>
+              </div>
+              <div layout="row" layout-align="center center" class="pp_action_container">
+                <md-button ng-if="pp.blog != null" class="md-raised pp_action" aria-label="{{ 'HOME.MORE' | translate }}" ng-href="{{pp.blog}}" target="_blank">
+                  {{ 'HOME.MORE' | translate }}
+                </md-button>
+                <md-button ng-if="pp.contactus" class="md-raised pp_action" aria-label="{{ 'HOME.CONTACTUS' | translate }}" du-smooth-scroll="contactus">
+                  {{ 'HOME.CONTACTUS' | translate }}
+                </md-button>
+              </div>
+            </li>
+          </ul>
+      </div>
+      <div layout="row" class="pp_carousel_indicator_container">
+        <div rn-carousel-indicators ng-if="ppArray.length > 1" slides="ppArray" rn-carousel-index="ppCarouselIndex" class="pp_carousel_indicator">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div layout="column" id="solution">
+      <div class="md-display-1 block_title">
+        <h1>{{ 'MENU.SOLUTION' | translate }}</h1>
+        <h3><span>PulseTotem</span> {{'SOLUTION.DESCRIPTION' | translate}}.</h3>
+      </div>
+      <div layout="column" layout-gt-md="row" layout-align="space-around center" layout-margin layout-wrap>
+        <div class="av_container" ng-repeat="av in avRow1" flex="100" flex-gt-sm="40" flex-gt-md="20" ng-mouseenter="av.showDescription=true" ng-mouseleave="av.showDescription=false">
+          <md-icon ng-if="!av.showDescription" class="av_icon" md-svg-icon="{{av.icon}}"></md-icon>
+          <md-icon ng-if="!av.showDescription && screenIsSmall" class="av_details" md-svg-icon="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg" ng-click="av.showDescription=true"></md-icon>
+
+          <div ng-if="!av.showDescription" class="av_tile_footer">
+            <span class="av_title" translate="{{av.title}}"></span>
+          </div>
+          <div ng-if="av.showDescription" class="av_tile_header">
+            <md-icon class="av_icon_details" md-svg-icon="{{av.icon}}"></md-icon>
+            <span class="av_title" translate="{{av.title}}"></span>
+            <md-icon ng-if="av.showDescription && screenIsSmall" class="av_details_close" md-svg-icon="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg" ng-click="av.showDescription=false"></md-icon>
+          </div>
+          <div ng-if="av.showDescription" translate="{{av.description}}" class="av_description">
+          </div>
+        </div>
+      </div>
+    <!-- div data-sr='wait 0.2s scale up 20%' layout="column" class="contact_block">
+      <h1 class="md-title contact_title">Contact Us !</h1>
+      <div layout="row" layout-align="center" class="contact_mini_form">
+        <md-input-container class="md-icon-float md-default-theme contact_miniform_input_container">
+          <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_mail_24px.svg" class="contact_email_icon"></md-icon>
+          <input ng-model="contact.email" type="email" placeholder="Email" class="contact_miniform_input_email">
+        </md-input-container>
+        <md-button class="md-raised contact_miniform_button" du-smooth-scroll="contactus">Contact Us !</md-button>
+      </div>
+    </div-->
+  </div>
+
+  <div layout="column" id="productions">
+    <div class="md-display-1 block_title">
+      <h1>{{ 'MENU.PRODUCTIONS' | translate }}</h1>
+      <h3><span>PulseTotem</span> {{ 'PRODUCTIONS.DESCRIPTION' | translate }}.</h3>
+    </div>
+    <div layout="column" id="productions_block_content">
+      <div layout="row" class="productions_carousel_container">
+        <ul rn-carousel rn-carousel-index="productionsCarouselIndex" rn-carousel-auto-slide=10 rn-carousel-controls-allow-loop class="productions_carousel">
+          <li ng-repeat="production in productionsArray">
+            <div layout="column" layout-fill layout-gt-md="row">
+              <div class="production_container" flex="100" flex-gt-md="30">
+                <div class="production_title" translate="{{production.title}}"></div>
+                <div class="production_subtitle" translate="{{ production.subtitle}}"></div>
+              </div>
+              <div flex="100" flex-gt-md="70" ng-class="{'production_background' : !screenIsSmall, 'production_background production_background_sm' : screenIsSmall}" style="background-image: url('{{production.image}}')" ng-cloak>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div layout="row" class="productions_carousel_indicator_container">
+        <div rn-carousel-indicators ng-if="productionsArray.length > 1" slides="productionsArray" rn-carousel-index="productionsCarouselIndex" class="productions_carousel_indicator">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- div data-sr='wait 0.2s scale up 20%' layout="column" class="contact_block">
+    <h1 class="md-title contact_title">Contact Us !</h1>
+    <div layout="row" layout-align="center" class="contact_mini_form">
+      <md-input-container class="md-icon-float md-default-theme contact_miniform_input_container">
+        <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_mail_24px.svg" class="contact_email_icon"></md-icon>
+        <input ng-model="contact.email" type="email" placeholder="Email" class="contact_miniform_input_email">
+      </md-input-container>
+      <md-button class="md-raised contact_miniform_button" du-smooth-scroll="contactus">Contact Us !</md-button>
+    </div>
+  </div-->
+
+  <div layout="column" id="aboutus">
+    <div class="md-display-1 block_title">
+      <h1>{{ 'MENU.ABOUTUS' | translate }}</h1>
+    </div>
+    <div layout="column" layout-align="space-around center" layout-gt-md="row">
+      <md-card flex="100" flex-gt-md="25">
+        <img src="images/team/Christian_Brel.png" class="md-card-image" alt="Christian">
+        <md-card-content>
+          <h2 class="md-title team_username">
+            Christian Brel<br/>
+            {{'ABOUTUS.COFOUNDER' | translate}}
+          </h2>
+          <md-list ng-cloak>
+            <md-list-item class="aboutus_social">
+              <p><a href="http://twitter.com/windu02"><md-icon class="contactus_icon" md-svg-icon="./images/social/twitter.svg"></md-icon></a></p>
+              <p><a href="https://www.linkedin.com/in/christianbrel"><md-icon class="contactus_icon" md-svg-icon="./images/social/linkedin.svg"></md-icon></a></p>
+              <p><a href="http://www.christianbrel.fr"><md-icon class="contactus_icon" md-svg-icon="./bower_components/material-design-icons/action/svg/production/ic_home_48px.svg"></md-icon></a></p>
+            </md-list-item>
+            <md-list-item>
+              <p>{{'ABOUTUS.MESSAGE.CHRISTIAN' | translate}}</p>
+            </md-list-item>
+            <md-list-item class="team_quote">
+              <p>{{'ABOUTUS.QUOTE.CHRISTIAN' | translate}}</p>
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+      <md-card flex="100" flex-gt-md="25">
+        <img src="images/team/Simon_Urli.jpg" class="md-card-image" alt="Simon">
+        <md-card-content>
+          <h2 class="md-title team_username">
+            Simon Urli<br/>
+            {{'ABOUTUS.COFOUNDER' | translate}}
+          </h2>
+          <md-list ng-cloak>
+            <md-list-item class="aboutus_social">
+              <p><a href="http://twitter.com/Neo_nderthalis"><md-icon class="contactus_icon" md-svg-icon="./images/social/twitter.svg"></md-icon></a></p>
+              <p><a href="https://fr.linkedin.com/pub/simon-urli/39/b14/a97"><md-icon class="contactus_icon" md-svg-icon="./images/social/linkedin.svg"></md-icon></a></p>
+              <p><a href="http://www.simonurli.fr"><md-icon class="contactus_icon" md-svg-icon="./bower_components/material-design-icons/action/svg/production/ic_home_48px.svg"></md-icon></a></p>
+            </md-list-item>
+            <md-list-item>
+              <p>{{'ABOUTUS.MESSAGE.SIMON' | translate}}</p>
+            </md-list-item>
+            <md-list-item class="team_quote">
+              <p>{{'ABOUTUS.QUOTE.SIMON' | translate}}</p>
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+
+          <!-- h1 class="md-display-1">PulseTotem</h1>
+          <p>
+            Les systèmes d'affichages dynamiques sont aujourd'hui en plein essor et pratiquement omniprésents : la partie visible de ces systèmes sont les écrans que l'on retrouve aussi bien dans les gares ou les aéroports que dans les universités et les entreprises.
+            Cependant ces systèmes sont fondés sur des principes de communication antérieurs à l'ère du Web 2.0 et ne permettent pas de profiter de l'ensemble des contenus générés directement par les utilisateurs.
+          </p>
+          <br/>
+          <p>
+            Ainsi l'essor des réseaux sociaux et de l'information disponible en temps réel et géolocalisée nous pousse à imaginer une nouvelle forme de communication sur écran.
+            Nous proposons ainsi une solution logicielle (en mode SaaS) permettant de créer et gérer son affichage dynamique en intégrant aussi bien des contenus informatifs traditionnels (textes, images, vidéos) que des informations temps réels et interactives provenant de différentes sources.
+            Nous souhaitons ainsi engager davantage les spectateurs dans les informations diffusées à l'écran, garantir la fraîcheur de l'information et faciliter la gestion d'un parc d'écrans.
+          </p>
+          <br/>
+          <p>
+            Enfin, les écrans étant de plus en plus présents autour de nous, il nous semble nécessaire de repenser la relation que les usagers ont avec ces différents écrans.
+            Nous proposons pour cela d'améliorer l'expérience utilisateur par l'ajout d'interactions directs entre l'écran et l'usager, en proposant à ce dernier de prendre le contrôle de l'écran ou encore de récupérer des informations fournies par l'écran, avec son smartphone, une tablette, l'interaction tactile, l'interaction gestuelle ou encore l'interaction vocale.
+          </p>
+        </div-->
+
+  <div layout="column" id="contactus">
+    <div class="md-display-1 block_title">
+      <h1>{{ 'MENU.CONTACTUS' | translate }}</h1>
+    </div>
+    <div layout="column" layout-gt-md="row">
+      <md-content flex="100" flex-gt-md="60">
+        <form name="contactForm" ng-show="!mailSent">
+          <div layout layout-sm="column" layout-margin>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+                {{'CONTACTUS.FIRSTNAME' | translate}} *
+              </label>
+              <input required name="firstName" ng-model="contact.firstName" >
+              <div ng-show="contactForm.firstName.$dirty && ! contactForm.firstName.$valid" ng-messages="contactForm.firstName.$error">
+                <div ng-message="required">{{'CONTACTUS.REQUIRED_FIELD' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/social/svg/production/ic_person_outline_48px.svg"></md-icon>
+                {{'CONTACTUS.LASTNAME' | translate}} *
+              </label>
+              <input required name="lastName" ng-model="contact.lastName">
+              <div ng-show="contactForm.lastName.$dirty && ! contactForm.lastName.$valid" ng-messages="contactForm.lastName.$error">
+                <div ng-message="required">{{'CONTACTUS.REQUIRED_FIELD' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_email_48px.svg"></md-icon>
+                {{'CONTACTUS.EMAIL' | translate}} *
+              </label>
+              <input required name="email" ng-model="contact.email" type="email">
+              <div ng-show="contactForm.email.$dirty && ! contactForm.email.$valid" ng-messages="contactForm.email.$error">
+                <div ng-message="required">{{'CONTACTUS.REQUIRED_FIELD' | translate}}</div>
+                <div ng-message="email">{{'CONTACTUS.EMAIL_FIELD' | translate}}</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout layout-sm="column" layout-margin>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_work_48px.svg"></md-icon>
+                {{'CONTACTUS.FUNCTION' | translate}}
+              </label>
+              <input name="function_company" ng-model="contact.function_company">
+            </md-input-container>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_business_48px.svg"></md-icon>
+                {{'CONTACTUS.COMPANY' | translate}}
+              </label>
+              <input name="company" ng-model="contact.company">
+            </md-input-container>
+          </div>
+          <div layout layout-sm="column" layout-margin>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
+                {{'CONTACTUS.MESSAGE' | translate}} *
+              </label>
+              <textarea required name="message" ng-model="contact.message" columns="1" rows="5"></textarea>
+              <div ng-show="contactForm.message.$dirty && ! contactForm.message.$valid" ng-messages="contactForm.message.$error">
+                <div ng-message="required">{{'CONTACTUS.REQUIRED_FIELD' | translate}}</div>
+              </div>
+            </md-input-container>
+          </div>
+          <div layout="column" layout-margin>
+            <div
+              vc-recaptcha
+              key="'6LfF1w8TAAAAACvCkxiUY0mgbWqEd5hrr40BfVJl'"
+              ></div>
+            <md-button ng-show="contactForm.firstName.$valid && contactForm.lastName.$valid && contactForm.email.$valid && contactForm.message.$valid && ! mailSending && ! mailSent" class="md-raised contact_form_button" ng-click="sendMail(contact)">{{'CONTACTUS.SEND' | translate}} !</md-button>
+            <md-progress-circular class="contactus_progress" ng-show="mailSending" md-mode="indeterminate"></md-progress-circular>
+          </div>
+        </form>
+        <div class="contactus_mailSent" ng-show="mailSent">{{'CONTACTUS.MAIL_SENT' | translate}}</div>
+        <div class="contactus_mailSent" ng-show="mailError">{{'CONTACTUS.MAIL_ERROR' | translate}}</div>
+      </md-content>
+      <div flex="100" flex-gt-md="40" class="contactus_where">
+        <md-list ng-cloak>
+          <md-list-item class="contactus_social">
+            <p><a href="http://twitter.com/pulsetotem"><md-icon class="contactus_icon" md-svg-icon="./images/social/twitter.svg"></md-icon></a></p>
+            <p><a href="https://www.linkedin.com/company/pulsetotem"><md-icon class="contactus_icon" md-svg-icon="./images/social/linkedin.svg"></md-icon></a></p>
+            <p><a href="http://www.facebook.com/pulsetotem"><md-icon class="contactus_icon" md-svg-icon="./images/social/facebook.svg"></md-icon></a></p>
+          </md-list-item>
+          <md-list-item>
+            <md-icon class="contactus_icon" md-svg-icon="./bower_components/material-design-icons/communication/svg/production/ic_email_48px.svg"></md-icon>
+            <p>contact@pulsetotem.fr</p>
+          </md-list-item>
+          <md-list-item>
+            <md-icon class="contactus_icon" md-svg-icon="./bower_components/material-design-icons/maps/svg/production/ic_place_48px.svg"></md-icon>
+            <p>
+              Business Pole, Bat. B - Entrée A - Etage 2<br/>
+              1047 Route des Dolines - Allée Pierre Ziller<br/>
+              06900 Valbonne Sophia-Antipolis<br/>
+              France
+            </p>
+          </md-list-item>
+        </md-list>
+        <iframe src="https://mapsengine.google.com/map/embed?mid=zLgURc0UvE04.kGH3kkOlb8yE" width="90%" height="300px"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div layout="column" id="supporters">
+    <div class="md-display-1 block_title">
+      <h1>{{ 'MENU.SUPPORTERS' | translate }}</h1>
+    </div>
+    <div class="supporters_list" layout="row" layout-sm="column" layout-align="space-around center" layout-margin layout-wrap>
+      <a ng-repeat="supporter in supporters" ng-href="{{supporter.url}}" flex="100" flex-gt-sm="40" flex-gt-md="20" target="_blank">
+	      <div  class="supporter"   style="background-image: url('{{supporter.logo}}')">
+	      </div>
+      </a>
+    </div>
+  </div>
+
+  <div layout="row" layout-align="space-around start" id="footer_block">
+    <div flex>
+      <p>Accompagné et hébergé par l'Incubateur Paca-Est</p>
+      <p>1047 Route des Dolines, Allée Pierre Ziller, 06900 Valbonne Sophia-Antipolis</p>
+      <p>&copy; 2015 PulseTotem</p>
+    </div>
+    <div flex>
+      <md-button class="md-icon-button" aria-label="Email" href="mailto:contact@pulsetotem.fr" target="_blank">
+        <md-icon class="contactus_icon" md-svg-icon="./bower_components/material-design-icons/communication/svg/production/ic_email_48px.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Twitter" href="http://twitter.com/pulsetotem" target="_blank">
+        <md-icon class="contactus_icon" md-svg-icon="./images/social/twitter.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="LinkedIn" href="https://www.linkedin.com/company/pulsetotem" target="_blank">
+        <md-icon class="contactus_icon" md-svg-icon="./images/social/linkedin.svg"></md-icon>
+      </md-button>
+      <md-button class="md-icon-button" aria-label="Facebook" href="http://www.facebook.com/pulsetotem" target="_blank">
+        <md-icon class="contactus_icon" md-svg-icon="./images/social/facebook.svg"></md-icon>
+      </md-button>
+    </div>
+  </div>
+</div>

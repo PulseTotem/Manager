@@ -1,0 +1,33 @@
+<md-toolbar class="home_toolbar_sm">
+  <div class="md-toolbar-tools">
+    <img src="images/logos/pulseTotem_logo_h60.png" class="pulsetotem_logo pulsetotem_logo_sm" du-smooth-scroll="home" />
+
+    <span flex></span>
+
+    <md-button class="md-icon-button md-raised menu_shortcut" aria-label="Menu" ng-click="toggleLeft()">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg" class="menu_shortcut_icon"></md-icon>
+    </md-button>
+  </div>
+</md-toolbar>
+<md-content>
+  <div layout="column" layout-fill>
+    <md-button class="md-raised" aria-label="{{ 'MENU.HOME' | translate }}" du-scrollspy="home" du-smooth-scroll="home" ng-click="toggleLeft()">
+      {{ 'MENU.HOME' | translate }}
+    </md-button>
+    <md-button class="md-raised" aria-label="{{ 'MENU.SOLUTION' | translate }}" du-scrollspy="solution" du-smooth-scroll="solution" ng-click="toggleLeft()">
+      {{ 'MENU.SOLUTION' | translate }}
+    </md-button>
+    <md-button class="md-raised" aria-label="{{ 'MENU.PRODUCTIONS' | translate }}" du-scrollspy="productions" du-smooth-scroll="productions" ng-click="toggleLeft()">
+      {{ 'MENU.PRODUCTIONS' | translate }}
+    </md-button>
+    <md-button class="md-raised" aria-label="{{ 'MENU.ABOUTUS' | translate }}" du-scrollspy="aboutus" du-smooth-scroll="aboutus" ng-click="toggleLeft()">
+      {{ 'MENU.ABOUTUS' | translate }}
+    </md-button>
+    <md-button class="md-raised" aria-label="{{ 'MENU.CONTACTUS' | translate }}" du-scrollspy="contactus" du-smooth-scroll="contactus" ng-click="toggleLeft()">
+      {{ 'MENU.CONTACTUS' | translate }}
+    </md-button>
+    <md-button class="md-raised" aria-label="{{ 'MENU.BLOG' | translate }}" ng-href="http://blog.pulsetotem.fr" target="_blank" ng-click="toggleLeft()">
+      {{ 'MENU.BLOG' | translate }}
+    </md-button>
+  </div>
+</md-content>

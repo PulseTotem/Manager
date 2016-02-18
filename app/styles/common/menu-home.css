@@ -1,0 +1,73 @@
+.home_toolbar {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.home_toolbar_opaque {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #37ABC8;
+}
+
+.home_toolbar .md-button:last-child {
+  margin-right: 8px !important;
+}
+
+.pulsetotem_logo {
+  height: 100%;
+  cursor: pointer;
+}
+
+.pulsetotem_logo_sm {
+  height: 50%;
+}
+
+.pulsetotem_logo:focus {
+  outline: none;
+}
+
+.selectedMenu {
+  background-color: #37ABC8 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.lang_flag {
+  vertical-align: middle;
+}
+
+.menu_shortcut_icon {
+  color: #37ABC8 !important;
+}
+
+.home_toolbar_opaque .menu_shortcut {
+  background-color: #37ABC8 !important;
+}
+
+.home_toolbar_opaque .menu_shortcut_icon {
+  color: white !important;
+}
+
+.home_toolbar_sm_container {
+  overflow: visible !important;
+}
+
+.home_toolbar_sm_container md-backdrop {
+  position: fixed !important;
+}
+
+.home_toolbar_sm_sidenav {
+  position: fixed !important;
+}
+
+.home_toolbar_sm {
+  background-color: rgba(255, 255, 255, 1);
+  border-bottom: 1px solid #37ABC8;
+}
+
+.home_toolbar_sm .menu_shortcut {
+  background-color: #37ABC8 !important;
+}
+
+.home_toolbar_sm .menu_shortcut_icon {
+  color: white !important;
+}
