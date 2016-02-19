@@ -10,12 +10,15 @@
 angular.module('PulseTotemCommon')
   .controller('PulseTotemCommon.LoginCtrl', ['$rootScope', '$scope', '$http', '$location', 'CONSTANTS', 'backendSocket', '$cookies', function ($rootScope, $scope, $http, $location, CONSTANTS, backendSocket, $cookies) {
 
-        $rootScope.user = {};
+        $scope.user = {
+          "remember" : true
+        };
 
         $scope.login = function(user) {
           if (typeof(user.password) != "undefined" && user.password != "") {
-            var shaObj = new jsSHA(user.password, "TEXT");
-            var encryptedPwd = shaObj.getHash("SHA-256", "HEX");
+            var shaObj = new jsSHA("SHA-256", "TEXT");
+            shaObj.update(user.password);
+            var encryptedPwd = shaObj.getHash("HEX");
 
             $http.post(CONSTANTS.backendUrl + CONSTANTS.loginBackendPath, {
               'usernameOrEmail': user.usernameOrEmail,
@@ -25,11 +28,11 @@ angular.module('PulseTotemCommon')
                 var successBackendInit = function() {
 
                   if(user.remember) {
-                    delete($cookies.tmpAdminT6SToken);
-                    $cookies.adminT6SToken = data.token;
+                    $cookies.remove("tmpAdminT6SToken");
+                    $cookies.put("adminT6SToken", data.token);
                   } else {
-                    delete($cookies.adminT6SToken);
-                    $cookies.tmpAdminT6SToken = data.token;
+                    $cookies.remove("adminT6SToken");
+                    $cookies.put("tmpAdminT6SToken", data.token);
                   }
 
                   $rootScope.header = "default";
@@ -44,16 +47,16 @@ angular.module('PulseTotemCommon')
 
                 var failBackendInit = function(errorDesc) {
                   console.error(errorDesc); //TODO: Manage error during post => display error message
-                  delete($cookies.adminT6SToken);
-                  delete($cookies.tmpAdminT6SToken);
-                  $rootScope.header = "home";
-                  if(next.templateUrl != "../common/views/home.html") {
+                  $cookies.remove("adminT6SToken");
+                  $cookies.remove("tmpAdminT6SToken");
+                  $rootScope.header = "login";
+                  if(next.templateUrl != "../common/views/login.html") {
                     if (!$rootScope.$$phase) {
                       $rootScope.$apply(function () {
-                        $location.path(CONSTANTS.homeRoute);
+                        $location.path(CONSTANTS.loginRoute);
                       });
                     } else {
-                      $location.path(CONSTANTS.homeRoute);
+                      $location.path(CONSTANTS.loginRoute);
                     }
                   }
                 };

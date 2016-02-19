@@ -19,21 +19,24 @@ angular
     'ngMessages',
     'pascalprecht.translate',
     'btford.socket-io',
-    'PulseTotemCommon'
+    'PulseTotemCommon',
+    'PulseTotemManagerDashboard',
+    'PulseTotemManagerCMS'
     ])
     .config(['$locationProvider', function($locationProvider) {
         $locationProvider.html5Mode(true).hashPrefix('!');
     }])
     .config(['$mdThemingProvider', function($mdThemingProvider) {
       $mdThemingProvider.theme('default')
-        .primaryPalette('blue-grey', {
-          'default' : '600'
-        })
-        .accentPalette('blue');
+        .primaryPalette('orange')
+        .accentPalette('deep-purple');
+      $mdThemingProvider.theme('altTheme')
+        .primaryPalette('deep-purple')
+        .accentPalette('orange');
     }])
     .run(['$rootScope', '$location', '$cookies', '$http', 'CONSTANTS', 'backendSocket', '$route', function($rootScope, $location, $cookies, $http, CONSTANTS, backendSocket, $route) {
 
-      $rootScope.header = "home";
+      $rootScope.header = "login";
 
       $rootScope.$on("$routeChangeStart", function(event, next, current) {
         if(typeof($rootScope.user) != "undefined" && typeof($rootScope.user.id) != "undefined") {
@@ -57,11 +60,11 @@ angular
 
           var adminT6SToken = null;
           var tmpToken = false;
-          if($cookies.adminT6SToken) {
-            adminT6SToken = $cookies.adminT6SToken;
+          if($cookies.get("adminT6SToken")) {
+            adminT6SToken = $cookies.get("adminT6SToken");
           } else {
-            if($cookies.tmpAdminT6SToken) {
-              adminT6SToken = $cookies.tmpAdminT6SToken;
+            if($cookies.get("tmpAdminT6SToken")) {
+              adminT6SToken = $cookies.get("tmpAdminT6SToken");
               tmpToken = true;
             }
           }
@@ -73,11 +76,11 @@ angular
               .success(function(data, status, headers, config) {
                 var successBackendInit = function() {
                   if(tmpToken) {
-                    delete($cookies.adminT6SToken);
-                    $cookies.tmpAdminT6SToken = data.token;
+                    $cookies.remove("adminT6SToken");
+                    $cookies.put("tmpAdminT6SToken", data.token);
                   } else {
-                    delete($cookies.tmpAdminT6SToken);
-                    $cookies.adminT6SToken = data.token;
+                    $cookies.remove("tmpAdminT6SToken");
+                    $cookies.put("adminT6SToken", data.token);
                   }
 
                   /*if(ADMIN_CONSTANTS.backendUrl.indexOf("localhost") <= -1) {
@@ -89,16 +92,16 @@ angular
 
                 var failBackendInit = function(errorDesc) {
                   console.error(errorDesc);
-                  delete($cookies.adminT6SToken);
-                  delete($cookies.tmpAdminT6SToken);
+                  $cookies.remove("adminT6SToken");
+                  $cookies.remove("tmpAdminT6SToken");
 
-                  $rootScope.header = "home";
+                  $rootScope.header = "login";
                   if (!$rootScope.$$phase) {
                     $rootScope.$apply(function () {
-                      $location.path(CONSTANTS.homeRoute);
+                      $location.path(CONSTANTS.loginRoute);
                     });
                   } else {
-                    $location.path(CONSTANTS.homeRoute);
+                    $location.path(CONSTANTS.loginRoute);
                   }
                 };
 
@@ -106,25 +109,25 @@ angular
 
               })
               .error(function(data, status, headers, config) {
-                delete($cookies.adminT6SToken);
-                delete($cookies.tmpAdminT6SToken);
-                $rootScope.header = "home";
+                $cookies.remove("adminT6SToken");
+                $cookies.remove("tmpAdminT6SToken");
+                $rootScope.header = "login";
                 if (!$rootScope.$$phase) {
                   $rootScope.$apply(function () {
-                    $location.path(CONSTANTS.homeRoute);
+                    $location.path(CONSTANTS.loginRoute);
                   });
                 } else {
-                  $location.path(CONSTANTS.homeRoute);
+                  $location.path(CONSTANTS.loginRoute);
                 }
               });
           } else {
-            $rootScope.header = "home";
+            $rootScope.header = "login";
             if (!$rootScope.$$phase) {
               $rootScope.$apply(function () {
-                $location.path(CONSTANTS.homeRoute);
+                $location.path(CONSTANTS.loginRoute);
               });
             } else {
-              $location.path(CONSTANTS.homeRoute);
+              $location.path(CONSTANTS.loginRoute);
             }
           }
 

@@ -1,141 +1,25 @@
 {
-    "MENU" : {
-        "ADMIN_PANEL" : "Administration Panel",
-        "LANGUAGE" : "Language",
-        "ENGLISH": "English",
-        "FRENCH": "Fran&ccedil;ais",
-        "HOME": "Home",
-        "SOLUTION": "Product",
-        "PRODUCTIONS": "Productions",
-        "ABOUTUS": "Team",
-        "WHERE" : "Where to find us ?",
-        "CONTACTUS": "Contact Us",
-        "SUPPORTERS": "Thanks for your support !",
-        "BLOG" : "Blog"
-    },
-    "MAIN" : {
-        "ADMIN_PANEL" : "The 6th Screen : Administration Panel",
-        "LOGIN" : "Log In",
-        "LOGOUT" : "Log Out",
-        "USERNAME_OR_EMAIL" : "Username or Email",
-        "PASSWORD" : "Password",
-        "LOGIN_BUTTON" : "Log In",
-        "PASSWORD_LOST" : "Password lost ?",
-        "REMEMBER_ME" : "Remember me",
-        "EDIT" : "Edit",
-        "EMPTY" : "Empty name"
-    },
-    "DASHBOARD" : {
-        "WELCOME" : "Welcome {{username}}, here are Digital Signages you can edit.",
-        "SDI_NAME" : "Name",
-        "SDI_DESCRIPTION" : "Description"
-    },
-    "HOME": {
-      "SUBTITLE" : "Reinventing digital signage together!",
-      "MULTICONTENT": {
-        "TITLE": "Gain time on your communications",
-        "SUBTITLE": "Centralize your existing contents and broadcast them automatically"
-      },
-      "COMMUNITY": {
-        "TITLE": "Improve the reactivity of your screens",
-        "SUBTITLE": "With PulseTotem, allow your community to express itself in real time on your screens"
-      },
-      "INTERACTION": {
-        "TITLE": "Improve your visibility, Catch your audience's attention",
-        "SUBTITLE": "Involve your users with multiple available interactions"
-      },
-      "DYNAMIZE": {
-        "TITLE": "Be different and innovative in your digital communications",
-        "SUBTITLE": "Contact PulseTotem's team and together let's build the solution that fits YOUR needs"
-      },
-      "MORE" : "More",
-      "CONTACTUS" : "Contact us !"
-    },
-    "SOLUTION": {
-      "DESCRIPTION" : "introduces a digital signage software system capable of broadcasting real time information, interacting with your users and widely customizable to fit your needs",
-      "FEATURES": {
-        "INTERACTION": {
-          "TITLE": "Multiple interactions",
-          "DESCRIPTION": "Involve your users by allowing them to directly interact with digital screens via their smartphone, using gesture or by speech!"
-        },
-        "REALTIME": {
-          "TITLE": "Real time",
-          "DESCRIPTION": "Keep your audience attention by broadcasting the most recent contents in real time!"
-        },
-        "SOCIAL": {
-          "TITLE": "Social network",
-          "DESCRIPTION": "Use our plateform to automatically get your community contents!"
-        },
-        "CENTRALIZATION": {
-          "TITLE": "Cloud Content Management",
-          "DESCRIPTION": "Stop the headache when managing your contents: keep them all in a unique platform!"
-        },
-        "DYNAMICEVENTS": {
-          "TITLE": "Boosting your events",
-          "DESCRIPTION": "Involving your community, allowing your guests to interact with digital screens, so many available ways to boost your events!"
-        },
-        "CUSTOMIZATION": {
-          "TITLE": "Customization",
-          "DESCRIPTION": "Enjoy the advantages of customization and the simplied interfaces of our solution to adapt your broadcast to your image!"
-        },
-        "FULLWEB": {
-          "TITLE": "High Availability",
-          "DESCRIPTION": "Ease your life : our solution only needs a web browser to be used and administrated!"
-        },
-        "TEAM": {
-          "TITLE": "PulseTotem Team",
-          "DESCRIPTION": "Don't loose time: be followed by our team in order to boost your communication!"
-        }
-      }
-    },
-  "PRODUCTIONS" : {
-    "DESCRIPTION" : "was deployed in several events gathering up to 4000 people",
-    "JM2L": {
-      "TITLE": "JM2L 2015",
-      "SUBTITLE": "Demonstration of the usage of live broadcasting conferences during an associative event"
-    },
-    "FETESCIENCE": {
-      "TITLE": "French science party 2015",
-      "SUBTITLE": "Demonstration of a digital signage remote control with a tablet in order to leave a message in an interactive guestbook"
-    },
-    "MANGAME": {
-      "TITLE": "MangameShow 2015",
-      "SUBTITLE": "Demonstration of a digital signage remote control with a smartphone to trigger a picture caption by a camera attached to the screen"
-    },
-    "PANDAPERO": {
-      "TITLE": "Panda'Pero #3",
-      "SUBTITLE": "Demonstration of a multi-content digital signage during the Panda'Pero in June 2015, organized by Panda'Event"
-    },
-    "CHORALIES": {
-      "TITLE": "Choralies 2013",
-      "SUBTITLE": "Setup of 9 screens (including 2 big) during 10 days at Vaison-La-Romaine in France for the Choralies 2013 gathering more than 4000 participants"
-    }
+  "LANG" : {
+    "ENGLISH": "English",
+    "FRENCH": "Français"
   },
-  "ABOUTUS" : {
-    "COFOUNDER" : "Co-Founder",
-    "MESSAGE" : {
-      "CHRISTIAN" : "Users bursting with happiness, interaction, more interaction and interaction everywhere ! Here my dream !",
-      "SIMON" : "Build together efficient and evolving tools for a communication, finally !, innovative and catchy !"
+  "COMMON" : {
+    "LOGIN" : "Log In",
+    "LOGOUT" : "Log Out",
+    "LOGINFORM" : {
+      "USERNAME_OR_EMAIL" : "Username or Email",
+      "PASSWORD" : "Password",
+      "LOGINBUTTON" : "Go !",
+      "REMEMBER_ME" : "Remember me"
     },
-    "QUOTE" : {
-      "CHRISTIAN" : "May the force be with you !",
-      "SIMON" : "Without imagination, no innovation !"
-    }
+    "REQUIRED_FIELD" : "This field is required."
   },
-    "CONTACTUS" : {
-      "FIRSTNAME" : "First Name",
-      "LASTNAME" : "Last Name",
-      "EMAIL" : "Email",
-      "COMPANY" : "Company",
-      "FUNCTION" : "Function",
-      "MESSAGE" : "Message",
-      "SEND" : "Send",
-      "REQUIRED_FIELD" : "This field is required.",
-      "EMAIL_FIELD" : "Value must a valid email.",
-      "MAIL_SENT" : "Thanks for your message !",
-      "MAIL_ERROR" : "An error occured during posting message. Sorry for that, we are not perfect... Please, use 'contact@pulsetotem.fr' to contact us and shout all your rage about us !"
-    },
-    "FOOTER" : {
-      "RECENT_BLOG_POSTS" : "Recent Blog Posts"
-    }
+  "MENU" : {
+    "DASHBOARD" : "Dashboard",
+    "LIBRARY" : "My Library"
+  },
+  "CMS" : {
+    "PHOTOS" : "Photos",
+    "VIDEOS" : "Videos"
+  }
 }

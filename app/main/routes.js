@@ -20,8 +20,14 @@ angular
 
       // Routes for Dashboard
       .when('/dashboard', {
-        templateUrl: '../common/views/home.html',
-        controller: 'PulseTotemCommon.HomeCtrl'
+        templateUrl: '../dashboard/views/main.html',
+        controller: 'PulseTotemManagerDashboard.MainCtrl'
+      })
+
+      // Routes for CMS
+      .when('/cms', {
+        templateUrl: '../cms/views/main.html',
+        controller: 'PulseTotemManagerCMS.MainCtrl'
       })
 
       // All other stuff

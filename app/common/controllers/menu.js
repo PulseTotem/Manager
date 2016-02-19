@@ -8,7 +8,7 @@
  * Controller of the PulseTotemCommon
  */
 angular.module('PulseTotemCommon')
-    .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', '$cookies', '$location', '$anchorScroll', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, $cookies, $location, $anchorScroll, CONSTANTS, $mdSidenav) {
+    .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', '$cookies', '$location', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, $cookies, $location, CONSTANTS, $mdSidenav) {
 
         $rootScope.langKey = $translate.use();
 
@@ -20,17 +20,17 @@ angular.module('PulseTotemCommon')
         $scope.logout = function() {
           $rootScope.user = {};
 
-          delete($cookies.tmpAdminT6SToken);
-          delete($cookies.adminT6SToken);
+          $cookies.remove("adminT6SToken");
+          $cookies.remove("tmpAdminT6SToken");
 
           backendSocket.exit();
 
           if (!$rootScope.$$phase) {
             $rootScope.$apply(function () {
-              $location.path(CONSTANTS.homeRoute);
+              $location.path(CONSTANTS.loginRoute);
             });
           } else {
-            $location.path(CONSTANTS.homeRoute);
+            $location.path(CONSTANTS.loginRoute);
           }
         };
 
@@ -44,5 +44,15 @@ angular.module('PulseTotemCommon')
               .toggle();
           }
         }
+
+        $scope.goTo = function(newPath) {
+          if (!$rootScope.$$phase) {
+            $rootScope.$apply(function () {
+              $location.path(newPath);
+            });
+          } else {
+            $location.path(newPath);
+          }
+        };
 
     }]);
