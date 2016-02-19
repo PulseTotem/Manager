@@ -1,0 +1,25 @@
+{
+  "LANG" : {
+    "ENGLISH": "English",
+    "FRENCH": "Français"
+  },
+  "COMMON" : {
+    "LOGIN" : "Connexion",
+    "LOGOUT" : "Se Déconnecter",
+    "LOGINFORM" : {
+      "USERNAME_OR_EMAIL" : "Pseudo ou adresse mail",
+      "PASSWORD" : "Mot de passe",
+      "LOGINBUTTON" : "Go !",
+      "REMEMBER_ME" : "Se souvenir de moi"
+    },
+    "REQUIRED_FIELD" : "Ce champs est requis."
+  },
+  "MENU" : {
+    "DASHBOARD" : "Tableau de bord",
+    "LIBRARY" : "Ma Bibliothèque"
+  },
+  "CMS" : {
+    "PHOTOS" : "Photos",
+    "VIDEOS" : "Vidéos"
+  }
+}

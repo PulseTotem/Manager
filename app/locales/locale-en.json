@@ -1,0 +1,25 @@
+{
+  "LANG" : {
+    "ENGLISH": "English",
+    "FRENCH": "Français"
+  },
+  "COMMON" : {
+    "LOGIN" : "Log In",
+    "LOGOUT" : "Log Out",
+    "LOGINFORM" : {
+      "USERNAME_OR_EMAIL" : "Username or Email",
+      "PASSWORD" : "Password",
+      "LOGINBUTTON" : "Go !",
+      "REMEMBER_ME" : "Remember me"
+    },
+    "REQUIRED_FIELD" : "This field is required."
+  },
+  "MENU" : {
+    "DASHBOARD" : "Dashboard",
+    "LIBRARY" : "My Library"
+  },
+  "CMS" : {
+    "PHOTOS" : "Photos",
+    "VIDEOS" : "Videos"
+  }
+}

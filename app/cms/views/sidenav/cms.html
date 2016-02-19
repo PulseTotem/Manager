@@ -1,0 +1,30 @@
+<md-toolbar md-theme="altTheme">
+  <div class="md-toolbar-tools">
+
+    <md-icon md-svg-icon="./bower_components/material-design-icons/image/svg/production/ic_photo_library_48px.svg"></md-icon>
+
+    <p>
+      &nbsp; {{'MENU.LIBRARY' | translate}}
+    </p>
+
+    <span flex></span>
+
+    <div class="md-accent menu_sidebar_switch" layout layout-align="center center" ng-click="toggleLeft()">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/navigation/svg/production/ic_menu_48px.svg"></md-icon>
+    </div>
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+  <md-list>
+    <md-list-item ng-click="goTo('/cms/photos')">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/image/svg/production/ic_collections_48px.svg"></md-icon>
+      <p>{{'CMS.PHOTOS' | translate}}</p>
+      <md-divider inset></md-divider>
+    </md-list-item>
+    <md-list-item ng-click="goTo('/cms/videos')">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/av/svg/production/ic_video_library_48px.svg"></md-icon>
+      <p>{{'CMS.VIDEOS' | translate}}</p>
+      <md-divider inset></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>
