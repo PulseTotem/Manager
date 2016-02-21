@@ -372,24 +372,15 @@ module.exports = function (grunt) {
           ]
         }, {
           expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
-          src: ['generated/*']
+          cwd: '<%= yeoman.app %>',
+          dest: '<%= yeoman.dist %>',
+          src: ['images/**/*']
         }, {
           expand: true,
           cwd: 'bower_components/material-design-icons',
           src: '**/*.svg',
           dest: '<%= yeoman.dist %>/bower_components/material-design-icons'
         }]
-      },
-      heroku: {
-        expand: true,
-        cwd: '.',
-        dest: '<%= yeoman.dist %>',
-        src: [
-          'Procfile',
-          'web.js'
-        ]
       },
       styles: {
         expand: true,
@@ -476,8 +467,6 @@ module.exports = function (grunt) {
     'useminPrepare',
     //'concurrent:dist',
     'copy:styles',
-    'imagemin',
-    'svgmin',
 
     'autoprefixer',
     'concat',
@@ -487,7 +476,6 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'filerev',
-    'copy:heroku',
     'usemin',
     'htmlmin'
   ]);
