@@ -75,7 +75,7 @@
     </div>
 
     <div ng-if="header == 'default'" layout="column">
-      <md-toolbar ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
+      <md-toolbar class="menu-default" ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
 
       </md-toolbar>
 
@@ -140,7 +140,10 @@
 
     <!-- cms -->
     <script src="cms/cms.js"></script>
+    <script src="cms/services/photos/photo.js"></script>
+    <script src="cms/services/photos/photosCollection.js"></script>
     <script src="cms/controllers/main.js"></script>
+    <script src="cms/controllers/photos/collections/list.js"></script>
 
     <!-- endbuild -->
 </body>
