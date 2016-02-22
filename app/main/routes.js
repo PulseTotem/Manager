@@ -39,6 +39,10 @@ angular
         templateUrl: '../cms/views/photos/collections/list.html',
         controller: 'PulseTotemManagerCMS.Photos.CollectionsListCtrl'
       })
+      .when('/cms/photos/collections/:collectionid', {
+        templateUrl: '../cms/views/photos/photos/list.html',
+        controller: 'PulseTotemManagerCMS.Photos.PhotosListCtrl'
+      })
 
       // All other stuff
       .otherwise({

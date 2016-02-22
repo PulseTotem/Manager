@@ -3,6 +3,11 @@
     "ENGLISH": "English",
     "FRENCH": "Français"
   },
+  "FORM" : {
+    "ADD" : "Add",
+    "EDIT" : "Edit",
+    "Delete": "Delete"
+  },
   "COMMON" : {
     "LOGIN" : "Log In",
     "LOGOUT" : "Log Out",
@@ -12,14 +17,26 @@
       "LOGINBUTTON" : "Go !",
       "REMEMBER_ME" : "Remember me"
     },
-    "REQUIRED_FIELD" : "This field is required."
+    "REQUIRED_FIELD" : "This field is required.",
+    "NAME" : "Name",
+    "DESCRIPTION" : "Description"
   },
   "MENU" : {
     "DASHBOARD" : "Dashboard",
     "LIBRARY" : "My Library"
   },
   "CMS" : {
-    "PHOTOS" : "Photos",
-    "VIDEOS" : "Videos"
+    "PHOTOS" : {
+      "TITLE" : "Photos",
+      "COLLECTIONS" : "Albums",
+      "NO_COLLECTIONS": "It seems you haven't any album.",
+      "NEW_COLLECTION": "New album",
+      "NO_PHOTOS": "It seems you haven't any photo in this album.",
+      "NEW_PHOTO": "New photo"
+    },
+    "VIDEOS" : {
+      "TITLE" : "Videos",
+      "COLLECTIONS" : "Playlists"
+    }
   }
 }

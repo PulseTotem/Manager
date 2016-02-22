@@ -1,0 +1,6 @@
+.photo_tile {
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  background-image: url('./images/cms/photos/empty.png');
+}

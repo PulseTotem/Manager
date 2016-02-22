@@ -1,56 +1,23 @@
-
-<md-grid-list
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.PHOTOS.TITLE' | translate}} / {{'CMS.PHOTOS.COLLECTIONS' | translate}}
+  <md-button class="md-fab md-fab-top-right right md-primary" aria-label="New Album" ng-click="showAddForm($event)">
+    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
+    <md-tooltip>
+      {{'CMS.PHOTOS.NEW_COLLECTION' | translate}}
+    </md-tooltip>
+  </md-button>
+</md-subheader>
+<md-content ng-if="collections.length == 0" flex layout="column" layout-padding layout-align="center center">
+  <img ng-src="./images/logos/pulseTotem_picto_medium.png">
+  {{'CMS.PHOTOS.NO_COLLECTIONS' | translate}}
+</md-content>
+<md-grid-list ng-if="collections.length > 0"
   md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
   md-row-height-gt-md="1:1" md-row-height="1:1"
   md-gutter="12px" md-gutter-gt-sm="8px" >
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
+  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)" class="photo_tile">
     <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
-    </md-grid-tile-footer>
-  </md-grid-tile>
-  <md-grid-tile ng-repeat="test in ['green', 'yellow', 'blue', 'red', 'gray', 'purple']" class="{{test}}">
-    <md-grid-tile-footer>
-      <h3>#2: (1r x 1c)</h3>
+      <h3>{{collection.name}}</h3>
     </md-grid-tile-footer>
   </md-grid-tile>
 </md-grid-list>

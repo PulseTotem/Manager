@@ -57,6 +57,8 @@
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css" />
         <link rel="stylesheet" href="styles/common/menu-default.css" />
+      <link rel="stylesheet" href="styles/cms/main.css" />
+      <link rel="stylesheet" href="styles/cms/photos.css" />
         <!-- endbuild -->
 
       <!-- SocketIO -->
@@ -65,7 +67,7 @@
         <!-- endSocketIO -->
 
     </head>
-  <body layout="column" layout-fill ng-app="pulsetotemManagerApp" ng-cloak>
+  <body layout="column" layout-fill ng-app="pulsetotemManagerApp" ng-controller="PulseTotemCommon.GlobalCtrl" ng-cloak>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -131,6 +133,7 @@
     <script src="common/services/constants.js"></script>
     <script src="common/services/backendSocket.js"></script>
     <script src="common/services/callbackManager.js"></script>
+    <script src="common/controllers/global.js"></script>
     <script src="common/controllers/menu.js"></script>
     <script src="common/controllers/login.js"></script>
 
@@ -144,6 +147,8 @@
     <script src="cms/services/photos/photosCollection.js"></script>
     <script src="cms/controllers/main.js"></script>
     <script src="cms/controllers/photos/collections/list.js"></script>
+    <script src="cms/controllers/photos/collections/addedit.js"></script>
+    <script src="cms/controllers/photos/photos/list.js"></script>
 
     <!-- endbuild -->
 </body>

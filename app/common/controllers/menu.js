@@ -10,10 +10,6 @@
 angular.module('PulseTotemCommon')
     .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', '$cookies', '$location', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, $cookies, $location, CONSTANTS, $mdSidenav) {
 
-    //Default values
-      $rootScope.activeMenu = 'cms';
-      $rootScope.activeNavbar = 'cms';
-
         $scope.langList = [
           {
             "key" : "en",
@@ -61,15 +57,5 @@ angular.module('PulseTotemCommon')
               .toggle();
           }
         }
-
-        $scope.goTo = function(newPath) {
-          if (!$rootScope.$$phase) {
-            $rootScope.$apply(function () {
-              $location.path(newPath);
-            });
-          } else {
-            $location.path(newPath);
-          }
-        };
 
     }]);

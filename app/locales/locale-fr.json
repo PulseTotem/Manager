@@ -3,6 +3,11 @@
     "ENGLISH": "English",
     "FRENCH": "Français"
   },
+  "FORM" : {
+    "ADD" : "Ajouter",
+    "EDIT" : "Modifier",
+    "Delete": "Supprimer"
+  },
   "COMMON" : {
     "LOGIN" : "Connexion",
     "LOGOUT" : "Se Déconnecter",
@@ -12,14 +17,26 @@
       "LOGINBUTTON" : "Go !",
       "REMEMBER_ME" : "Se souvenir de moi"
     },
-    "REQUIRED_FIELD" : "Ce champs est requis."
+    "REQUIRED_FIELD" : "Ce champs est requis.",
+    "NAME" : "Nom",
+    "DESCRIPTION" : "Description"
   },
   "MENU" : {
     "DASHBOARD" : "Tableau de bord",
     "LIBRARY" : "Ma Bibliothèque"
   },
   "CMS" : {
-    "PHOTOS" : "Photos",
-    "VIDEOS" : "Vidéos"
+    "PHOTOS" : {
+      "TITLE" : "Photos",
+      "COLLECTIONS" : "Albums",
+      "NO_COLLECTIONS": "Vous n'avez aucun album.",
+      "NEW_COLLECTION": "Nouvel album",
+      "NO_PHOTOS": "Vous n'avez aucune photo dans cet album.",
+      "NEW_PHOTO": "Nouvelle photo"
+    },
+    "VIDEOS" : {
+      "TITLE" : "Vidéos",
+      "COLLECTIONS" : "Playlists"
+    }
   }
 }

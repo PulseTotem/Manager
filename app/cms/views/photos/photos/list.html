@@ -1,0 +1,23 @@
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.PHOTOS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/photos/collections')">{{'CMS.PHOTOS.COLLECTIONS' | translate}}</span> / {{collection.name}}
+  <md-button class="md-fab md-fab-top-right right md-primary" aria-label="New Photo" ng-click="showAddForm($event)">
+    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
+    <md-tooltip>
+      {{'CMS.PHOTOS.NEW_PHOTO' | translate}}
+    </md-tooltip>
+  </md-button>
+</md-subheader>
+<md-content ng-if="photos.length == 0" flex layout="column" layout-padding layout-align="center center">
+  <img ng-src="./images/logos/pulseTotem_picto_medium.png">
+  {{'CMS.PHOTOS.NO_PHOTOS' | translate}}
+</md-content>
+<md-grid-list ng-if="photos.length > 0"
+              md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="1:1"
+              md-gutter="12px" md-gutter-gt-sm="8px" >
+  <md-grid-tile ng-repeat="photo in photos">
+    <md-grid-tile-footer>
+      <h3>{{photo.name}}</h3>
+    </md-grid-tile-footer>
+  </md-grid-tile>
+</md-grid-list>
