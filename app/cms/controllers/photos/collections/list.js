@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Photos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Photos.CollectionsListCtrl', ['$rootScope', '$scope', 'PhotosCollection', '$mdDialog', '$mdMedia', function($rootScope, $scope, PhotosCollection, $mdDialog, $mdMedia){
+  .controller('PulseTotemManagerCMS.Photos.CollectionsListCtrl', ['$rootScope', '$scope', 'PhotosCollection', 'CONSTANTS', '$mdDialog', '$mdMedia', function($rootScope, $scope, PhotosCollection, CONSTANTS, $mdDialog, $mdMedia){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -16,6 +16,12 @@ angular.module('PulseTotemManagerCMS')
     $scope.loadPhotosCollections = function(){
       PhotosCollection.resource($rootScope.user.cmsAuthkey).query({userid: $rootScope.user.cmsId}, function(collections) {
         $scope.collections = collections;
+        $scope.collections.forEach(function(collection) {
+          collection['coverPath'] = '/images/cms/photos/empty.png';
+          if(collection.cover != null) {
+            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id;
+          }
+        });
       });
     };
 

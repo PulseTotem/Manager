@@ -15,9 +15,11 @@
   md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
   md-row-height-gt-md="1:1" md-row-height="1:1"
   md-gutter="12px" md-gutter-gt-sm="8px" >
-  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)" class="photo_tile">
+
+  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)" class="photo_tile" style="background-image: url('{{collection.coverPath}}');">
     <md-grid-tile-footer>
-      <h3>{{collection.name}}</h3>
+      <span>{{collection.name}}</span>
     </md-grid-tile-footer>
   </md-grid-tile>
+
 </md-grid-list>

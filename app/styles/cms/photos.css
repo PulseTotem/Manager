@@ -8,3 +8,17 @@
 .photo_tile:focus {
   outline: none;
 }
+
+.photo_tile span {
+  font-weight: bold !important;
+  margin: 0 0 0 16px;
+  font-size: 18px;
+}
+
+.photo_tile figure {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.photo_tile md-grid-tile-footer {
+  background: none;
+}
