@@ -25,3 +25,19 @@ body {
 .breadcrumb_item:focus {
   outline: none;
 }
+
+#loading-bar .bar {
+  background: #673AB7 !important;
+}
+
+#loading-bar-spinner .spinner-icon {
+  border-top-color: #673AB7 !important;
+  border-left-color: #673AB7 !important;
+}
+
+#loading-bar .peg {
+  -moz-box-shadow: #673AB7 1px 0 6px 1px !important;
+  -ms-box-shadow: #673AB7 1px 0 6px 1px !important;
+  -webkit-box-shadow: #673AB7 1px 0 6px 1px !important;
+  box-shadow: #673AB7 1px 0 6px 1px !important;
+}

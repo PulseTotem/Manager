@@ -2,6 +2,7 @@
   cursor: pointer;
   background-size: cover;
   background-position: center center;
+  background-color: rgb(255,152,0);
   background-image: url('/images/cms/photos/empty.png');
 }
 
@@ -13,6 +14,7 @@
   font-weight: bold !important;
   margin: 0 0 0 16px;
   font-size: 18px;
+  vertical-align: middle;
 }
 
 .photo_tile figure {

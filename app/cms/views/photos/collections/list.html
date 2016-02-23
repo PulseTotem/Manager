@@ -1,11 +1,28 @@
 <md-subheader md-theme="altTheme" class="md-primary">
   {{'CMS.PHOTOS.TITLE' | translate}} / {{'CMS.PHOTOS.COLLECTIONS' | translate}}
-  <md-button class="md-fab md-fab-top-right right md-primary" aria-label="New Album" ng-click="showAddForm($event)">
-    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
-    <md-tooltip>
-      {{'CMS.PHOTOS.NEW_COLLECTION' | translate}}
-    </md-tooltip>
-  </md-button>
+
+  <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
+    <md-fab-trigger>
+      <md-button class="md-fab md-primary" aria-label="New Menu">
+        <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showAddForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_photo_album_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.PHOTOS.NEW_COLLECTION' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button ng-controller="PulseTotemManagerCMS.Photos.AddEditPhotosCtrl" aria-label="Upload Photos" class="md-fab md-raised md-mini md-primary" ngf-select="uploadFiles($files)" multiple
+                 accept="image/*">
+        <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.PHOTOS.NEW_PHOTO' | translate}}
+        </md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
 </md-subheader>
 <md-content ng-if="collections.length == 0" flex layout="column" layout-padding layout-align="center center">
   <img ng-src="./images/logos/pulseTotem_picto_medium.png">
@@ -16,7 +33,8 @@
   md-row-height-gt-md="1:1" md-row-height="1:1"
   md-gutter="12px" md-gutter-gt-sm="8px" >
 
-  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)" class="photo_tile" style="background-image: url('{{collection.coverPath}}');">
+  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)" class="photo_tile" back-img="{{collection.coverPath}}" ng-init="inProgression = 'indeterminate'">
+    <md-progress-circular class="md-accent" md-mode="{{inProgression}}"></md-progress-circular>
     <md-grid-tile-footer>
       <span>{{collection.name}}</span>
     </md-grid-tile-footer>

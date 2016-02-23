@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Photos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Photos.PhotosListCtrl', ['$rootScope', '$scope', '$routeParams', 'PhotosCollection', 'Photo', function($rootScope, $scope, $routeParams, PhotosCollection, Photo){
+  .controller('PulseTotemManagerCMS.Photos.PhotosListCtrl', ['$rootScope', '$scope', '$routeParams', 'CONSTANTS', 'PhotosCollection', 'Photo', function($rootScope, $scope, $routeParams, CONSTANTS, PhotosCollection, Photo){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -36,6 +36,9 @@ angular.module('PulseTotemManagerCMS')
           collectionid: $routeParams.collectionid
         }, function (photos) {
           $scope.photos = photos;
+          $scope.photos.forEach(function(photo) {
+              photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw';
+          });
         });
       };
 

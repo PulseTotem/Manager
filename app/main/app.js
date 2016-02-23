@@ -19,6 +19,8 @@ angular
     'ngMessages',
     'pascalprecht.translate',
     'btford.socket-io',
+    'ngFileUpload',
+    'angular-loading-bar',
     'PulseTotemCommon',
     'PulseTotemManagerDashboard',
     'PulseTotemManagerCMS'
@@ -82,10 +84,6 @@ angular
                     $cookies.remove("tmpAdminT6SToken");
                     $cookies.put("adminT6SToken", data.token);
                   }
-
-                  /*if(ADMIN_CONSTANTS.backendUrl.indexOf("localhost") <= -1) {
-                   alert("/!\\ UTILISATION DU HOST DISTANT !!! /!\\");
-                   }*/
 
                   $route.reload();
                 };

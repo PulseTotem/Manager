@@ -1,7 +1,8 @@
 <md-subheader md-theme="altTheme" class="md-primary">
   {{'CMS.PHOTOS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/photos/collections')">{{'CMS.PHOTOS.COLLECTIONS' | translate}}</span> / {{collection.name}}
-  <md-button class="md-fab md-fab-top-right right md-primary" aria-label="New Photo" ng-click="showAddForm($event)">
-    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
+  <md-button ng-controller="PulseTotemManagerCMS.Photos.AddEditPhotosCtrl" class="md-fab md-fab-top-right right md-primary" aria-label="Upload Photos" ngf-select="uploadFiles($files)" multiple
+             accept="image/*">
+    <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
     <md-tooltip>
       {{'CMS.PHOTOS.NEW_PHOTO' | translate}}
     </md-tooltip>
@@ -15,9 +16,10 @@
               md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
               md-row-height-gt-md="1:1" md-row-height="1:1"
               md-gutter="12px" md-gutter-gt-sm="8px" >
-  <md-grid-tile ng-repeat="photo in photos">
+  <md-grid-tile ng-repeat="photo in photos" class="photo_tile" back-img="{{photo.path}}" ng-init="inProgression = 'indeterminate'">
+    <md-progress-circular class="md-accent" md-mode="{{inProgression}}"></md-progress-circular>
     <md-grid-tile-footer>
-      <h3>{{photo.name}}</h3>
+      <md-icon class="md-primary" md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_photo_48px.svg"></md-icon><span>{{photo.name}}</span>
     </md-grid-tile-footer>
   </md-grid-tile>
 </md-grid-list>

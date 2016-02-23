@@ -19,7 +19,7 @@ angular.module('PulseTotemManagerCMS')
         $scope.collections.forEach(function(collection) {
           collection['coverPath'] = '/images/cms/photos/empty.png';
           if(collection.cover != null) {
-            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id;
+            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw';
           }
         });
       });
@@ -42,10 +42,6 @@ angular.module('PulseTotemManagerCMS')
       }, function() {
         $scope.status = 'You cancelled the dialog.';
       });
-    };
-
-    $scope.closeForm = function() {
-      $mdDialog.cancel();
     };
 
   }]);
