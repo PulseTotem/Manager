@@ -1,0 +1,28 @@
+.loading-md-grid-tile-content {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+  background-color: rgb(255,152,0);
+  background-image: url('/images/cms/photos/empty.png');
+}
+
+.loading-md-grid-tile-content:focus {
+  outline: none;
+}
+
+.loading-md-grid-tile-content span {
+  font-weight: bold !important;
+  margin: 0 0 0 16px;
+  font-size: 18px;
+  vertical-align: middle;
+}
+
+.loading-md-grid-tile-content figure {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.loading-md-grid-tile-content md-grid-tile-footer {
+  background: none;
+}

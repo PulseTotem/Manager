@@ -52,11 +52,15 @@
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="common/directives/css/loading-md-grid-tile-content.css" />
         <link rel="stylesheet" href="styles/main.css" />
         <link rel="stylesheet" href="styles/common/menu-default.css" />
+        <link rel="stylesheet" href="styles/cms/main.css" />
+        <link rel="stylesheet" href="styles/cms/photos.css" />
         <!-- endbuild -->
 
       <!-- SocketIO -->
@@ -65,7 +69,7 @@
         <!-- endSocketIO -->
 
     </head>
-  <body layout="column" layout-fill ng-app="pulsetotemManagerApp" ng-cloak>
+  <body layout="column" layout-fill ng-app="pulsetotemManagerApp" ng-controller="PulseTotemCommon.GlobalCtrl" ng-cloak>
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -75,7 +79,7 @@
     </div>
 
     <div ng-if="header == 'default'" layout="column">
-      <md-toolbar ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
+      <md-toolbar class="menu-default" ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
 
       </md-toolbar>
 
@@ -118,6 +122,9 @@
     <script src="bower_components/moment/moment.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -131,6 +138,8 @@
     <script src="common/services/constants.js"></script>
     <script src="common/services/backendSocket.js"></script>
     <script src="common/services/callbackManager.js"></script>
+    <script src="common/directives/loading-md-grid-tile-content.js"></script>
+    <script src="common/controllers/global.js"></script>
     <script src="common/controllers/menu.js"></script>
     <script src="common/controllers/login.js"></script>
 
@@ -140,8 +149,13 @@
 
     <!-- cms -->
     <script src="cms/cms.js"></script>
+    <script src="cms/services/photos/photo.js"></script>
+    <script src="cms/services/photos/photosCollection.js"></script>
     <script src="cms/controllers/main.js"></script>
-
+    <script src="cms/controllers/photos/collections/list.js"></script>
+    <script src="cms/controllers/photos/collections/addedit.js"></script>
+    <script src="cms/controllers/photos/photos/list.js"></script>
+    <script src="cms/controllers/photos/photos/addedit.js"></script>
     <!-- endbuild -->
 </body>
 </html>

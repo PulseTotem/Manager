@@ -1,0 +1,7 @@
+md-grid-list {
+  margin: 8px;
+}
+
+md-grid-list md-grid-tile:focus {
+  outline: none;
+}

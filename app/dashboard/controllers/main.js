@@ -9,6 +9,7 @@
  */
 angular.module('PulseTotemManagerDashboard')
   .controller('PulseTotemManagerDashboard.MainCtrl', ['$rootScope', function($rootScope){
+    $rootScope.activeMenu = 'dashboard';
     $rootScope.activeNavbar = 'dashboard';
 
 

@@ -1,0 +1,50 @@
+<md-dialog class="show_photo_dialog" md-theme="altTheme" aria-label="Show Photo" ng-cloak>
+  <form novalidate>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="row" layout-margin layout-align="center center">
+
+          <md-button ng-show="photos.length > 1" aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showPrevPhoto($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
+            <md-tooltip md-direction="down">
+              {{'CMS.PHOTOS.PREV_PHOTO' | translate}}
+            </md-tooltip>
+          </md-button>
+
+          <md-card flex="70">
+            <md-card-title>
+              <md-card-title-text>
+                <md-input-container class="photo_name md-headline" layout="row">
+                  <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                  <input aria-label="Photo name" ng-model="currentDisplayPhoto.name" ng-change="updatePhotoInfos()">
+                </md-input-container>
+                <md-input-container class="photo_description md-subhead" layout="row">
+                  <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                  <input aria-label="Photo description" ng-model="currentDisplayPhoto.description" ng-change="updatePhotoInfos()">
+                </md-input-container>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+              <div class="md-media-xl photo_img" style="background-image: url('{{currentDisplayPhoto.path}}');"></div>
+              <md-card-actions layout="column">
+                <md-button aria-label="Delete Photo" class="md-fab md-raised md-mini md-primary" ng-click="showDeletePhotoConfirmationForm($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="Move Photo" class="md-fab md-raised md-mini md-primary" ng-click="showMovePhotoForm($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
+                </md-button>
+              </md-card-actions>
+            </md-card-content>
+          </md-card>
+
+          <md-button ng-show="photos.length > 1" aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showNextPhoto($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
+            <md-tooltip md-direction="down">
+              {{'CMS.PHOTOS.NEXT_PHOTO' | translate}}
+            </md-tooltip>
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

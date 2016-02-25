@@ -10,6 +10,19 @@
 angular.module('PulseTotemCommon')
     .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', '$cookies', '$location', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, $cookies, $location, CONSTANTS, $mdSidenav) {
 
+        $scope.langList = [
+          {
+            "key" : "en",
+            "title" : "LANG.ENGLISH",
+            "flag" : "/images/flags/en.png"
+          },
+          {
+            "key" : "fr",
+            "title" : "LANG.FRENCH",
+            "flag" : "/images/flags/fr.png"
+          }
+        ];
+
         $rootScope.langKey = $translate.use();
 
         $scope.changeLanguage = function (langKey) {
@@ -44,15 +57,5 @@ angular.module('PulseTotemCommon')
               .toggle();
           }
         }
-
-        $scope.goTo = function(newPath) {
-          if (!$rootScope.$$phase) {
-            $rootScope.$apply(function () {
-              $location.path(newPath);
-            });
-          } else {
-            $location.path(newPath);
-          }
-        };
 
     }]);

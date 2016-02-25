@@ -25,9 +25,23 @@ angular
       })
 
       // Routes for CMS
-      .when('/cms', {
+      /*.when('/cms', {
         templateUrl: '../cms/views/main.html',
         controller: 'PulseTotemManagerCMS.MainCtrl'
+      })*/
+      .when('/cms', {
+        redirectTo: '/cms/photos'
+      })
+      .when('/cms/photos', {
+        redirectTo: '/cms/photos/collections'
+      })
+      .when('/cms/photos/collections', {
+        templateUrl: '../cms/views/photos/collections/list.html',
+        controller: 'PulseTotemManagerCMS.Photos.CollectionsListCtrl'
+      })
+      .when('/cms/photos/collections/:collectionid', {
+        templateUrl: '../cms/views/photos/photos/list.html',
+        controller: 'PulseTotemManagerCMS.Photos.PhotosListCtrl'
       })
 
       // All other stuff
