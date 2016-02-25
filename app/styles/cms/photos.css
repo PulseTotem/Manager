@@ -1,26 +1,40 @@
-.photo_tile {
-  cursor: pointer;
-  background-size: cover;
+.album_title {
+  font-size: 1.6em;
+  width: 90% !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.album_title input {
+  font-weight: bold;
+  line-height: 36px;
+  height: 40px;
+}
+
+.action-loading {
+  position: absolute;
+  margin-top: -70px;
+}
+
+.show_photo_dialog {
+  width: 80%;
+  height: 80%;
+}
+
+.photo_name {
+  height: 39px;
+  margin: 0px;
+}
+
+.photo_description {
+  height: 49px;
+  margin: 0px;
+}
+
+.photo_img {
+  width: 500px;
+  height: 500px;
+  background-size: contain;
   background-position: center center;
-  background-color: rgb(255,152,0);
-  background-image: url('/images/cms/photos/empty.png');
-}
-
-.photo_tile:focus {
-  outline: none;
-}
-
-.photo_tile span {
-  font-weight: bold !important;
-  margin: 0 0 0 16px;
-  font-size: 18px;
-  vertical-align: middle;
-}
-
-.photo_tile figure {
-  background: rgba(0, 0, 0, 0.18);
-}
-
-.photo_tile md-grid-tile-footer {
-  background: none;
+  background-repeat: no-repeat;
 }

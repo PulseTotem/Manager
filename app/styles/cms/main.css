@@ -2,6 +2,6 @@ md-grid-list {
   margin: 8px;
 }
 
-md-grid-tile {
-  transition: all 400ms ease-out 50ms;
+md-grid-list md-grid-tile:focus {
+  outline: none;
 }

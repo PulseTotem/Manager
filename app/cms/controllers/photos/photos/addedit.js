@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Photos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Photos.AddEditPhotosCtrl', ['$rootScope', '$scope', '$routeParams', 'PhotosCollection', 'CONSTANTS', 'Upload', '$timeout', function($rootScope, $scope, $routeParams, PhotosCollection, CONSTANTS, Upload, $timeout){
+  .controller('PulseTotemManagerCMS.Photos.AddEditPhotosCtrl', ['$rootScope', '$scope', '$routeParams', 'PhotosCollection', 'Photo', 'CONSTANTS', 'Upload', '$timeout', '$mdDialog', function($rootScope, $scope, $routeParams, PhotosCollection, Photo, CONSTANTS, Upload, $timeout, $mdDialog){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -17,6 +17,7 @@ angular.module('PulseTotemManagerCMS')
     $scope.uploadFiles = function (files) {
       $scope.files = files;
       if (files && files.length) {
+        $scope.$parent.actionLoading = "indeterminate";
         if($scope.collectionid == null) {
           var collectionResource = PhotosCollection.resource($rootScope.user.cmsAuthkey);
           $scope.newCollection = new collectionResource();
@@ -58,6 +59,44 @@ angular.module('PulseTotemManagerCMS')
           //Nothing to do ?
         });
       }
+    };
+
+
+    //Delete
+    $scope.deleteInProgression = "";
+    $scope.deletePhoto = function() {
+      if(typeof($scope.collectionid) != "undefined" && $scope.collectionid != null && typeof($scope.currentDisplayPhoto) != "undefined" && $scope.currentDisplayPhoto != null) {
+        $scope.deleteInProgression = "indeterminate";
+        Photo.resource($rootScope.user.cmsAuthkey).delete(
+          {
+            userid: $rootScope.user.cmsId,
+            collectionid: $scope.collectionid,
+            id: $scope.currentDisplayPhoto.id
+          },
+          function(){
+            $scope.deleteInProgression = "";
+            $mdDialog.hide();
+            $scope.currentDisplayIndex = null;
+            $scope.currentDisplayPhoto = null;
+            if($scope.collectionid != null) {
+              $scope.loadPhotos();
+            } else {
+              $rootScope.goTo('/cms/photos/collections/');
+            }
+          }
+        );
+      } else {
+        $scope.closeForm();
+        if($scope.collectionid != null) {
+          $scope.loadPhotos();
+        } else {
+          $rootScope.goTo('/cms/photos/collections/');
+        }
+      }
+    };
+
+    $scope.closeForm = function() {
+      $mdDialog.cancel();
     };
 
   }]);

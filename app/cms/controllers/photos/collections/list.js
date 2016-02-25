@@ -12,7 +12,10 @@ angular.module('PulseTotemManagerCMS')
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
+    $scope.actionLoading = "indeterminate";
+
     $scope.collections = [];
+    $scope.collectionsLoaded = false;
     $scope.loadPhotosCollections = function(){
       PhotosCollection.resource($rootScope.user.cmsAuthkey).query({userid: $rootScope.user.cmsId}, function(collections) {
         $scope.collections = collections;
@@ -22,6 +25,8 @@ angular.module('PulseTotemManagerCMS')
             collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw';
           }
         });
+        $scope.collectionsLoaded = true;
+        $scope.actionLoading = "";
       });
     };
 
@@ -36,11 +41,6 @@ angular.module('PulseTotemManagerCMS')
         targetEvent: ev,
         clickOutsideToClose:true,
         fullscreen: useFullScreen
-      })
-      .then(function(answer) {
-        $scope.status = 'You said the information was "' + answer + '".';
-      }, function() {
-        $scope.status = 'You cancelled the dialog.';
       });
     };
 

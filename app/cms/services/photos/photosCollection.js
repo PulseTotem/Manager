@@ -25,15 +25,15 @@ angular.module('PulseTotemManagerCMS')
                 'Authorization': token
               }
             },
-            'query':  {
-              method:'GET',
-              isArray:true,
+            'update':   {
+              method:'PUT',
               headers: {
                 'Authorization': token
               }
             },
-            'remove': {
-              method:'DELETE',
+            'query':  {
+              method:'GET',
+              isArray:true,
               headers: {
                 'Authorization': token
               }
