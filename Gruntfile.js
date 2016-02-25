@@ -76,7 +76,7 @@ module.exports = function (grunt) {
 //            tasks: ['karma']
 //        },
         styles: {
-            files: ['<%= yeoman.app %>/styles/**/*.css']
+            files: ['<%= yeoman.app %>/**/*.css']
             //tasks: ['newer:copy:styles', 'autoprefixer']
         },
         gruntfile: {
@@ -88,7 +88,7 @@ module.exports = function (grunt) {
             },
             files: [
               '<%= yeoman.app %>/**/*.html',
-              '<%= yeoman.app %>/styles/**/*.css', //'.tmp/styles/**/*.css',
+              '<%= yeoman.app %>/**/*.css', //'.tmp/styles/**/*.css',
               '<%= yeoman.app %>/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
               '<%= yeoman.app %>/locales/**/*.json'
             ]
@@ -271,15 +271,15 @@ module.exports = function (grunt) {
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
     // minification. These next options are pre-configured if you do not wish
     // to use the Usemin blocks.
-    // cssmin: {
-    //   dist: {
-    //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
-    //         '.tmp/styles/**/*.css'
-    //       ]
-    //     }
-    //   }
-    // },
+     cssmin: {
+       dist: {
+         files: {
+           '<%= yeoman.dist %>/styles/main.css': [
+             '.tmp/styles/**/*.css'
+           ]
+         }
+       }
+     },
     // uglify: {
     //   dist: {
     //     files: {
@@ -384,7 +384,7 @@ module.exports = function (grunt) {
       },
       styles: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
+        cwd: '<%= yeoman.app %>/',
         dest: '.tmp/styles/',
         src: '**/*.css'
       }
