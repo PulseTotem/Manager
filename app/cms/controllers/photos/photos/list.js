@@ -88,7 +88,7 @@ angular.module('PulseTotemManagerCMS')
             $scope.actionLoading = "";
           }
           $scope.photos.forEach(function(photo) {
-              photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw';
+              photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw?size=medium';
           });
         });
       };
@@ -157,7 +157,7 @@ angular.module('PulseTotemManagerCMS')
               },
               $scope.newPhoto,
               function (photoDesc) {
-                photoDesc['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photoDesc.id + '/raw';
+                photoDesc['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photoDesc.id + '/raw?size=medium';
                 $scope.currentDisplayPhoto = photoDesc;
                 $scope.photos[$scope.currentDisplayIndex] = photoDesc;
                 $scope.updatePhotoInfosFeedback = "";

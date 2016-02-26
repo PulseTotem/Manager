@@ -22,7 +22,7 @@ angular.module('PulseTotemManagerCMS')
         $scope.collections.forEach(function(collection) {
           collection['coverPath'] = '/images/cms/photos/empty.png';
           if(collection.cover != null) {
-            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw';
+            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw?size=medium';
           }
         });
         $scope.collectionsLoaded = true;
