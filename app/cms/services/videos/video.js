@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name PulseTotemManagerCMS.service:Photo
+ * @name PulseTotemManagerCMS.service:Video
  * @description
- * # Photo
+ * # Video
  * Service of the PulseTotemManagerCMS
  */
 angular.module('PulseTotemManagerCMS')
-  .factory('Photo', ["$resource", "CONSTANTS", function($resource, CONSTANTS) {
+  .factory('Video', ["$resource", "CONSTANTS", function($resource, CONSTANTS) {
     return {
       resource: function (token) {
-        return $resource(CONSTANTS.cmsUrl + CONSTANTS.cmsUsersPath +':userid/' + CONSTANTS.cmsPhotosCollectionsPath + ':collectionid/' + CONSTANTS.cmsPhotosPath + ':id', null,
+        return $resource(CONSTANTS.cmsUrl + CONSTANTS.cmsUsersPath +':userid/' + CONSTANTS.cmsVideosCollectionsPath + ':collectionid/' + CONSTANTS.cmsVideosPath + ':id', null,
           {
             'get':    {
               method:'GET',

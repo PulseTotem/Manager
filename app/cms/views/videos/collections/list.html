@@ -1,0 +1,47 @@
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.VIDEOS.TITLE' | translate}} / {{'CMS.VIDEOS.COLLECTIONS' | translate}}
+
+  <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right" ng-cloak>
+    <md-fab-trigger>
+      <md-button class="md-fab md-primary" aria-label="New Menu">
+        <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_add_48px.svg"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showAddForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_video_library_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.VIDEOS.NEW_COLLECTION' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button ng-controller="PulseTotemManagerCMS.Videos.AddEditVideosCtrl" aria-label="Upload Videos" class="md-fab md-raised md-mini md-primary"
+                 ngf-select="uploadFiles($files)"
+                 ngf-fix-orientation="true"
+                 ngf-multiple="true"
+                 ngf-accept="'video/*'"
+                 ngf-max-total-size="50MB">
+        <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.VIDEOS.NEW_VIDEO' | translate}}
+        </md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</md-subheader>
+<md-content ng-if="collectionsLoaded && collections.length == 0" flex layout="column" layout-padding layout-align="center center">
+  <img ng-src="./images/logos/pulseTotem_picto_medium.png">
+  {{'CMS.VIDEOS.NO_COLLECTIONS' | translate}}
+</md-content>
+<md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
+<md-grid-list ng-if="collections.length > 0"
+  md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+  md-row-height-gt-md="1:1" md-row-height="1:1"
+  md-gutter="12px" md-gutter-gt-sm="8px" >
+
+  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/videos/collections/' + collection.id)">
+    <loading-md-grid-tile-content url="collection.coverPath">
+      <md-icon class="md-primary" md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_video_library_48px.svg"></md-icon><span>{{collection.name}}</span>
+    </loading-md-grid-tile-content>
+  </md-grid-tile>
+
+</md-grid-list>

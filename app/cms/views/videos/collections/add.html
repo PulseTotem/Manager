@@ -1,0 +1,43 @@
+<md-dialog md-theme="altTheme" aria-label="New Album"  ng-cloak>
+  <form novalidate name="newVideosAlbumForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{'CMS.VIDEOS.NEW_COLLECTION' | translate}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeForm()">
+          <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg" aria-label="Close"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+          <div layout="column" layout-margin>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_video_library_48px.svg"></md-icon>
+                {{'COMMON.NAME' | translate}}
+              </label>
+              <input type="text" required name="albumName" ng-model="newCollection.name" />
+              <div ng-show="newVideosAlbumForm.albumName.$dirty && ! newVideosAlbumForm.albumName.$valid" ng-messages="newVideosAlbumForm.albumName.$error">
+                <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
+              </div>
+            </md-input-container>
+            <md-input-container flex>
+              <label>
+                <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_description_48px.svg"></md-icon>
+                {{'COMMON.DESCRIPTION' | translate}}
+              </label>
+              <textarea name="description" ng-model="newCollection.description" cols="50" rows="5" md-select-on-focus></textarea>
+            </md-input-container>
+          </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-progress-circular md-mode="{{addInProgression}}"></md-progress-circular>
+      <md-button class="md-primary" type="submit" ng-click="addCollection()" style="margin-right:20px;">
+        {{'FORM.ADD' | translate}}
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

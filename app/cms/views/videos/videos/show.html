@@ -1,0 +1,54 @@
+<md-dialog class="show_video_dialog" md-theme="altTheme" aria-label="Show Video" ng-cloak>
+  <form novalidate>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="row" layout-margin layout-align="center center">
+
+          <md-button ng-show="videos.length > 1" aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
+            <md-tooltip md-direction="down">
+              {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
+            </md-tooltip>
+          </md-button>
+
+          <md-card flex="70">
+            <md-card-title>
+              <md-card-title-text>
+                <md-input-container class="video_name md-headline" layout="row">
+                  <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
+                  <input aria-label="Video name" ng-model="currentDisplayVideo.name" ng-change="updateVideoInfos()">
+                </md-input-container>
+                <md-input-container class="video_description md-subhead" layout="row">
+                  <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
+                  <input aria-label="Video description" ng-model="currentDisplayVideo.description" ng-change="updateVideoInfos()">
+                </md-input-container>
+              </md-card-title-text>
+            </md-card-title>
+            <md-card-content layout="row" layout-align="space-between">
+              <div class="md-media-xl video_img" style="background-image: url('');"></div>
+              <video width="320" height="240" controls>
+                <source src="{{currentDisplayVideo.path}}" type="{{currentDisplayVideo.mimetype}}">
+                Your browser does not support the video tag.
+              </video>
+              <md-card-actions layout="column">
+                <md-button aria-label="Delete Video" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteVideoConfirmationForm($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+                </md-button>
+                <md-button aria-label="Move Video" class="md-fab md-raised md-mini md-primary" ng-click="showMoveVideoForm($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
+                </md-button>
+              </md-card-actions>
+            </md-card-content>
+          </md-card>
+
+          <md-button ng-show="videos.length > 1" aria-label="New Album" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
+            <md-tooltip md-direction="down">
+              {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
+            </md-tooltip>
+          </md-button>
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

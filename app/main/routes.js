@@ -32,6 +32,8 @@ angular
       .when('/cms', {
         redirectTo: '/cms/photos'
       })
+
+        // Routes for CMS -> Photos
       .when('/cms/photos', {
         redirectTo: '/cms/photos/collections'
       })
@@ -42,6 +44,19 @@ angular
       .when('/cms/photos/collections/:collectionid', {
         templateUrl: '../cms/views/photos/photos/list.html',
         controller: 'PulseTotemManagerCMS.Photos.PhotosListCtrl'
+      })
+
+        // Routes for CMS -> Videos
+      .when('/cms/videos', {
+        redirectTo: '/cms/videos/collections'
+      })
+      .when('/cms/videos/collections', {
+        templateUrl: '../cms/views/videos/collections/list.html',
+        controller: 'PulseTotemManagerCMS.Videos.CollectionsListCtrl'
+      })
+      .when('/cms/videos/collections/:collectionid', {
+        templateUrl: '../cms/views/videos/videos/list.html',
+        controller: 'PulseTotemManagerCMS.Videos.VideosListCtrl'
       })
 
       // All other stuff

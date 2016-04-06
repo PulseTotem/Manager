@@ -52,7 +52,27 @@
     },
     "VIDEOS" : {
       "TITLE" : "Videos",
-      "COLLECTIONS" : "Playlists"
+      "COLLECTIONS" : "Playlists",
+      "NO_COLLECTIONS": "It seems you haven't any playlist.",
+      "NEW_COLLECTION": "New playlist",
+      "DELETE_COLLECTION": "Delete playlist",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Would you like to delete your playlist ?",
+        "CONTENT" : "All videos in this playlist would be deleted too.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "NO_VIDEOS": "It seems you haven't any video in this playlist.",
+      "NEW_VIDEO": "Upload Videos",
+      "DELETE_VIDEO": "Delete video",
+      "DELETE_VIDEO_DIALOG" : {
+        "TITLE" : "Would you like to delete your video ?",
+        "CONTENT" : "After deletion video can't be retrieve.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "PREV_VIDEO" : "Previous",
+      "NEXT_VIDEO" : "Next"
     }
   }
 }
