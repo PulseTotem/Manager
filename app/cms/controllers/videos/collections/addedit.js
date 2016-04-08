@@ -61,9 +61,9 @@ angular.module('PulseTotemManagerCMS')
       }
     };
 
-    $scope.closeForm = function() {
+    /*$scope.closeForm = function() {
       $mdDialog.cancel();
-    };
+    };*/
 
   }]);
 

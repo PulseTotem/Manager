@@ -110,7 +110,7 @@ angular.module('PulseTotemManagerCMS')
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:true,
-          fullscreen: useFullScreen
+          fullscreen: true
         });
       };
 
@@ -177,6 +177,9 @@ angular.module('PulseTotemManagerCMS')
         });
       };
 
+      $scope.closeForm = function() {
+        $mdDialog.cancel();
+      };
 
     }
 

@@ -48,7 +48,9 @@
         "CANCEL" : "No !"
       },
       "PREV_PHOTO" : "Previous",
-      "NEXT_PHOTO" : "Next"
+      "NEXT_PHOTO" : "Next",
+      "MOVE_PHOTO" : "Move photo",
+      "REAL_SIZE_PHOTO" : "Real size photo"
     },
     "VIDEOS" : {
       "TITLE" : "Videos",
