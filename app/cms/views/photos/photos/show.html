@@ -8,26 +8,38 @@
 
             <div class="lightbox_content_hover_header">
               <div  class="lightbox_fullsize" layout="row">
+                <div class="lightbox_content_hover_header_titles" layout="column">
+                  <md-input-container class=" md-headline" layout="row">
+                    <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Photo name" ng-model="currentDisplayPhoto.name" ng-change="updatePhotoInfos()">
+                  </md-input-container>
+                  <md-input-container class="md-subhead" layout="row">
+                    <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Photo description" ng-model="currentDisplayPhoto.description" ng-change="updatePhotoInfos()">
+                  </md-input-container>
+                </div>
                 <div flex></div>
-                <md-button aria-label="Real size Photo" class="md-fab md-raised md-mini md-primary" ng-click="">
-                  <!-- TODO -->
-                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.PHOTOS.REAL_SIZE_PHOTO' | translate}}
-                  </md-tooltip>
-                </md-button>
-                <md-button aria-label="Delete Photo" class="md-fab md-raised md-mini md-primary" ng-click="showDeletePhotoConfirmationForm($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.PHOTOS.DELETE_PHOTO' | translate}}
-                  </md-tooltip>
-                </md-button>
-                <!-- md-button aria-label="Move Photo" class="md-fab md-raised md-mini md-primary" ng-click="showMovePhotoForm($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.PHOTOS.MOVE_PHOTO' | translate}}
-                  </md-tooltip>
-                </md-button -->
+                <div layout="column" layout-gt-sm="row">
+                  <md-button aria-label="Real size Photo" class="md-fab md-raised md-mini md-primary" ng-click="">
+                    <!-- TODO -->
+                    <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.REAL_SIZE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <md-button aria-label="Delete Photo" class="md-fab md-raised md-mini md-primary" ng-click="showDeletePhotoConfirmationForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.DELETE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <!-- md-button aria-label="Move Photo" class="md-fab md-raised md-mini md-primary" ng-click="showMovePhotoForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.MOVE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button -->
+                </div>
               </div>
             </div>
 

@@ -32,59 +32,27 @@
 
 .lightbox_content_hover_header {
   position: absolute;
-  height: 8%;
+  height: 18%;
   width: 100%;
 }
 
 .lightbox_content_hover_main {
   position: absolute;
-  height: 82%;
+  height: 62%;
   width: 100%;
-  top: 9%;
+  top: 19%;
 }
 
 .lightbox_content_hover_footer {
   position: absolute;
-  height: 8%;
+  height: 18%;
   width: 100%;
   bottom: 0;
 }
 
-
-.album_title {
-  font-size: 1.6em;
-  width: 90% !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.album_title input {
-  font-weight: bold;
-  line-height: 36px;
-  height: 40px;
-}
-
-.action-loading {
-  position: absolute;
-  margin-top: -70px;
-}
-
-
-
-.photo_name {
-  height: 39px;
-  margin: 0px;
-}
-
-.photo_description {
+.lightbox_content_hover_header_titles input {
   height: 49px;
   margin: 0px;
-}
-
-.photo_img {
-  width: 500px;
-  height: 500px;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
+  color: white !important;
+  background-color: rgba(0,0,0,0.1);
 }

@@ -2,10 +2,15 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-color: rgb(255,152,0);
   background-image: url('/images/cms/photos/empty.png');
+  background-repeat: no-repeat;
+}
+
+.loading-md-grid-tile-content-loaded {
+  background-color: black !important;
 }
 
 .loading-md-grid-tile-content:focus {
@@ -25,4 +30,8 @@
 
 .loading-md-grid-tile-content md-grid-tile-footer {
   background: none;
+}
+
+.loading-md-grid-tile-content-not-loaded md-grid-tile-footer md-icon {
+  color: black !important;
 }

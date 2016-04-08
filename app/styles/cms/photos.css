@@ -15,26 +15,3 @@
   position: absolute;
   margin-top: -70px;
 }
-
-.show_photo_dialog {
-  width: 80%;
-  height: 80%;
-}
-
-.photo_name {
-  height: 39px;
-  margin: 0px;
-}
-
-.photo_description {
-  height: 49px;
-  margin: 0px;
-}
-
-.photo_img {
-  width: 500px;
-  height: 500px;
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
