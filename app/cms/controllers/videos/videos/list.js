@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Videos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$sce', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', function($rootScope, $scope, $sce, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia){
+  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -89,6 +89,8 @@ angular.module('PulseTotemManagerCMS')
           }
           $scope.videos.forEach(function(video) {
               video['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsVideosPath + video.id + '/raw';
+            //,
+            //poster: video.thumbnail.path
           });
         });
       };
@@ -100,7 +102,8 @@ angular.module('PulseTotemManagerCMS')
 
       $scope.showVideo = function(ev, indexInVideos) {
         $scope.currentDisplayIndex = indexInVideos;
-        $scope.currentDisplayVideo = $scope.videos[$scope.currentDisplayIndex];
+
+        $scope.buildDefinition();
 
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
         $mdDialog.show({
@@ -114,8 +117,22 @@ angular.module('PulseTotemManagerCMS')
         });
       };
 
-      $scope.trustSrc = function(src) {
-        return $sce.trustAsResourceUrl(src);
+      $scope.buildDefinition = function() {
+        if($scope.currentDisplayVideo != null) {
+          $scope.currentDisplayVideo['definition'] = null;
+        }
+        var selectedVideo = $scope.videos[$scope.currentDisplayIndex];
+        selectedVideo['definition'] = null;
+        var videopath = selectedVideo['path'];
+        selectedVideo['definition'] = {
+          sources: [
+            {
+              src: videopath,
+              type: selectedVideo.mimetype
+            }
+          ]
+        };
+        $scope.currentDisplayVideo = selectedVideo;
       };
 
       $scope.showPrevVideo = function() {
@@ -123,7 +140,7 @@ angular.module('PulseTotemManagerCMS')
         if($scope.currentDisplayIndex < 0) {
           $scope.currentDisplayIndex = $scope.videos.length - 1;
         }
-        $scope.currentDisplayVideo = $scope.videos[$scope.currentDisplayIndex];
+        $scope.buildDefinition();
       };
 
       $scope.showNextVideo = function() {
@@ -131,7 +148,7 @@ angular.module('PulseTotemManagerCMS')
         if($scope.currentDisplayIndex >= $scope.videos.length) {
           $scope.currentDisplayIndex = 0;
         }
-        $scope.currentDisplayVideo = $scope.videos[$scope.currentDisplayIndex];
+        $scope.buildDefinition();
       };
 
       $scope.updateVideoInfosFeedback = "";

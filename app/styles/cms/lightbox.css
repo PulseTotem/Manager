@@ -32,6 +32,8 @@
 
 .lightbox_content_main_video {
   position: absolute;
+  width: 100% !important;
+  height: 80% !important;
 }
 
 .lightbox_content_hover_header {

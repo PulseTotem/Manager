@@ -6,6 +6,34 @@
 
           <div class="lightbox_content_main">
 
+            <div class="lightbox_content_hover_main">
+              <div  class="lightbox_fullsize" layout="row" layout-align="center center">
+                <md-button ng-show="videos.length > 1" aria-label="Previous Video" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
+                  </md-tooltip>
+                </md-button>
+                <div flex></div>
+                <md-button ng-show="videos.length > 1" aria-label="Next Video" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
+                  </md-tooltip>
+                </md-button>
+              </div>
+            </div>
+
+            <div class="lightbox_content_hover_footer">
+              <div  class="lightbox_fullsize" layout="row">
+
+              </div>
+            </div>
+
+            <video class="lightbox_content_main_video video-js vjs-default-skin vjs-big-play-centered"
+                   controls preload="auto" vjs-video vjs-media="currentDisplayVideo.definition">
+            </video>
+
             <div class="lightbox_content_hover_header">
               <div  class="lightbox_fullsize" layout="row">
                 <div class="lightbox_content_hover_header_titles" layout="column">
@@ -41,35 +69,6 @@
                 </div>
               </div>
             </div>
-
-            <div class="lightbox_content_hover_main">
-              <div  class="lightbox_fullsize" layout="row" layout-align="center center">
-                <md-button ng-show="videos.length > 1" aria-label="Previous Video" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
-                  </md-tooltip>
-                </md-button>
-                <div flex></div>
-                <md-button ng-show="videos.length > 1" aria-label="Next Video" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
-                  </md-tooltip>
-                </md-button>
-              </div>
-            </div>
-
-            <div class="lightbox_content_hover_footer">
-              <div  class="lightbox_fullsize" layout="row">
-
-              </div>
-            </div>
-
-            <video class="lightbox_content_main_video" width="100%" height="80%" controls>
-              <source ng-src="{{trustSrc(currentDisplayVideo.path)}}" type="{{currentDisplayVideo.mimetype}}">
-              Your browser does not support the video tag.
-            </video>
           </div>
 
         </div>

@@ -21,6 +21,7 @@ angular
     'btford.socket-io',
     'ngFileUpload',
     'angular-loading-bar',
+    'vjs.video',
     'PulseTotemCommon',
     'PulseTotemManagerDashboard',
     'PulseTotemManagerCMS'
