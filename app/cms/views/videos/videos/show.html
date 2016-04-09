@@ -1,79 +1,78 @@
 <md-dialog class="show_lightbox_dialog" md-theme="altTheme" aria-label="Show Video" ng-cloak>
-  <form novalidate>
-    <!-- md-toolbar>
-      <div class="md-toolbar-tools">
-
-        <span flex></span>
-        <md-button class="md-icon-button" ng-click="closeForm()">
-          <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg" aria-label="Close"></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar -->
-    <md-dialog-content>
+  <form class="lightbox_fullsize" novalidate>
+    <md-dialog-content class="lightbox_fullsize">
       <div class="md-dialog-content lightbox_content">
-        <div layout="row" layout-align="center center">
+        <div  class="lightbox_fullsize" layout="row" layout-align="center center">
 
-          <video width="100%" height="100%" controls>
-            <source ng-src="{{currentDisplayVideo.path}}" type="{{currentDisplayVideo.mimetype}}">
-            Your browser does not support the video tag.
-          </video>
+          <div class="lightbox_content_main">
+            <video class="lightbox_content_main_video" width="100%" height="80%" controls>
+              <source ng-src="{{currentDisplayVideo.path}}" type="{{currentDisplayVideo.mimetype}}">
+              Your browser does not support the video tag.
+            </video>
 
-          <!-- div layout="column" class="lightbox_header">
-            <md-input-container class="video_name md-headline" layout="row">
-              <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-              <input aria-label="Video name" ng-model="currentDisplayVideo.name" ng-change="updateVideoInfos()">
-            </md-input-container>
-            <md-input-container class="video_description md-subhead" layout="row">
-              <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-              <input aria-label="Video description" ng-model="currentDisplayVideo.description" ng-change="updateVideoInfos()">
-            </md-input-container>
-          </div -->
+            <div class="lightbox_content_hover_header">
+              <div  class="lightbox_fullsize" layout="row">
+                <div class="lightbox_content_hover_header_titles" layout="column">
+                  <md-input-container class=" md-headline" layout="row">
+                    <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Video name" ng-model="currentDisplayVideo.name" ng-change="updateVideoInfos()">
+                  </md-input-container>
+                  <md-input-container class="md-subhead" layout="row">
+                    <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Video description" ng-model="currentDisplayVideo.description" ng-change="updateVideoInfos()">
+                  </md-input-container>
+                </div>
+                <div flex></div>
+                <div layout="column" layout-gt-sm="row">
+                  <md-button aria-label="Real size Video" class="md-fab md-raised md-mini md-primary" ng-href="{{currentDisplayVideo.path}}" target="_blank">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.VIDEOS.REAL_SIZE_VIDEO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <md-button aria-label="Delete Video" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteVideoConfirmationForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.VIDEOS.DELETE_VIDEO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <!-- md-button aria-label="Move Video" class="md-fab md-raised md-mini md-primary" ng-click="showMoveVideoForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.VIDEOS.MOVE_VIDEO' | translate}}
+                    </md-tooltip>
+                  </md-button -->
+                </div>
+              </div>
+            </div>
 
-          <!-- md-button ng-show="videos.length > 1" aria-label="Previous Video" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
-            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
-            <md-tooltip md-direction="down">
-              {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
-            </md-tooltip>
-          </md-button -->
+            <div class="lightbox_content_hover_main">
+              <div  class="lightbox_fullsize" layout="row" layout-align="center center">
+                <md-button ng-show="videos.length > 1" aria-label="Previous Video" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
+                  </md-tooltip>
+                </md-button>
+                <div flex></div>
+                <md-button ng-show="videos.length > 1" aria-label="Next Video" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
+                  </md-tooltip>
+                </md-button>
+              </div>
+            </div>
 
-          <!-- md-card flex="80">
-            <md-card-title>
-              <md-card-title-text>
-                <md-input-container class="video_name md-headline" layout="row">
-                  <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-                  <input aria-label="Video name" ng-model="currentDisplayVideo.name" ng-change="updateVideoInfos()">
-                </md-input-container>
-                <md-input-container class="video_description md-subhead" layout="row">
-                  <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-                  <input aria-label="Video description" ng-model="currentDisplayVideo.description" ng-change="updateVideoInfos()">
-                </md-input-container>
-              </md-card-title-text>
-            </md-card-title>
-            <md-card-content layout="row" layout-align="space-between">
-              <video class="md-media-xl video_img" width="320" height="240" controls>
-                <source ng-src="{{currentDisplayVideo.path}}" type="{{currentDisplayVideo.mimetype}}">
-                Your browser does not support the video tag.
-              </video>
-            </md-card-content>
-          </md-card -->
+            <div class="lightbox_content_hover_footer">
+              <div  class="lightbox_fullsize" layout="row">
 
-          <!-- md-button ng-show="videos.length > 1" aria-label="Next Video" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
-            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
-            <md-tooltip md-direction="down">
-              {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
-            </md-tooltip>
-          </md-button -->
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </md-dialog-content>
-    <!-- md-dialog-actions layout="row">
-      <span flex></span>
-      <md-button aria-label="Delete Video" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteVideoConfirmationForm($event)">
-        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
-      </md-button>
-      <md-button aria-label="Move Video" class="md-fab md-raised md-mini md-primary" ng-click="showMoveVideoForm($event)">
-        <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
-      </md-button>
-    </md-dialog-actions -->
   </form>
 </md-dialog>

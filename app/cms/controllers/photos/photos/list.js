@@ -88,7 +88,8 @@ angular.module('PulseTotemManagerCMS')
             $scope.actionLoading = "";
           }
           $scope.photos.forEach(function(photo) {
-              photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw?size=medium';
+            photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw?size=medium';
+            photo['realsize_path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw';
           });
         });
       };

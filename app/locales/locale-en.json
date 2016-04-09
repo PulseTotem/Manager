@@ -74,7 +74,9 @@
         "CANCEL" : "No !"
       },
       "PREV_VIDEO" : "Previous",
-      "NEXT_VIDEO" : "Next"
+      "NEXT_VIDEO" : "Next",
+      "MOVE_VIDEO" : "Move video",
+      "REAL_SIZE_VIDEO" : "Direct link"
     }
   }
 }

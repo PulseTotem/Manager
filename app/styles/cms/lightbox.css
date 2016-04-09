@@ -30,6 +30,10 @@
   background-repeat: no-repeat;
 }
 
+.lightbox_content_main_video {
+  position: absolute;
+}
+
 .lightbox_content_hover_header {
   position: absolute;
   height: 18%;
