@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Videos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia){
+  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$sce', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', function($rootScope, $scope, $sce, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -112,6 +112,10 @@ angular.module('PulseTotemManagerCMS')
           clickOutsideToClose:true,
           fullscreen: true
         });
+      };
+
+      $scope.trustSrc = function(src) {
+        return $sce.trustAsResourceUrl(src);
       };
 
       $scope.showPrevVideo = function() {
