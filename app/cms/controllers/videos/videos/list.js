@@ -88,9 +88,14 @@ angular.module('PulseTotemManagerCMS')
             $scope.actionLoading = "";
           }
           $scope.videos.forEach(function(video) {
-              video['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsVideosPath + video.id + '/raw';
-            //,
-            //poster: video.thumbnail.path
+            video['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsVideosPath + video.id + '/raw';
+            if(video.thumbnail == null) {
+              video.thumbnail = {};
+            }
+            video.thumbnail['path'] = '/images/cms/photos/empty.png';
+            if(typeof(video.thumbnail.id) != "undefined") {
+              video.thumbnail['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + video.thumbnail.id + '/raw?size=medium';
+            }
           });
         });
       };
