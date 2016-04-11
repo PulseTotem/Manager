@@ -53,6 +53,7 @@
         <!-- bower:css -->
         <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
         <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <link rel="stylesheet" href="bower_components/video.js/dist/video-js/video-js.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
@@ -61,6 +62,7 @@
         <link rel="stylesheet" href="styles/common/menu-default.css" />
         <link rel="stylesheet" href="styles/cms/main.css" />
         <link rel="stylesheet" href="styles/cms/photos.css" />
+        <link rel="stylesheet" href="styles/cms/lightbox.css" />
         <!-- endbuild -->
 
       <!-- SocketIO -->
@@ -125,6 +127,8 @@
     <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <script src="bower_components/ng-file-upload-shim/ng-file-upload-shim.js"></script>
     <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+    <script src="bower_components/video.js/dist/video-js/video.js"></script>
+    <script src="bower_components/vjs-video/dist/vjs-video.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -151,11 +155,17 @@
     <script src="cms/cms.js"></script>
     <script src="cms/services/photos/photo.js"></script>
     <script src="cms/services/photos/photosCollection.js"></script>
+    <script src="cms/services/videos/video.js"></script>
+    <script src="cms/services/videos/videosCollection.js"></script>
     <script src="cms/controllers/main.js"></script>
     <script src="cms/controllers/photos/collections/list.js"></script>
     <script src="cms/controllers/photos/collections/addedit.js"></script>
     <script src="cms/controllers/photos/photos/list.js"></script>
     <script src="cms/controllers/photos/photos/addedit.js"></script>
+    <script src="cms/controllers/videos/collections/list.js"></script>
+    <script src="cms/controllers/videos/collections/addedit.js"></script>
+    <script src="cms/controllers/videos/videos/list.js"></script>
+    <script src="cms/controllers/videos/videos/addedit.js"></script>
     <!-- endbuild -->
 </body>
 </html>

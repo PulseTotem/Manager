@@ -48,11 +48,35 @@
         "CANCEL" : "Non !"
       },
       "PREV_PHOTO" : "Précédente",
-      "NEXT_PHOTO" : "Suivante"
+      "NEXT_PHOTO" : "Suivante",
+      "MOVE_PHOTO" : "Déplacer la photo",
+      "REAL_SIZE_PHOTO" : "Photo en taille réelle"
     },
     "VIDEOS" : {
       "TITLE" : "Vidéos",
-      "COLLECTIONS" : "Playlists"
+      "COLLECTIONS" : "Playlists",
+      "NO_COLLECTIONS": "Vous n'avez aucune playlist.",
+      "NEW_COLLECTION": "Nouvelle playlist",
+      "DELETE_COLLECTION": "Supprimer la playlist",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Etes-vous de sûr de vouloir supprimer cette playlist ?",
+        "CONTENT" : "Toutes les vidéos contenues dans cette playlist seront aussi supprimées.",
+        "CONFIRM" : "Oui",
+        "CANCEL" : "Non !"
+      },
+      "NO_VIDEOS": "Vous n'avez aucune vidéo dans cette playlist.",
+      "NEW_VIDEO": "Importer des vidéos",
+      "DELETE_VIDEO": "Supprimer la vidéo",
+      "DELETE_VIDEO_DIALOG" : {
+        "TITLE" : "Etes-vous de sûr de vouloir supprimer cette vidéo ?",
+        "CONTENT" : "Après la suppression la vidéo ne pourra plus être récupérée.",
+        "CONFIRM" : "Oui",
+        "CANCEL" : "Non !"
+      },
+      "PREV_VIDEO" : "Précédente",
+      "NEXT_VIDEO" : "Suivante",
+      "MOVE_VIDEO" : "Déplacer la vidéo",
+      "REAL_SIZE_VIDEO" : "Lien direct"
     }
   }
 }

@@ -1,0 +1,49 @@
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.VIDEOS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/videos/collections')">{{'CMS.VIDEOS.COLLECTIONS' | translate}}</span> / {{collection.name}}
+
+  <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
+    <md-fab-trigger>
+      <md-button class="md-fab md-primary" aria-label="New Menu">
+        <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_more_vert_48px.svg"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button ng-controller="PulseTotemManagerCMS.Videos.AddEditVideosCtrl" aria-label="Upload Videos" class="md-fab md-raised md-mini md-primary"
+                 ngf-select="uploadFiles($files)"
+                 ngf-fix-orientation="true"
+                 ngf-multiple="true"
+                 ngf-accept="'video/*'"
+                 ngf-max-total-size="50MB">
+        <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.VIDEOS.NEW_VIDEO' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button aria-label="Delete Album" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteConfirmationForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.VIDEOS.DELETE_COLLECTION' | translate}}
+        </md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</md-subheader>
+<md-input-container class="album_title" layout="row">
+  <md-progress-circular md-mode="{{updateAlbumInfosFeedback}}"></md-progress-circular>
+  <input aria-label="Album title" ng-model="collection.name" ng-change="updateAlbumInfos()">
+</md-input-container>
+<md-content ng-if="videosLoaded && videos.length == 0" flex layout="column" layout-padding layout-align="center center">
+  <img ng-src="./images/logos/pulseTotem_picto_medium.png">
+  {{'CMS.VIDEOS.NO_VIDEOS' | translate}}
+</md-content>
+<md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
+<md-grid-list ng-if="videos.length > 0"
+              md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+              md-row-height-gt-md="1:1" md-row-height="1:1"
+              md-gutter="12px" md-gutter-gt-sm="8px" >
+  <md-grid-tile ng-repeat="(indexVideo, video) in videos" ng-click="showVideo($event, indexVideo)">
+    <loading-md-grid-tile-content url="video.thumbnail.path" on-hover-display="true">
+      <md-icon class="md-primary" md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon><span>{{video.name}}</span>
+    </loading-md-grid-tile-content>
+  </md-grid-tile>
+</md-grid-list>

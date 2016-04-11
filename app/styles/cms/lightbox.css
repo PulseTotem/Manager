@@ -1,0 +1,64 @@
+.show_lightbox_dialog {
+  width: 80%;
+  height: 80%;
+}
+
+.lightbox_fullsize {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.lightbox_content {
+  padding-left: 1% !important;
+  padding-right: 1% !important;
+  padding-bottom: 0 !important;
+  padding-top: 0% !important;
+  margin-top: 1% !important;
+  width: 97%;
+  height: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+}
+
+.lightbox_content_main {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.lightbox_content_main_video {
+  position: absolute;
+  width: 100% !important;
+  height: 80% !important;
+}
+
+.lightbox_content_hover_header {
+  position: absolute;
+  height: 18%;
+  width: 100%;
+}
+
+.lightbox_content_hover_main {
+  position: absolute;
+  height: 62%;
+  width: 100%;
+  top: 19%;
+}
+
+.lightbox_content_hover_footer {
+  position: absolute;
+  height: 18%;
+  width: 100%;
+  bottom: 0;
+}
+
+.lightbox_content_hover_header_titles input {
+  height: 49px;
+  margin: 0px;
+  color: white !important;
+  background-color: rgba(0,0,0,0.1);
+}
