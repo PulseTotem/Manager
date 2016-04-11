@@ -8,12 +8,6 @@
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <md-button aria-label="Delete Album" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteConfirmationForm($event)">
-        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
-        <md-tooltip md-direction="left">
-          {{'CMS.VIDEOS.DELETE_COLLECTION' | translate}}
-        </md-tooltip>
-      </md-button>
       <md-button ng-controller="PulseTotemManagerCMS.Videos.AddEditVideosCtrl" aria-label="Upload Videos" class="md-fab md-raised md-mini md-primary"
                  ngf-select="uploadFiles($files)"
                  ngf-fix-orientation="true"
@@ -23,6 +17,12 @@
         <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon>
         <md-tooltip md-direction="left">
           {{'CMS.VIDEOS.NEW_VIDEO' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button aria-label="Delete Album" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteConfirmationForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.VIDEOS.DELETE_COLLECTION' | translate}}
         </md-tooltip>
       </md-button>
     </md-fab-actions>
