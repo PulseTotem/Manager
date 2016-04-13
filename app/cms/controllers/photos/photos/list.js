@@ -89,6 +89,7 @@ angular.module('PulseTotemManagerCMS')
           }
           $scope.photos.forEach(function(photo) {
             photo['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw?size=medium';
+            photo['large_path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw?size=large';
             photo['realsize_path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photo.id + '/raw';
           });
         });
@@ -159,6 +160,8 @@ angular.module('PulseTotemManagerCMS')
               $scope.newPhoto,
               function (photoDesc) {
                 photoDesc['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photoDesc.id + '/raw?size=medium';
+                photoDesc['large_path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photoDesc.id + '/raw?size=large';
+                photoDesc['realsize_path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + photoDesc.id + '/raw';
                 $scope.currentDisplayPhoto = photoDesc;
                 $scope.photos[$scope.currentDisplayIndex] = photoDesc;
                 $scope.updatePhotoInfosFeedback = "";
