@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name PulseTotemManagerCMS.Videos.controller:AddEditCollectionsCtrl
+ * @name PulseTotemManagerCMS.News.controller:AddEditCollectionsCtrl
  * @description
  * # CollectionsListCtrl
- * Controller of the PulseTotemManagerCMS.Videos
+ * Controller of the PulseTotemManagerCMS.News
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Videos.AddEditCollectionsCtrl', ['$rootScope', '$scope', 'VideosCollection', '$mdDialog', '$routeParams', function($rootScope, $scope, VideosCollection, $mdDialog, $routeParams){
+  .controller('PulseTotemManagerCMS.News.AddEditCollectionsCtrl', ['$rootScope', '$scope', 'NewsCollection', '$mdDialog', '$routeParams', function($rootScope, $scope, NewsCollection, $mdDialog, $routeParams){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
@@ -17,7 +17,7 @@ angular.module('PulseTotemManagerCMS')
 
     $scope.newCollection = {};
     $scope.initNewCollection = function() {
-      var collectionResource = VideosCollection.resource($rootScope.user.cmsAuthkey);
+      var collectionResource = NewsCollection.resource($rootScope.user.cmsAuthkey);
       $scope.newCollection = new collectionResource();
       $scope.newCollection.name = "";
       $scope.newCollection.description = "";
@@ -26,11 +26,11 @@ angular.module('PulseTotemManagerCMS')
 
     $scope.addCollection = function() {
       $scope.addInProgression = "indeterminate";
-      VideosCollection.resource($rootScope.user.cmsAuthkey).save({userid: $rootScope.user.cmsId}, $scope.newCollection, function (collectionDesc) {
+      NewsCollection.resource($rootScope.user.cmsAuthkey).save({userid: $rootScope.user.cmsId}, $scope.newCollection, function (collectionDesc) {
         $scope.addInProgression = "";
         $scope.initNewCollection();
         $mdDialog.hide();
-        $rootScope.goTo('/cms/videos/collections/' + collectionDesc.id);
+        $rootScope.goTo('/cms/news/collections/' + collectionDesc.id);
       });
     };
 
@@ -45,7 +45,7 @@ angular.module('PulseTotemManagerCMS')
     $scope.deleteCollection = function() {
       if($scope.collectionid != null) {
         $scope.deleteInProgression = "indeterminate";
-        VideosCollection.resource($rootScope.user.cmsAuthkey).delete(
+        NewsCollection.resource($rootScope.user.cmsAuthkey).delete(
           {
             userid: $rootScope.user.cmsId,
             id: $scope.collectionid
@@ -53,11 +53,11 @@ angular.module('PulseTotemManagerCMS')
           function () {
             $scope.deleteInProgression = "";
             $mdDialog.hide();
-            $rootScope.goTo('/cms/videos/collections/');
+            $rootScope.goTo('/cms/news/collections/');
           }
         );
       } else {
-        $rootScope.goTo('/cms/videos/collections/');
+        $rootScope.goTo('/cms/news/collections/');
       }
     };
 

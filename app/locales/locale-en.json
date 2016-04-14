@@ -77,6 +77,28 @@
       "NEXT_VIDEO" : "Next",
       "MOVE_VIDEO" : "Move video",
       "REAL_SIZE_VIDEO" : "Direct link"
+    },
+    "NEWS" : {
+      "TITLE": "News",
+      "COLLECTIONS" : "News Feed",
+      "NO_COLLECTIONS": "It seems you haven't any feed.",
+      "NEW_COLLECTION": "New Feed",
+      "DELETE_COLLECTION": "Delete feed",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Would you like to delete your feed ?",
+        "CONTENT" : "All news in this feed would be deleted too.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "NO_NEWS": "It seems you haven't any news in this feed.",
+      "NEW_NEWS": "Write a news",
+      "DELETE_NEWS": "Delete news",
+      "DELETE_NEWS_DIALOG" : {
+        "TITLE" : "Would you like to delete your news ?",
+        "CONTENT" : "After deletion, news can't be retrieve.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      }
     }
   }
 }

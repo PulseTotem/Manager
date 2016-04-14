@@ -59,6 +59,19 @@ angular
         controller: 'PulseTotemManagerCMS.Videos.VideosListCtrl'
       })
 
+      // Routes for CMS -> News
+      .when('/cms/news', {
+        redirectTo: '/cms/news/collections'
+      })
+      .when('/cms/news/collections', {
+        templateUrl: '../cms/views/news/collections/list.html',
+        controller: 'PulseTotemManagerCMS.News.CollectionsListCtrl'
+      })
+      .when('/cms/news/collections/:collectionid', {
+        templateUrl: '../cms/views/news/news/list.html',
+        controller: 'PulseTotemManagerCMS.News.NewsListCtrl'
+      })
+
       // All other stuff
       .otherwise({
         redirectTo: '/'
