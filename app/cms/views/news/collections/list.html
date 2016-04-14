@@ -22,7 +22,9 @@
   {{'CMS.NEWS.NO_COLLECTIONS' | translate}}
 </md-content>
 <md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
-<md-list-item ng-if="collections.length > 0" ng-repeat="collection in collections" ng-click="goTo('/cms/news/collections/' + collection.id)">
-  <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_list_48px.svg"></md-icon>
-  <p> {{collection.name}} </p>
-</md-list-item>
+<md-list ng-if="collections.length > 0" flex>
+  <md-list-item ng-repeat="collection in collections" ng-click="goTo('/cms/news/collections/' + collection.id)">
+    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_list_48px.svg"></md-icon>
+    <p> {{collection.name}} </p>
+  </md-list-item>
+</md-list>

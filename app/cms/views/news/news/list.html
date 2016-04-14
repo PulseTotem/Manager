@@ -8,13 +8,8 @@
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <md-button ng-controller="PulseTotemManagerCMS.News.AddEditNewsCtrl" aria-label="Upload News" class="md-fab md-raised md-mini md-primary"
-                 ngf-select="uploadFiles($files)"
-                 ngf-fix-orientation="true"
-                 ngf-multiple="true"
-                 ngf-accept="'news/*'"
-                 ngf-max-total-size="50MB">
-        <md-icon md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon>
+      <md-button aria-label="New news" class="md-fab md-raised md-mini md-primary" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/add')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
         <md-tooltip md-direction="left">
           {{'CMS.NEWS.NEW_NEWS' | translate}}
         </md-tooltip>
@@ -37,13 +32,14 @@
   {{'CMS.NEWS.NO_NEWS' | translate}}
 </md-content>
 <md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
-<md-grid-list ng-if="news.length > 0"
-              md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
-              md-row-height-gt-md="1:1" md-row-height="1:1"
-              md-gutter="12px" md-gutter-gt-sm="8px" >
-  <md-grid-tile ng-repeat="(indexNews, news) in news" ng-click="showNews($event, indexNews)">
-    <loading-md-grid-tile-content url="news.thumbnail.path" on-hover-display="true">
-      <md-icon class="md-primary" md-svg-src="./bower_components/material-design-icons/av/svg/production/ic_movie_48px.svg"></md-icon><span>{{news.name}}</span>
-    </loading-md-grid-tile-content>
-  </md-grid-tile>
-</md-grid-list>
+<md-list flex>
+  <md-list-item class="md-2-line" ng-if="news.length > 0" ng-repeat="newsItem in news">
+    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
+    <div class="md-list-item-text" layout="column" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id)">
+      <h3>{{newsItem.title}}</h3>
+      <h4>{{ newsItem.begin }} - {{ newsItem.end }}</h4>
+    </div>
+    <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"  ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')" aria-label="Edit news" ></md-icon>
+    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"  ng-click="showDeleteNewsConfirmationForm($event, newsItem.id)" aria-label="Delete news"></md-icon>
+  </md-list-item>
+</md-list>

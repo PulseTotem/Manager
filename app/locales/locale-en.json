@@ -92,6 +92,7 @@
       },
       "NO_NEWS": "It seems you haven't any news in this feed.",
       "NEW_NEWS": "Write a news",
+      "EDIT_NEWS": "Edit news",
       "DELETE_NEWS": "Delete news",
       "DELETE_NEWS_DIALOG" : {
         "TITLE" : "Would you like to delete your news ?",

@@ -1,78 +1,32 @@
-<md-dialog class="show_lightbox_dialog" md-theme="altTheme" aria-label="Show Video" ng-cloak>
-  <form class="lightbox_fullsize" novalidate>
-    <md-dialog-content class="lightbox_fullsize">
-      <div class="md-dialog-content lightbox_content">
-        <div  class="lightbox_fullsize" layout="row" layout-align="center center">
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections/' + collection.id)">{{collection.name}}</span> / {{newsItem.title}}
 
-          <div class="lightbox_content_main">
+  <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
+    <md-fab-trigger>
+      <md-button class="md-fab md-primary" aria-label="Edit Menu">
+        <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_more_vert_48px.svg"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="Edit News" class="md-fab md-raised md-mini md-primary" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.NEWS.EDIT_NEWS' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button aria-label="Delete News" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteNewsConfirmationForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.NEWS.DELETE_COLLECTION' | translate}}
+        </md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</md-subheader>
 
-            <div class="lightbox_content_hover_main">
-              <div  class="lightbox_fullsize" layout="row" layout-align="center center">
-                <md-button ng-show="videos.length > 1" aria-label="Previous Video" class="md-fab md-raised md-mini md-primary" ng-click="showPrevVideo($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.VIDEOS.PREV_VIDEO' | translate}}
-                  </md-tooltip>
-                </md-button>
-                <div flex></div>
-                <md-button ng-show="videos.length > 1" aria-label="Next Video" class="md-fab md-raised md-mini md-primary" ng-click="showNextVideo($event)">
-                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
-                  <md-tooltip md-direction="down">
-                    {{'CMS.VIDEOS.NEXT_VIDEO' | translate}}
-                  </md-tooltip>
-                </md-button>
-              </div>
-            </div>
 
-            <div class="lightbox_content_hover_footer">
-              <div  class="lightbox_fullsize" layout="row">
-
-              </div>
-            </div>
-
-            <video class="lightbox_content_main_video video-js vjs-default-skin vjs-big-play-centered"
-                   controls preload="auto" vjs-video vjs-media="currentDisplayVideo.definition">
-            </video>
-
-            <div class="lightbox_content_hover_header">
-              <div  class="lightbox_fullsize" layout="row">
-                <div class="lightbox_content_hover_header_titles" layout="column">
-                  <md-input-container class=" md-headline" layout="row">
-                    <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-                    <input aria-label="Video name" ng-model="currentDisplayVideo.name" ng-change="updateVideoInfos()">
-                  </md-input-container>
-                  <md-input-container class="md-subhead" layout="row">
-                    <md-progress-circular md-mode="{{updateVideoInfosFeedback}}"></md-progress-circular>
-                    <input aria-label="Video description" ng-model="currentDisplayVideo.description" ng-change="updateVideoInfos()">
-                  </md-input-container>
-                </div>
-                <div flex></div>
-                <div layout="column" layout-gt-sm="row">
-                  <md-button aria-label="Real size Video" class="md-fab md-raised md-mini md-primary" ng-href="{{currentDisplayVideo.path}}" target="_blank">
-                    <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg"></md-icon>
-                    <md-tooltip md-direction="down">
-                      {{'CMS.VIDEOS.REAL_SIZE_VIDEO' | translate}}
-                    </md-tooltip>
-                  </md-button>
-                  <md-button aria-label="Delete Video" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteVideoConfirmationForm($event)">
-                    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
-                    <md-tooltip md-direction="down">
-                      {{'CMS.VIDEOS.DELETE_VIDEO' | translate}}
-                    </md-tooltip>
-                  </md-button>
-                  <!-- md-button aria-label="Move Video" class="md-fab md-raised md-mini md-primary" ng-click="showMoveVideoForm($event)">
-                    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
-                    <md-tooltip md-direction="down">
-                      {{'CMS.VIDEOS.MOVE_VIDEO' | translate}}
-                    </md-tooltip>
-                  </md-button -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </md-dialog-content>
-  </form>
-</md-dialog>
+<md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
+<div class="md-list-item-text" layout="column">
+  <h3>{{newsItem.title}}</h3>
+  <h4>{{ newsItem.begin }} - {{ newsItem.end }}</h4>
+</div>

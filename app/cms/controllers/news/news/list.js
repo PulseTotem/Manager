@@ -74,8 +74,6 @@ angular.module('PulseTotemManagerCMS')
         });
       };
 
-      //TODO !!!
-
       //News
       $scope.news = [];
       $scope.newsLoaded = false;
@@ -89,74 +87,41 @@ angular.module('PulseTotemManagerCMS')
           if($scope.collectionLoaded && $scope.newsLoaded) {
             $scope.actionLoading = "";
           }
-          $scope.news.forEach(function(news) {
-            news['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsNewsPath + news.id + '/raw';
-            if(news.thumbnail == null) {
-              news.thumbnail = {};
-            }
-            news.thumbnail['path'] = '/images/cms/photos/empty.png';
-            if(typeof(news.thumbnail.id) != "undefined") {
-              news.thumbnail['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + news.thumbnail.id + '/raw?size=medium';
-            }
-          });
         });
       };
 
       $scope.loadNews();
 
-      $scope.currentDisplayIndex = null;
-      $scope.currentDisplayNews = null;
-
-      $scope.showNews = function(ev, indexInNews) {
-        $scope.currentDisplayIndex = indexInNews;
-
-        $scope.buildDefinition();
-
+      $scope.showDeleteNewsConfirmationForm = function(ev, newsId) {
+        $mdDialog.hide();
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+        $scope.newsItemId = newsId;
         $mdDialog.show({
-          scope: $scope,
-          preserveScope: true,
-          templateUrl: 'cms/views/news/news/show.html',
+          controller: 'PulseTotemManagerCMS.News.AddEditNewsCtrl',
+          templateUrl: 'cms/views/news/news/delete.html',
           parent: angular.element(document.body),
           targetEvent: ev,
           clickOutsideToClose:true,
-          fullscreen: true
+          fullscreen: useFullScreen,
+          scope: $scope,
+          preserveScope: true
         });
       };
 
-      $scope.buildDefinition = function() {
-        if($scope.currentDisplayNews != null) {
-          $scope.currentDisplayNews['definition'] = null;
-        }
-        var selectedNews = $scope.news[$scope.currentDisplayIndex];
-        selectedNews['definition'] = null;
-        var newspath = selectedNews['path'];
-        selectedNews['definition'] = {
-          sources: [
-            {
-              src: newspath,
-              type: selectedNews.mimetype
-            }
-          ]
-        };
-        $scope.currentDisplayNews = selectedNews;
+      $scope.closeForm = function() {
+        $mdDialog.cancel();
       };
 
-      $scope.showPrevNews = function() {
-        $scope.currentDisplayIndex = $scope.currentDisplayIndex - 1;
-        if($scope.currentDisplayIndex < 0) {
-          $scope.currentDisplayIndex = $scope.news.length - 1;
-        }
-        $scope.buildDefinition();
-      };
 
-      $scope.showNextNews = function() {
-        $scope.currentDisplayIndex = $scope.currentDisplayIndex + 1;
-        if($scope.currentDisplayIndex >= $scope.news.length) {
-          $scope.currentDisplayIndex = 0;
-        }
-        $scope.buildDefinition();
-      };
+
+
+
+
+
+
+
+
+/*
 
       $scope.updateNewsInfosFeedback = "";
       $scope.newNewsInfosTimeout = null;
@@ -190,24 +155,7 @@ angular.module('PulseTotemManagerCMS')
         }
       };
 
-      $scope.showDeleteNewsConfirmationForm = function(ev) {
-        $mdDialog.hide();
-        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-        $mdDialog.show({
-          controller: 'PulseTotemManagerCMS.News.AddEditNewsCtrl',
-          templateUrl: 'cms/views/news/news/delete.html',
-          parent: angular.element(document.body),
-          targetEvent: ev,
-          clickOutsideToClose:true,
-          fullscreen: useFullScreen,
-          scope: $scope,
-          preserveScope: true
-        });
-      };
-
-      $scope.closeForm = function() {
-        $mdDialog.cancel();
-      };
+*/
 
     }
 

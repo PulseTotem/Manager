@@ -71,6 +71,18 @@ angular
         templateUrl: '../cms/views/news/news/list.html',
         controller: 'PulseTotemManagerCMS.News.NewsListCtrl'
       })
+      .when('/cms/news/collections/:collectionid/news/add', {
+        templateUrl: '../cms/views/news/news/addEdit.html',
+        controller: 'PulseTotemManagerCMS.News.AddEditNewsCtrl'
+      })
+      .when('/cms/news/collections/:collectionid/news/:newsid', {
+        templateUrl: '../cms/views/news/news/show.html',
+        controller: 'PulseTotemManagerCMS.News.NewsShowCtrl'
+      })
+      .when('/cms/news/collections/:collectionid/news/:newsid/edit', {
+        templateUrl: '../cms/views/news/news/addEdit.html',
+        controller: 'PulseTotemManagerCMS.News.AddEditNewsCtrl'
+      })
 
       // All other stuff
       .otherwise({

@@ -92,6 +92,7 @@
       },
       "NO_NEWS": "Vous n'avez aucune annonce dans cette liste.",
       "NEW_NEWS": "Ecrire une annonce",
+      "EDIT_NEWS": "Modifier l'annonce",
       "DELETE_NEWS": "Supprimer l'annonce",
       "DELETE_NEWS_DIALOG" : {
         "TITLE" : "Etes-vous de sûr de vouloir supprimer cette annonce ?",

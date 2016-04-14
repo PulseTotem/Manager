@@ -13,7 +13,7 @@ angular.module('PulseTotemManagerCMS')
     $rootScope.activeNavbar = 'cms';
 
     $scope.collectionid = $routeParams.collectionid || null;
-
+/*
     $scope.uploadFiles = function (files) {
       $scope.files = files;
       if (files && files.length) {
@@ -47,31 +47,26 @@ angular.module('PulseTotemManagerCMS')
           });
         }, function (response) {
 
-          /*if (response.status > 0) {
-            $scope.errorMsg = response.status + ': ' + response.data;
-          }*/
+
 
           //TODO : Display message to User
 
         }, function (evt) {
-          /*$scope.progress =
-            Math.min(100, parseInt(100.0 * evt.loaded / evt.total));*/
-          //Nothing to do ?
         });
       }
     };
-
+*/
 
     //Delete
     $scope.deleteInProgression = "";
-    $scope.deleteNews = function() {
-      if(typeof($scope.collectionid) != "undefined" && $scope.collectionid != null && typeof($scope.currentDisplayNews) != "undefined" && $scope.currentDisplayNews != null) {
+    $scope.deleteNewsItem = function() {
+      if(typeof($scope.collectionid) != "undefined" && $scope.collectionid != null && typeof($scope.newsItemId) != "undefined" && $scope.newsItemId != null) {
         $scope.deleteInProgression = "indeterminate";
         News.resource($rootScope.user.cmsAuthkey).delete(
           {
             userid: $rootScope.user.cmsId,
             collectionid: $scope.collectionid,
-            id: $scope.currentDisplayNews.id
+            id: $scope.newsItemId
           },
           function(){
             $scope.deleteInProgression = "";
@@ -79,7 +74,7 @@ angular.module('PulseTotemManagerCMS')
             $scope.currentDisplayIndex = null;
             $scope.currentDisplayNews = null;
             if($scope.collectionid != null) {
-              $scope.loadNews();
+              $rootScope.goTo('/cms/news/collections/' + $scope.collectionid);
             } else {
               $rootScope.goTo('/cms/news/collections/');
             }
@@ -88,7 +83,7 @@ angular.module('PulseTotemManagerCMS')
       } else {
         $scope.closeForm();
         if($scope.collectionid != null) {
-          $scope.loadNews();
+          $rootScope.goTo('/cms/news/collections/' + $scope.collectionid);
         } else {
           $rootScope.goTo('/cms/news/collections/');
         }

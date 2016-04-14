@@ -24,6 +24,8 @@ angular.module('PulseTotemCommon')
         cmsPhotosPath: 'images/',
         cmsVideosCollectionsPath: 'videos_collections/',
         cmsVideosPath: 'videos/',
+        cmsNewsCollectionsPath: 'news_collections/',
+        cmsNewsPath: 'news/',
 
         loginRoute: '/',
         afterLoginRoute: '/cms'
