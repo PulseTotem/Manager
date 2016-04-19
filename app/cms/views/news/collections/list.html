@@ -23,8 +23,11 @@
 </md-content>
 <md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
 <md-list ng-if="collections.length > 0" flex>
-  <md-list-item ng-repeat="collection in collections" ng-click="goTo('/cms/news/collections/' + collection.id)">
+  <md-list-item class="md-2-line" ng-repeat="collection in collections" ng-click="goTo('/cms/news/collections/' + collection.id)">
     <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_list_48px.svg"></md-icon>
-    <p> {{collection.name}} </p>
+    <div class="md-list-item-text" layout="column">
+      <h3>{{collection.name}}</h3>
+      <p>{{collection.description}}</p>
+    </div>
   </md-list-item>
 </md-list>

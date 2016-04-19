@@ -1,1 +1,45 @@
-AddEdit news !
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections/' + collection.id)">{{collection.name}}</span> / {{'CMS.NEWS.NEW_NEWS' | translate}}
+</md-subheader>
+<form novalidate name="newNewsForm">
+  <div layout="column" layout-margin>
+    <md-input-container flex>
+      <label>
+        <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_title_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.TITLE' | translate}}
+      </label>
+      <input type="text" required name="newNewsTitle" ng-model="newNews.title" />
+      <div ng-show="newNewsForm.newNewsTitle.$dirty && ! newNewsForm.newNewsTitle.$valid" ng-messages="newNewsForm.newNewsTitle.$error">
+        <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
+      </div>
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>
+        <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.CONTENT' | translate}}
+      </label>
+      <textarea required name="newNewsContent" ng-model="newNews.content" columns="1" rows="5"></textarea>
+      <div ng-show="newNewsForm.newNewsContent.$dirty && ! newNewsForm.newNewsContent.$valid" ng-messages="newNewsForm.newNewsContent.$error">
+        <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
+      </div>
+    </md-input-container>
+  </div>
+  <div layout="row" layout-margin>
+    <md-datepicker name="newNewsBegin" ng-model="newNews.begin" md-placeholder="{{'CMS.NEWS.FORM.BEGIN' | translate}}"></md-datepicker>
+
+    <md-datepicker name="newNewsEnd" ng-model="newNews.end" md-min-date="newNews.begin" md-placeholder="{{'CMS.NEWS.FORM.END' | translate}}"></md-datepicker>
+  </div>
+  <div layout="row" layout-margin>
+  Si begin == "" && end == "" : news affichait tout le temps
+    Si begin != "" && end == "" : news affichait à partir de begin
+    Si begin != "" && end != "" : news affichait de begin à end
+  </div>
+  <div layout="column" layout-margin>
+    <md-input-container flex="grow">
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!newNewsForm.newNewsTitle.$valid || !newNewsForm.newNewsContent.$valid || !newNewsForm.newNewsBegin.$valid || !newNewsForm.newNewsEnd.$valid" ng-click="login(user)">
+        {{'CMS.NEWS.FORM.SEND' | translate}} !
+      </md-button>
+    </md-input-container>
+  </div>
+</form>

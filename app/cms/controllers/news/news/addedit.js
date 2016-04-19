@@ -13,6 +13,34 @@ angular.module('PulseTotemManagerCMS')
     $rootScope.activeNavbar = 'cms';
 
     $scope.collectionid = $routeParams.collectionid || null;
+
+    if(typeof($routeParams.collectionid) == "undefined") {
+      $rootScope.goTo('/cms');
+    } else {
+      $scope.actionLoading = "indeterminate";
+      //Feed
+      $scope.collection = {};
+      $scope.collectionLoaded = false;
+      $scope.loadNewsCollection = function () {
+        NewsCollection.resource($rootScope.user.cmsAuthkey).get({
+            userid: $rootScope.user.cmsId,
+            id: $routeParams.collectionid
+          },
+          function (collection) {
+            $scope.collection = collection;
+            $scope.collectionLoaded = true;
+            if ($scope.collectionLoaded && $scope.newsLoaded) {
+              $scope.actionLoading = "";
+            }
+          });
+      };
+
+      $scope.loadNewsCollection();
+
+      var newsResource = News.resource($rootScope.user.cmsAuthkey);
+      $scope.newNews = new newsResource();
+    }
+
 /*
     $scope.uploadFiles = function (files) {
       $scope.files = files;

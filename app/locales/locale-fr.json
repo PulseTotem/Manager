@@ -99,6 +99,13 @@
         "CONTENT" : "Après la suppression l'annonce ne pourra plus être récupérée.",
         "CONFIRM" : "Oui",
         "CANCEL" : "Non !"
+      },
+      "FORM" : {
+        "TITLE": "Titre",
+        "CONTENT": "Contenu",
+        "BEGIN": "Début",
+        "END": "Fin",
+        "SEND": "Enregistrer"
       }
     }
   }

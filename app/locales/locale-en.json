@@ -99,6 +99,13 @@
         "CONTENT" : "After deletion, news can't be retrieve.",
         "CONFIRM" : "Yes",
         "CANCEL" : "No !"
+      },
+      "FORM" : {
+        "TITLE": "Title",
+        "CONTENT": "Content",
+        "BEGIN": "Begin",
+        "END": "End",
+        "SEND": "Save"
       }
     }
   }
