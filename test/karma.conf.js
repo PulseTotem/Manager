@@ -40,6 +40,7 @@ module.exports = function(config) {
       'bower_components/angular-loading-bar/build/loading-bar.js',
       'bower_components/video.js/dist/video-js/video.js',
       'bower_components/vjs-video/dist/vjs-video.min.js',
+      'bower_components/sc-date-time/dist/sc-date-time.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       '../app/configuration/**/*.js',

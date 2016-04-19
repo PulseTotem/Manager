@@ -29,7 +29,7 @@ angular.module('PulseTotemManagerCMS')
           function (collection) {
             $scope.collection = collection;
             $scope.collectionLoaded = true;
-            if ($scope.collectionLoaded && $scope.newsLoaded) {
+            if ($scope.collectionLoaded && $scope.newNewsLoaded) {
               $scope.actionLoading = "";
             }
           });
@@ -37,8 +37,86 @@ angular.module('PulseTotemManagerCMS')
 
       $scope.loadNewsCollection();
 
-      var newsResource = News.resource($rootScope.user.cmsAuthkey);
-      $scope.newNews = new newsResource();
+      if(typeof($routeParams.newsid) == "undefined") {
+        $scope.newNewsLoaded = true;
+        var newsResource = News.resource($rootScope.user.cmsAuthkey);
+        $scope.newNews = new newsResource();
+
+        $scope.newNews.begin = "";
+        $scope.newNews.end = "";
+
+      } else {
+        //News
+        $scope.newNews = {};
+        $scope.newNewsLoaded = false;
+        $scope.loadNewsItem = function () {
+          News.resource($rootScope.user.cmsAuthkey).get({
+            userid: $rootScope.user.cmsId,
+            collectionid: $routeParams.collectionid,
+            id: $routeParams.newsid
+          }, function (newsI) {
+            $scope.newNews = newsI;
+            $scope.newNewsLoaded = true;
+
+            if(typeof($scope.newNews.begin) == "undefined" || $scope.newNews.begin == null) {
+              $scope.newNews.begin = "";
+            }
+
+            if(typeof($scope.newNews.end) == "undefined" || $scope.newNews.end == null) {
+              $scope.newNews.end = "";
+            }
+
+            if($scope.collectionLoaded && $scope.newNewsLoaded) {
+              $scope.actionLoading = "";
+            }
+          });
+        };
+
+        $scope.loadNewsItem();
+      }
+
+
+      $scope.newNews.beginText = "";
+      $scope.$watch(
+        function() {
+          return $scope.newNews.begin;
+        },
+        function(newValue, oldValue, scope) {
+          $scope.newNews.begin = newValue;
+          $scope.newNews.beginText = moment($scope.newNews.begin).format("L LT");
+        }
+      );
+
+      $scope.newNews.endText = "";
+      $scope.$watch(
+        function() {
+          return $scope.newNews.end;
+        },
+        function(newValue, oldValue, scope) {
+          $scope.newNews.end = newValue;
+          $scope.newNews.endText = moment($scope.newNews.end).format("L LT");
+        }
+      );
+
+      $scope.saveNews = function() {
+        if(typeof($routeParams.newsid) == "undefined") {
+          News.resource($rootScope.user.cmsAuthkey).save({
+            userid: $rootScope.user.cmsId,
+            collectionid: $scope.collectionid
+          }, $scope.newNews, function (newsDesc) {
+            $rootScope.goTo('/cms/news/collections/' + $scope.collectionid + '/news/' + newsDesc.id);
+          });
+        } else {
+          News.resource($rootScope.user.cmsAuthkey).update({
+            userid: $rootScope.user.cmsId,
+            collectionid: $scope.collectionid,
+            id: $routeParams.newsid
+          }, $scope.newNews, function (newsDesc) {
+            $rootScope.goTo('/cms/news/collections/' + $scope.collectionid + '/news/' + newsDesc.id);
+          });
+        }
+      };
+
     }
 
 /*

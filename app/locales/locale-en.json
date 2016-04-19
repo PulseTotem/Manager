@@ -105,7 +105,10 @@
         "CONTENT": "Content",
         "BEGIN": "Begin",
         "END": "End",
-        "SEND": "Save"
+        "SEND": "Save",
+        "ALWAYS_DISPLAY": "The news will always be displayed.",
+        "FROM_BEGIN_DISPLAY": "The news will be displayed from {{BEGIN}}.",
+        "BEGIN_TO_END_DISPLAY": "The news will be displayed from {{BEGIN}} to {{END}}."
       }
     }
   }

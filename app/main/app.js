@@ -22,6 +22,7 @@ angular
     'ngFileUpload',
     'angular-loading-bar',
     'vjs.video',
+    'scDateTime',
     'PulseTotemCommon',
     'PulseTotemManagerDashboard',
     'PulseTotemManagerCMS'

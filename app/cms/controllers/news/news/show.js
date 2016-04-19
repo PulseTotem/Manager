@@ -15,11 +15,9 @@ angular.module('PulseTotemManagerCMS')
     if(typeof($routeParams.collectionid) == "undefined" || typeof($routeParams.newsid) == "undefined") {
       $rootScope.goTo('/cms');
     } else {
-      $scope.actionLoading = "indeterminate";
 
       //Feed
       $scope.collection = {};
-      $scope.collectionLoaded = false;
       $scope.loadNewsCollection = function(){
         NewsCollection.resource($rootScope.user.cmsAuthkey).get({
             userid: $rootScope.user.cmsId,
@@ -27,10 +25,6 @@ angular.module('PulseTotemManagerCMS')
           },
           function(collection) {
             $scope.collection = collection;
-            $scope.collectionLoaded = true;
-            if($scope.collectionLoaded && $scope.newsItemLoaded) {
-              $scope.actionLoading = "";
-            }
           });
       };
 
@@ -38,7 +32,6 @@ angular.module('PulseTotemManagerCMS')
 
       //News
       $scope.newsItem = {};
-      $scope.newsItemLoaded = false;
       $scope.loadNewsItem = function () {
         News.resource($rootScope.user.cmsAuthkey).get({
           userid: $rootScope.user.cmsId,
@@ -46,10 +39,17 @@ angular.module('PulseTotemManagerCMS')
           id: $routeParams.newsid
         }, function (newsI) {
           $scope.newsItem = newsI;
-          $scope.newsItemLoaded = true;
-          if($scope.collectionLoaded && $scope.newsItemLoaded) {
-            $scope.actionLoading = "";
+
+          if(typeof($scope.newsItem.begin) == "undefined" || $scope.newsItem.begin == null) {
+            $scope.newsItem.begin = "";
           }
+
+          if(typeof($scope.newsItem.end) == "undefined" || $scope.newsItem.end == null) {
+            $scope.newsItem.end = "";
+          }
+
+          $scope.newsItem.beginText = moment($scope.newsItem.begin).format("L LT");
+          $scope.newsItem.endText = moment($scope.newsItem.end).format("L LT");
         });
       };
 

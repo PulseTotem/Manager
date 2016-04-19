@@ -84,6 +84,20 @@ angular.module('PulseTotemManagerCMS')
         }, function (news) {
           $scope.news = news;
           $scope.newsLoaded = true;
+
+          $scope.news.forEach(function(newsItem) {
+            if(typeof(newsItem.begin) == "undefined" || newsItem.begin == null) {
+              newsItem.begin = "";
+            }
+
+            if(typeof(newsItem.end) == "undefined" || newsItem.end == null) {
+              newsItem.end = "";
+            }
+
+            newsItem.beginText = moment(newsItem.begin).format("L LT");
+            newsItem.endText = moment(newsItem.end).format("L LT");
+          });
+
           if($scope.collectionLoaded && $scope.newsLoaded) {
             $scope.actionLoading = "";
           }

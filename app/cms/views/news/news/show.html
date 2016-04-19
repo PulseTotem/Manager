@@ -24,9 +24,21 @@
   </md-fab-speed-dial>
 </md-subheader>
 
-
-<md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
-<div class="md-list-item-text" layout="column">
-  <h3>{{newsItem.title}}</h3>
-  <h4>{{ newsItem.begin }} - {{ newsItem.end }}</h4>
+<div layout layout-align="center center">
+  <div md-whiteframe="8" layout="column" flex="70" layout-padding>
+    <h3 class="md-display-1">{{newsItem.title}}</h3>
+    <br/>
+    <p class="md-body-2"><pre>{{newsItem.content}}</pre></p>
+    <br/>
+    <md-toolbar class="md-primary md-hue-1">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span ng-if="(newsItem.begin == undefined || newsItem.begin == null || newsItem.begin == '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')" translate="CMS.NEWS.FORM.ALWAYS_DISPLAY"></span>
+          <span ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')" translate="CMS.NEWS.FORM.FROM_BEGIN_DISPLAY" translate-values='{ BEGIN: newsItem.beginText}'></span>
+          <span ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end != undefined && newsItem.end != null && newsItem.end != '')" translate="CMS.NEWS.FORM.BEGIN_TO_END_DISPLAY" translate-values='{ BEGIN: newsItem.beginText, END: newsItem.endText}'></span>
+        </h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+  </div>
 </div>

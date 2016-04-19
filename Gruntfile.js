@@ -385,6 +385,11 @@ module.exports = function (grunt) {
           cwd: 'bower_components/video.js/dist/video-js',
           src: 'font/**/*',
           dest: '<%= yeoman.dist %>/styles'
+        }, {
+          expand: true,
+          cwd: 'bower_components/font-awesome',
+          src: 'fonts/*',
+          dest: '<%= yeoman.dist %>'
         }]
       },
       styles: {
