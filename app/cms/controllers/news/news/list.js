@@ -96,6 +96,11 @@ angular.module('PulseTotemManagerCMS')
 
             newsItem.beginText = moment(newsItem.begin).format("L LT");
             newsItem.endText = moment(newsItem.end).format("L LT");
+
+            newsItem.translationData = {
+              BEGIN: newsItem.beginText,
+              END: newsItem.endText
+            };
           });
 
           if($scope.collectionLoaded && $scope.newsLoaded) {

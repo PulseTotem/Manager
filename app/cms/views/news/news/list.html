@@ -37,7 +37,18 @@
     <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
     <div class="md-list-item-text" layout="column" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id)">
       <h3>{{newsItem.title}}</h3>
-      <h4>{{ newsItem.beginText }} - {{ newsItem.endText }}</h4>
+      <h4 ng-if="(newsItem.begin == undefined || newsItem.begin == null || newsItem.begin == '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.ALWAYS_DISPLAY' | translate}}
+      </h4>
+      <h4 ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.FROM_BEGIN_DISPLAY' | translate: newsItem.translationData}}
+      </h4>
+      <h4 ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end != undefined && newsItem.end != null && newsItem.end != '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.BEGIN_TO_END_DISPLAY' | translate: newsItem.translationData}}
+      </h4>
     </div>
     <md-button class="md-icon-button" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')" aria-label="Edit news">
       <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
