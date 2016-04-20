@@ -77,6 +77,39 @@
       "NEXT_VIDEO" : "Suivante",
       "MOVE_VIDEO" : "Déplacer la vidéo",
       "REAL_SIZE_VIDEO" : "Lien direct"
+    },
+    "NEWS" : {
+      "TITLE": "Annonces",
+      "COLLECTIONS" : "Listes d'annonces",
+      "NO_COLLECTIONS": "Vous n'avez aucune liste d'annonces.",
+      "NEW_COLLECTION": "Nouvelle liste",
+      "DELETE_COLLECTION": "Supprimer la liste",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Etes-vous de sûr de vouloir supprimer cette liste ?",
+        "CONTENT" : "Toutes les annonces contenues dans cette liste seront aussi supprimées.",
+        "CONFIRM" : "Oui",
+        "CANCEL" : "Non !"
+      },
+      "NO_NEWS": "Vous n'avez aucune annonce dans cette liste.",
+      "NEW_NEWS": "Ecrire une annonce",
+      "EDIT_NEWS": "Modifier l'annonce",
+      "DELETE_NEWS": "Supprimer l'annonce",
+      "DELETE_NEWS_DIALOG" : {
+        "TITLE" : "Etes-vous de sûr de vouloir supprimer cette annonce ?",
+        "CONTENT" : "Après la suppression l'annonce ne pourra plus être récupérée.",
+        "CONFIRM" : "Oui",
+        "CANCEL" : "Non !"
+      },
+      "FORM" : {
+        "TITLE": "Titre",
+        "CONTENT": "Contenu",
+        "BEGIN": "Début",
+        "END": "Fin",
+        "SEND": "Enregistrer",
+        "ALWAYS_DISPLAY": "Cette annonce sera toujours affichée.",
+        "FROM_BEGIN_DISPLAY": "Cette annonce sera affichée pour une durée indeterminée à partir du {{BEGIN}}.",
+        "BEGIN_TO_END_DISPLAY": "Cette annonce sera affichée entre le {{BEGIN}} et le {{END}}."
+      }
     }
   }
 }

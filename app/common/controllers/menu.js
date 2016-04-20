@@ -28,6 +28,7 @@ angular.module('PulseTotemCommon')
         $scope.changeLanguage = function (langKey) {
           $rootScope.langKey = langKey;
           $translate.use(langKey);
+          moment.locale(langKey);
         };
 
         $scope.logout = function() {
