@@ -44,9 +44,9 @@ angular.module('PulseTotemManagerCMS')
 
         $scope.newNews.begin = "";
         $scope.newNews.end = "";
-        $scope.newNews.formerPicture = null;
         $scope.newNews.picture = {};
         $scope.newNews.picture.path = '/images/cms/photos/empty.png';
+        $scope.newNews.newPicture = null;
       } else {
         //News
         $scope.newNews = {};
@@ -69,13 +69,13 @@ angular.module('PulseTotemManagerCMS')
             }
 
             if($scope.newNews.picture == null) {
-              $scope.newNews.formerPicture = null;
               $scope.newNews.picture = {};
               $scope.newNews.picture.path = '/images/cms/photos/empty.png';
             } else {
-              $scope.newNews.formerPicture = $scope.newNews.picture;
               $scope.newNews.picture['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + $scope.newNews.picture.id + '/raw?size=medium';
             }
+
+            $scope.newNews.newPicture = null;
 
             if($scope.collectionLoaded && $scope.newNewsLoaded) {
               $scope.actionLoading = "";
@@ -130,9 +130,11 @@ angular.module('PulseTotemManagerCMS')
 
       $scope.changeNewsPicture = function(newFile) {
         $scope.newNews.newPicture = newFile;
-        console.log(newFile);
-        //$scope.newNews.picture['path'] = newFile;
-        //TODO
+        Upload.dataUrl(newFile, true).then(function(url){
+          if($scope.newNews.newPicture != null) {
+            $scope.newNews.newPicture['path'] = url;
+          }
+        });
       }
 
     }
