@@ -75,6 +75,28 @@
   </div>
 
   <div layout="column" layout-margin>
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1" md-row-height="1:1"
+                  md-gutter="12px" md-gutter-gt-sm="8px" >
+      <md-grid-tile>
+        <loading-md-grid-tile-content url="newNews.picture.path" on-hover-display="false">
+          <md-button aria-label="Change Picture" class="md-raised md-mini md-primary"
+                     ngf-select="changeNewsPicture($file)"
+                     ngf-fix-orientation="true"
+                     ngf-multiple="false"
+                     ngf-accept="'image/*'"
+                     ngf-max-total-size="50MB">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+            <md-tooltip md-direction="right">
+              {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+            </md-tooltip>
+          </md-button>
+        </loading-md-grid-tile-content>
+      </md-grid-tile>
+    </md-grid-list>
+  </div>
+
+  <div layout="column" layout-margin>
     <md-input-container flex="grow">
       <md-button type="submit" class="md-raised md-primary" ng-disabled="!newNewsForm.newNewsTitle.$valid || !newNewsForm.newNewsContent.$valid || !newNewsForm.newNewsBegin.$valid || !newNewsForm.newNewsEnd.$valid" ng-click="saveNews()">
         {{'CMS.NEWS.FORM.SEND' | translate}} !

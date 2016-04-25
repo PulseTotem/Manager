@@ -44,7 +44,9 @@ angular.module('PulseTotemManagerCMS')
 
         $scope.newNews.begin = "";
         $scope.newNews.end = "";
-
+        $scope.newNews.formerPicture = null;
+        $scope.newNews.picture = {};
+        $scope.newNews.picture.path = '/images/cms/photos/empty.png';
       } else {
         //News
         $scope.newNews = {};
@@ -64,6 +66,15 @@ angular.module('PulseTotemManagerCMS')
 
             if(typeof($scope.newNews.end) == "undefined" || $scope.newNews.end == null) {
               $scope.newNews.end = "";
+            }
+
+            if($scope.newNews.picture == null) {
+              $scope.newNews.formerPicture = null;
+              $scope.newNews.picture = {};
+              $scope.newNews.picture.path = '/images/cms/photos/empty.png';
+            } else {
+              $scope.newNews.formerPicture = $scope.newNews.picture;
+              $scope.newNews.picture['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + $scope.newNews.picture.id + '/raw?size=medium';
             }
 
             if($scope.collectionLoaded && $scope.newNewsLoaded) {
@@ -116,6 +127,13 @@ angular.module('PulseTotemManagerCMS')
           });
         }
       };
+
+      $scope.changeNewsPicture = function(newFile) {
+        $scope.newNews.newPicture = newFile;
+        console.log(newFile);
+        //$scope.newNews.picture['path'] = newFile;
+        //TODO
+      }
 
     }
 
