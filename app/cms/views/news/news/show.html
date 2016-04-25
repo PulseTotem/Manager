@@ -28,7 +28,7 @@
   <div md-whiteframe="8" layout="column" flex="70" layout-padding>
     <h3 class="md-display-1">{{newsItem.title}}</h3>
     <br/>
-    <p class="md-body-2"><pre>{{newsItem.content}}</pre></p>
+    <p class="md-body-2" ta-bind ng-model="newsItem.content"></p>
     <br/>
     <md-toolbar class="md-primary md-hue-1">
       <div class="md-toolbar-tools">

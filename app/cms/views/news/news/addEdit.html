@@ -20,7 +20,12 @@
         <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
         {{'CMS.NEWS.FORM.CONTENT' | translate}}
       </label>
-      <textarea required name="newNewsContent" ng-model="newNews.content" columns="1" ></textarea>
+      <div class="pulsetotem_editor">
+        <text-angular-toolbar name="pulsetotem_toolbar1" ta-toolbar="[['bold','italics','underline','strikeThrough'],['quote'], ['undo','redo'],['clear']]"></text-angular-toolbar>
+        <text-angular name="newNewsContent" ng-model="newNews.content" ta-target-toolbars='pulsetotem_toolbar1,pulsetotem_toolbar2'></text-angular>
+        <text-angular-toolbar class="pull-right" name="pulsetotem_toolbar2" ta-toolbar="[['charcount']]"></text-angular-toolbar>
+      </div>
+      <!-- textarea required name="newNewsContent" ng-model="newNews.content" columns="1" ></textarea -->
       <div ng-show="newNewsForm.newNewsContent.$dirty && ! newNewsForm.newNewsContent.$valid" ng-messages="newNewsForm.newNewsContent.$error">
         <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
       </div>

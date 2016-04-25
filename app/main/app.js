@@ -23,6 +23,7 @@ angular
     'angular-loading-bar',
     'vjs.video',
     'scDateTime',
+    'textAngular',
     'PulseTotemCommon',
     'PulseTotemManagerDashboard',
     'PulseTotemManagerCMS'
