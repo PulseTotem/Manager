@@ -229,8 +229,7 @@ module.exports = function (grunt) {
       dist: {
         src: [
           '<%= yeoman.dist %>/**/*.js',
-          '<%= yeoman.dist %>/styles/**/*.css',
-          '<%= yeoman.dist %>/styles/fonts/*'
+          '<%= yeoman.dist %>/styles/**/*.css'
         ]
       }
     },
