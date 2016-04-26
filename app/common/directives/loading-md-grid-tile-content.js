@@ -47,19 +47,29 @@ angular.module('PulseTotemCommon')
           }
         };
 
-        $scope.imgLoading = 'indeterminate';
-        var img = new Image();
-        img.onload = function() {
-          $scope.imgLoading = '';
-          $element.css({
-            'background-image': 'url(' + $scope.url +')'
-          });
-          if($scope.loaded) {
-            $scope.loaded();
+        $scope.loadImg = function() {
+          if(typeof($scope.url) != "undefined") {
+            $scope.imgLoading = 'indeterminate';
+            var img = new Image();
+            img.onload = function () {
+              $scope.imgLoading = '';
+              $element.css({
+                'background-image': 'url(' + $scope.url + ')'
+              });
+              if ($scope.loaded) {
+                $scope.loaded();
+              }
+              img = null;
+            };
+            img.src = $scope.url;
           }
-          img = null;
         };
-        img.src = $scope.url;
+
+        $scope.loadImg();
+
+        $scope.$watch(function() {
+          return $scope.url;
+        }, $scope.loadImg);
       }],
       templateUrl: 'common/directives/views/loading-md-grid-tile-content.html'
     };

@@ -17,7 +17,7 @@
       <md-button aria-label="Delete News" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteNewsConfirmationForm($event)">
         <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
         <md-tooltip md-direction="left">
-          {{'CMS.NEWS.DELETE_COLLECTION' | translate}}
+          {{'CMS.NEWS.DELETE_NEWS' | translate}}
         </md-tooltip>
       </md-button>
     </md-fab-actions>
@@ -30,6 +30,16 @@
     <br/>
     <p class="md-body-2" ta-bind ng-model="newsItem.content"></p>
     <br/>
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1" md-row-height="1:1"
+                  md-gutter="12px" md-gutter-gt-sm="8px" >
+
+      <md-grid-tile ng-if="newsItem.picture != null">
+        <loading-md-grid-tile-content url="newsItem.picture.path" on-hover-display="false" ng-cloak>
+        </loading-md-grid-tile-content>
+      </md-grid-tile>
+
+    </md-grid-list>
     <md-toolbar class="md-primary md-hue-1">
       <div class="md-toolbar-tools">
         <h2>
