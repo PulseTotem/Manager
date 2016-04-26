@@ -10,8 +10,8 @@
   padding:0;
 }
 
-body, html {
-
+html {
+  font-size: inherit !important;
 }
 
 body {

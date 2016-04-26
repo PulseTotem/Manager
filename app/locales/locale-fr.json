@@ -108,7 +108,15 @@
         "SEND": "Enregistrer",
         "ALWAYS_DISPLAY": "Cette annonce sera toujours affichée.",
         "FROM_BEGIN_DISPLAY": "Cette annonce sera affichée pour une durée indeterminée à partir du {{BEGIN}}.",
-        "BEGIN_TO_END_DISPLAY": "Cette annonce sera affichée entre le {{BEGIN}} et le {{END}}."
+        "BEGIN_TO_END_DISPLAY": "Cette annonce sera affichée entre le {{BEGIN}} et le {{END}}.",
+        "CHANGE_PICTURE": "Modifier l'image",
+        "DELETE_PICTURE": "Supprimer l'image",
+        "DELETE_PICTURE_DIALOG": {
+          "TITLE" : "Etes-vous sûr de vouloir supprimer cette image ?",
+          "CONTENT" : "Cette action ne peut être annulée.",
+          "CONFIRM" : "Oui",
+          "CANCEL" : "Non !"
+        }
       }
     }
   }

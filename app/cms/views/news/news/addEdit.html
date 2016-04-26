@@ -20,7 +20,12 @@
         <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
         {{'CMS.NEWS.FORM.CONTENT' | translate}}
       </label>
-      <textarea required name="newNewsContent" ng-model="newNews.content" columns="1" ></textarea>
+      <div class="pulsetotem_editor">
+        <text-angular-toolbar name="pulsetotem_toolbar1" ta-toolbar="[['bold','italics','underline','strikeThrough'],['quote'], ['undo','redo'],['clear']]"></text-angular-toolbar>
+        <text-angular name="newNewsContent" ng-model="newNews.content" ta-target-toolbars='pulsetotem_toolbar1,pulsetotem_toolbar2'></text-angular>
+        <text-angular-toolbar class="pull-right" name="pulsetotem_toolbar2" ta-toolbar="[['charcount']]"></text-angular-toolbar>
+      </div>
+      <!-- textarea required name="newNewsContent" ng-model="newNews.content" columns="1" ></textarea -->
       <div ng-show="newNewsForm.newNewsContent.$dirty && ! newNewsForm.newNewsContent.$valid" ng-messages="newNewsForm.newNewsContent.$error">
         <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
       </div>
@@ -67,6 +72,57 @@
         <span flex></span>
       </div>
     </md-toolbar>
+  </div>
+
+  <div layout="column" layout-margin>
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1" md-row-height="1:1"
+                  md-gutter="12px" md-gutter-gt-sm="8px" >
+
+      <md-grid-tile ng-if="newNews.newPicture == null">
+        <loading-md-grid-tile-content url="newNews.picture.path" on-hover-display="false" ng-cloak>
+          <md-button aria-label="Change Picture" class="md-raised md-mini md-primary"
+                     ngf-select="changeNewsPicture($file)"
+                     ngf-fix-orientation="true"
+                     ngf-multiple="false"
+                     ngf-accept="'image/*'"
+                     ngf-max-total-size="50MB">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+            <md-tooltip md-direction="top" ng-if="newNews.picture.id">
+              {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+            </md-tooltip>
+            <md-tooltip md-direction="right" ng-if="!newNews.picture.id">
+              {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+            </md-tooltip>
+          </md-button>
+          <md-button ng-if="newNews.picture.id" aria-label="Delete Picture" class="md-raised md-mini md-primary" ng-click="showConfirmDeletePicture($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+            <md-tooltip md-direction="top">
+              {{'CMS.NEWS.FORM.DELETE_PICTURE' | translate}}
+            </md-tooltip>
+          </md-button>
+        </loading-md-grid-tile-content>
+      </md-grid-tile>
+
+      <md-grid-tile ng-if="newNews.newPicture != null">
+          <div class="loading-md-grid-tile-content loading-md-grid-tile-content-loaded" style="background-image: url({{newNews.newPicture.path}})" ng-cloak>
+            <md-grid-tile-footer>
+              <md-button aria-label="Change Picture" class="md-raised md-mini md-primary"
+                         ngf-select="changeNewsPicture($file)"
+                         ngf-fix-orientation="true"
+                         ngf-multiple="false"
+                         ngf-accept="'image/*'"
+                         ngf-max-total-size="50MB">
+                <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+                <md-tooltip md-direction="right">
+                  {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+                </md-tooltip>
+              </md-button>
+            </md-grid-tile-footer>
+          </div>
+      </md-grid-tile>
+
+    </md-grid-list>
   </div>
 
   <div layout="column" layout-margin>

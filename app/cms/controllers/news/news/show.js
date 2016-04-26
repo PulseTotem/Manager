@@ -50,6 +50,10 @@ angular.module('PulseTotemManagerCMS')
 
           $scope.newsItem.beginText = moment($scope.newsItem.begin).format("L LT");
           $scope.newsItem.endText = moment($scope.newsItem.end).format("L LT");
+
+          if($scope.newsItem.picture != null) {
+            $scope.newsItem.picture['path'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + $scope.newsItem.picture.id + '/raw?size=medium';
+          }
         });
       };
 
