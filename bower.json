@@ -15,7 +15,6 @@
     "angular-translate-loader-static-files": "=2.9.1",
     "angular-translate-handler-log": "=2.9.1",
     "moment": "=2.11.2",
-    "font-awesome": "=4.6.1",
     "bootstrap": "<=3.3.5",
     "angular-material": "=1.0.5",
     "material-design-icons": "=2.2.0",
@@ -31,11 +30,6 @@
     "angular-mocks": "=1.5.0"
   },
   "overrides": {
-    "font-awesome": {
-      "main": [
-        "css/font-awesome.css"
-      ]
-    },
     "bootstrap": {
       "main": [
         "dist/css/bootstrap.min.css"
