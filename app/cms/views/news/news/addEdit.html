@@ -21,7 +21,7 @@
         {{'CMS.NEWS.FORM.CONTENT' | translate}}
       </label>
       <div class="pulsetotem_editor">
-        <text-angular-toolbar name="pulsetotem_toolbar1" ta-toolbar="[['bold','italics','underline','strikeThrough'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'], ['quote'], ['undo','redo'],['clear']]"></text-angular-toolbar>
+        <text-angular-toolbar name="pulsetotem_toolbar1" ta-toolbar="[['bold','italics','underline','strikeThrough'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'], ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'], ['undo','redo'],['clear']]"></text-angular-toolbar>
         <text-angular name="newNewsContent" ng-model="newNews.content" ta-target-toolbars='pulsetotem_toolbar1,pulsetotem_toolbar2'></text-angular>
         <text-angular-toolbar class="pull-right" name="pulsetotem_toolbar2" ta-toolbar="[['charcount']]"></text-angular-toolbar>
       </div>
