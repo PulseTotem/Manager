@@ -18,11 +18,15 @@ angular.module('PulseTotemManagerCMS')
     $scope.collectionsLoaded = false;
     $scope.loadPhotosCollections = function(){
       PhotosCollection.resource($rootScope.user.cmsAuthkey).query({userid: $rootScope.user.cmsId}, function(collections) {
-        $scope.collections = collections;
-        $scope.collections.forEach(function(collection) {
-          collection['coverPath'] = '/images/cms/photos/empty.png';
-          if(collection.cover != null) {
-            collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw?size=medium';
+        $scope.collections = [];
+        collections.forEach(function(collection) {
+          if(! collection.autogenerate) {
+            collection['coverPath'] = '/images/cms/photos/empty.png';
+            if (collection.cover != null) {
+              collection['coverPath'] = CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosPath + collection.cover.id + '/raw?size=medium';
+            }
+
+            $scope.collections.push(collection);
           }
         });
         $scope.collectionsLoaded = true;
