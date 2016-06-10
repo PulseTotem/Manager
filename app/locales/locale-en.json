@@ -1,0 +1,123 @@
+{
+  "LANG" : {
+    "ENGLISH": "English",
+    "FRENCH": "Français"
+  },
+  "FORM" : {
+    "ADD" : "Add",
+    "EDIT" : "Edit",
+    "Delete": "Delete"
+  },
+  "COMMON" : {
+    "LOGIN" : "Log In",
+    "LOGOUT" : "Log Out",
+    "LOGINFORM" : {
+      "USERNAME_OR_EMAIL" : "Username or Email",
+      "PASSWORD" : "Password",
+      "LOGINBUTTON" : "Go !",
+      "REMEMBER_ME" : "Remember me"
+    },
+    "REQUIRED_FIELD" : "This field is required.",
+    "NAME" : "Name",
+    "DESCRIPTION" : "Description"
+  },
+  "MENU" : {
+    "DASHBOARD" : "Dashboard",
+    "LIBRARY" : "My Library"
+  },
+  "CMS" : {
+    "PHOTOS" : {
+      "TITLE" : "Photos",
+      "COLLECTIONS" : "Albums",
+      "NO_COLLECTIONS": "It seems you haven't any album.",
+      "NEW_COLLECTION": "New album",
+      "DELETE_COLLECTION": "Delete album",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Would you like to delete your album ?",
+        "CONTENT" : "All photos in this album would be deleted too.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "NO_PHOTOS": "It seems you haven't any photo in this album.",
+      "NEW_PHOTO": "Upload Photos",
+      "DELETE_PHOTO": "Delete photo",
+      "DELETE_PHOTO_DIALOG" : {
+        "TITLE" : "Would you like to delete your photo ?",
+        "CONTENT" : "After deletion photo can't be retrieve.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "PREV_PHOTO" : "Previous",
+      "NEXT_PHOTO" : "Next",
+      "MOVE_PHOTO" : "Move photo",
+      "REAL_SIZE_PHOTO" : "Real size photo"
+    },
+    "VIDEOS" : {
+      "TITLE" : "Videos",
+      "COLLECTIONS" : "Playlists",
+      "NO_COLLECTIONS": "It seems you haven't any playlist.",
+      "NEW_COLLECTION": "New playlist",
+      "DELETE_COLLECTION": "Delete playlist",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Would you like to delete your playlist ?",
+        "CONTENT" : "All videos in this playlist would be deleted too.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "NO_VIDEOS": "It seems you haven't any video in this playlist.",
+      "NEW_VIDEO": "Upload Videos",
+      "DELETE_VIDEO": "Delete video",
+      "DELETE_VIDEO_DIALOG" : {
+        "TITLE" : "Would you like to delete your video ?",
+        "CONTENT" : "After deletion video can't be retrieve.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "PREV_VIDEO" : "Previous",
+      "NEXT_VIDEO" : "Next",
+      "MOVE_VIDEO" : "Move video",
+      "REAL_SIZE_VIDEO" : "Direct link"
+    },
+    "NEWS" : {
+      "TITLE": "News",
+      "COLLECTIONS" : "News Feed",
+      "NO_COLLECTIONS": "It seems you haven't any feed.",
+      "NEW_COLLECTION": "New Feed",
+      "DELETE_COLLECTION": "Delete feed",
+      "DELETE_COLLECTION_DIALOG" : {
+        "TITLE" : "Would you like to delete your feed ?",
+        "CONTENT" : "All news in this feed would be deleted too.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "NO_NEWS": "It seems you haven't any news in this feed.",
+      "NEW_NEWS": "Write a news",
+      "EDIT_NEWS": "Edit news",
+      "DELETE_NEWS": "Delete news",
+      "DELETE_NEWS_DIALOG" : {
+        "TITLE" : "Would you like to delete your news ?",
+        "CONTENT" : "After deletion, news can't be retrieve.",
+        "CONFIRM" : "Yes",
+        "CANCEL" : "No !"
+      },
+      "FORM" : {
+        "TITLE": "Title",
+        "CONTENT": "Content",
+        "BEGIN": "Begin",
+        "END": "End",
+        "SEND": "Save",
+        "ALWAYS_DISPLAY": "The news will always be displayed.",
+        "FROM_BEGIN_DISPLAY": "The news will be displayed from {{BEGIN}}.",
+        "BEGIN_TO_END_DISPLAY": "The news will be displayed from {{BEGIN}} to {{END}}.",
+        "CHANGE_PICTURE": "Change picture",
+        "DELETE_PICTURE": "Delete picture",
+        "DELETE_PICTURE_DIALOG": {
+          "TITLE" : "Are you sure to delete this picture ?",
+          "CONTENT" : "This action can't be cancelled.",
+          "CONFIRM" : "Yes",
+          "CANCEL" : "No !"
+        }
+      }
+    }
+  }
+}

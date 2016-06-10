@@ -1,0 +1,74 @@
+<md-dialog class="show_lightbox_dialog" md-theme="altTheme" aria-label="Show Photo" ng-cloak>
+  <form class="lightbox_fullsize" novalidate>
+    <md-dialog-content class="lightbox_fullsize">
+      <div class="md-dialog-content lightbox_content">
+        <div  class="lightbox_fullsize" layout="row" layout-align="center center">
+
+          <div class="lightbox_content_main" style="background-image: url('{{currentDisplayPhoto.large_path}}');">
+
+            <div class="lightbox_content_hover_header">
+              <div  class="lightbox_fullsize" layout="row">
+                <div class="lightbox_content_hover_header_titles" layout="column">
+                  <md-input-container class=" md-headline" layout="row">
+                    <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Photo name" ng-model="currentDisplayPhoto.name" ng-change="updatePhotoInfos()">
+                  </md-input-container>
+                  <md-input-container class="md-subhead" layout="row">
+                    <md-progress-circular md-mode="{{updatePhotoInfosFeedback}}"></md-progress-circular>
+                    <input aria-label="Photo description" ng-model="currentDisplayPhoto.description" ng-change="updatePhotoInfos()">
+                  </md-input-container>
+                </div>
+                <div flex></div>
+                <div layout="column" layout-gt-sm="row">
+                  <md-button aria-label="Real size Photo" class="md-fab md-raised md-mini md-primary" ng-href="{{currentDisplayPhoto.realsize_path}}" target="_blank">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_loupe_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.REAL_SIZE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <md-button aria-label="Delete Photo" class="md-fab md-raised md-mini md-primary" ng-click="showDeletePhotoConfirmationForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.DELETE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button>
+                  <!-- md-button aria-label="Move Photo" class="md-fab md-raised md-mini md-primary" ng-click="showMovePhotoForm($event)">
+                    <md-icon md-svg-src="./bower_components/material-design-icons/content/svg/production/ic_unarchive_48px.svg"></md-icon>
+                    <md-tooltip md-direction="down">
+                      {{'CMS.PHOTOS.MOVE_PHOTO' | translate}}
+                    </md-tooltip>
+                  </md-button -->
+                </div>
+              </div>
+            </div>
+
+            <div class="lightbox_content_hover_main">
+              <div  class="lightbox_fullsize" layout="row" layout-align="center center">
+                <md-button ng-show="photos.length > 1" aria-label="Previous Photo" class="md-fab md-raised md-mini md-primary" ng-click="showPrevPhoto($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_before_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.PHOTOS.PREV_PHOTO' | translate}}
+                  </md-tooltip>
+                </md-button>
+                <div flex></div>
+                <md-button ng-show="photos.length > 1" aria-label="Next Photo" class="md-fab md-raised md-mini md-primary" ng-click="showNextPhoto($event)">
+                  <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_navigate_next_48px.svg"></md-icon>
+                  <md-tooltip md-direction="down">
+                    {{'CMS.PHOTOS.NEXT_PHOTO' | translate}}
+                  </md-tooltip>
+                </md-button>
+              </div>
+            </div>
+
+            <div class="lightbox_content_hover_footer">
+              <div  class="lightbox_fullsize" layout="row">
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </md-dialog-content>
+  </form>
+</md-dialog>

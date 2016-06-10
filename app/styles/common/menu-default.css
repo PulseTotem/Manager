@@ -1,0 +1,31 @@
+.menu_sidebar_switch {
+  width: 72px;
+  cursor: pointer;
+}
+
+.menu_sidebar_switch:focus {
+  outline: none;
+}
+
+.menu_submenu {
+  font-size: 0.6em;
+  cursor: pointer;
+}
+
+.menu_active {
+  background-color: white;
+  color: rgb(255,152,0);
+}
+
+.menu_active md-icon {
+  color: rgb(255,152,0) !important;
+}
+
+.menu-default {
+  min-height: 58px;
+}
+.menu-default-tools {
+  height: inherit;
+  max-height: inherit;
+  text-align: center;
+}

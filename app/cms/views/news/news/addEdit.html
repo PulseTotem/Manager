@@ -1,0 +1,135 @@
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections/' + collection.id)">{{collection.name}}</span> / {{'CMS.NEWS.NEW_NEWS' | translate}}
+</md-subheader>
+<form novalidate name="newNewsForm">
+  <div layout layout-sm="column" layout-margin>
+    <md-input-container flex>
+      <label>
+        <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_title_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.TITLE' | translate}}
+      </label>
+      <input type="text" required name="newNewsTitle" ng-model="newNews.title" />
+      <div ng-show="newNewsForm.newNewsTitle.$dirty && ! newNewsForm.newNewsTitle.$valid" ng-messages="newNewsForm.newNewsTitle.$error">
+        <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
+      </div>
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column" layout-margin>
+    <md-input-container flex>
+      <label>
+        <md-icon md-svg-src="./bower_components/material-design-icons/communication/svg/production/ic_message_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.CONTENT' | translate}}
+      </label>
+      <div class="pulsetotem_editor">
+        <text-angular-toolbar name="pulsetotem_toolbar1" ta-toolbar="[['bold','italics','underline','strikeThrough'], ['justifyLeft', 'justifyCenter', 'justifyRight', 'indent', 'outdent'], ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'pre', 'quote'], ['undo','redo'],['clear']]"></text-angular-toolbar>
+        <text-angular name="newNewsContent" ng-model="newNews.content" ta-target-toolbars='pulsetotem_toolbar1,pulsetotem_toolbar2'></text-angular>
+        <text-angular-toolbar class="pull-right" name="pulsetotem_toolbar2" ta-toolbar="[['charcount']]"></text-angular-toolbar>
+      </div>
+      <!-- textarea required name="newNewsContent" ng-model="newNews.content" columns="1" ></textarea -->
+      <div ng-show="newNewsForm.newNewsContent.$dirty && ! newNewsForm.newNewsContent.$valid" ng-messages="newNewsForm.newNewsContent.$error">
+        <div ng-message="required">{{'COMMON.REQUIRED_FIELD' | translate}}</div>
+      </div>
+    </md-input-container>
+  </div>
+  <div layout layout-sm="column" layout-margin>
+    <div layout layout-sm="column" layout-margin>
+      <md-input-container>
+        <label>
+          <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+          {{'CMS.NEWS.FORM.BEGIN' | translate}}
+        </label>
+        <input name="newNewsBegin" type="text" disabled ng-model="newNews.beginText" />
+      </md-input-container>
+      <md-button md-theme="altTheme" ng-init="showBeginDatePicker=false" ng-hide="showBeginDatePicker" aria-label="Edit begin" class="md-icon-button md-primary" ng-click="showBeginDatePicker=true">
+        <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
+      </md-button>
+      <time-date-picker ng-show="showBeginDatePicker" ng-model="newNews.begin" display-twentyfour="true" display-mode="full" on-cancel="showBeginDatePicker=false" on-save="showBeginDatePicker=false"></time-date-picker>
+    </div>
+
+    <div layout layout-sm="column" layout-margin>
+      <md-input-container>
+        <label>
+          <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+          {{'CMS.NEWS.FORM.END' | translate}}
+        </label>
+        <input name="newNewsEnd" type="text" disabled ng-model="newNews.endText" />
+      </md-input-container>
+      <md-button md-theme="altTheme" ng-init="showEndDatePicker=false" ng-hide="showEndDatePicker" aria-label="Edit end" class="md-icon-button md-primary" ng-click="showEndDatePicker=true">
+        <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
+      </md-button>
+      <time-date-picker ng-show="showEndDatePicker" ng-model="newNews.end" display-twentyfour="true" display-mode="full" on-cancel="showEndDatePicker=false" on-save="showEndDatePicker=false" mindate="newNews.begin"></time-date-picker>
+    </div>
+  </div>
+
+  <div layout layout-sm="column" layout-margin>
+    <md-toolbar class="md-primary md-hue-1">
+      <div class="md-toolbar-tools">
+        <h2>
+          <span ng-if="(newNews.begin == undefined || newNews.begin == null || newNews.begin == '') && (newNews.end == undefined || newNews.end == null || newNews.end == '')" translate="CMS.NEWS.FORM.ALWAYS_DISPLAY"></span>
+          <span ng-if="(newNews.begin != undefined && newNews.begin != null && newNews.begin != '') && (newNews.end == undefined || newNews.end == null || newNews.end == '')" translate="CMS.NEWS.FORM.FROM_BEGIN_DISPLAY" translate-values='{ BEGIN: newNews.beginText}'></span>
+          <span ng-if="(newNews.begin != undefined && newNews.begin != null && newNews.begin != '') && (newNews.end != undefined && newNews.end != null && newNews.end != '')" translate="CMS.NEWS.FORM.BEGIN_TO_END_DISPLAY" translate-values='{ BEGIN: newNews.beginText, END: newNews.endText}'></span>
+        </h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+  </div>
+
+  <div layout="column" layout-margin>
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6"
+                  md-row-height-gt-md="1:1" md-row-height="1:1"
+                  md-gutter="12px" md-gutter-gt-sm="8px" >
+
+      <md-grid-tile ng-if="newNews.newPicture == null">
+        <loading-md-grid-tile-content url="newNews.picture.path" on-hover-display="false" ng-cloak>
+          <md-button aria-label="Change Picture" class="md-raised md-mini md-primary"
+                     ngf-select="changeNewsPicture($file)"
+                     ngf-fix-orientation="true"
+                     ngf-multiple="false"
+                     ngf-accept="'image/*'"
+                     ngf-max-total-size="50MB">
+            <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+            <md-tooltip md-direction="top" ng-if="newNews.picture.id">
+              {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+            </md-tooltip>
+            <md-tooltip md-direction="right" ng-if="!newNews.picture.id">
+              {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+            </md-tooltip>
+          </md-button>
+          <md-button ng-if="newNews.picture.id" aria-label="Delete Picture" class="md-raised md-mini md-primary" ng-click="showConfirmDeletePicture($event)">
+            <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+            <md-tooltip md-direction="top">
+              {{'CMS.NEWS.FORM.DELETE_PICTURE' | translate}}
+            </md-tooltip>
+          </md-button>
+        </loading-md-grid-tile-content>
+      </md-grid-tile>
+
+      <md-grid-tile ng-if="newNews.newPicture != null">
+          <div class="loading-md-grid-tile-content loading-md-grid-tile-content-loaded" style="background-image: url({{newNews.newPicture.path}})" ng-cloak>
+            <md-grid-tile-footer>
+              <md-button aria-label="Change Picture" class="md-raised md-mini md-primary"
+                         ngf-select="changeNewsPicture($file)"
+                         ngf-fix-orientation="true"
+                         ngf-multiple="false"
+                         ngf-accept="'image/*'"
+                         ngf-max-total-size="50MB">
+                <md-icon md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_add_a_photo_48px.svg"></md-icon>
+                <md-tooltip md-direction="right">
+                  {{'CMS.NEWS.FORM.CHANGE_PICTURE' | translate}}
+                </md-tooltip>
+              </md-button>
+            </md-grid-tile-footer>
+          </div>
+      </md-grid-tile>
+
+    </md-grid-list>
+  </div>
+
+  <div layout="column" layout-margin>
+    <md-input-container flex="grow">
+      <md-button type="submit" class="md-raised md-primary" ng-disabled="!newNewsForm.newNewsTitle.$valid || !newNewsForm.newNewsContent.$valid || !newNewsForm.newNewsBegin.$valid || !newNewsForm.newNewsEnd.$valid" ng-click="saveNews()">
+        {{'CMS.NEWS.FORM.SEND' | translate}} !
+      </md-button>
+    </md-input-container>
+  </div>
+</form>
