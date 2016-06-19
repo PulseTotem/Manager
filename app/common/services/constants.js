@@ -8,14 +8,14 @@
  */
 angular.module('PulseTotemCommon')
     .constant('CONSTANTS', {
-        //backendUrl: 'http://localhost:4000/',
+        backendUrl: 'http://localhost:4000/',
         //backendUrl: 'https://backend.pulsetotem.fr/',
-        backendUrl: 'https://backend-test.pulsetotem.fr/',
+        //backendUrl: 'https://backend-test.pulsetotem.fr/',
         cmsUrl: 'http://localhost:8000/',
         //cmsUrl: 'https://cms.pulsetotem.fr/',
         //cmsUrl: 'https://cms-test.pulsetotem.fr/',
 
-        adminBackendPath: 'admins',
+        adminBackendPath: 'backendAuth',
         loginBackendPath: 'login',
         loginFromTokenBackendPath: 'loginFromToken',
 

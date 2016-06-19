@@ -63,29 +63,29 @@ angular
 
         if(typeof($rootScope.user) == "undefined" || typeof($rootScope.user.id) == "undefined") {
 
-          var adminT6SToken = null;
+          var authT6SToken = null;
           var tmpToken = false;
-          if($cookies.get("adminT6SToken")) {
-            adminT6SToken = $cookies.get("adminT6SToken");
+          if($cookies.get("authT6SToken")) {
+            authT6SToken = $cookies.get("authT6SToken");
           } else {
-            if($cookies.get("tmpAdminT6SToken")) {
-              adminT6SToken = $cookies.get("tmpAdminT6SToken");
+            if($cookies.get("tmpAuthT6SToken")) {
+              authT6SToken = $cookies.get("tmpAuthT6SToken");
               tmpToken = true;
             }
           }
 
-          if(adminT6SToken != null) {
+          if(authT6SToken != null) {
             event.preventDefault();
 
-            $http.post(CONSTANTS.backendUrl + CONSTANTS.loginFromTokenBackendPath, {'token' : adminT6SToken, 'tmp' : tmpToken})
+            $http.post(CONSTANTS.backendUrl + CONSTANTS.loginFromTokenBackendPath, {'token' : authT6SToken, 'tmp' : tmpToken})
               .success(function(data, status, headers, config) {
                 var successBackendInit = function() {
                   if(tmpToken) {
-                    $cookies.remove("adminT6SToken");
-                    $cookies.put("tmpAdminT6SToken", data.token);
+                    $cookies.remove("authT6SToken");
+                    $cookies.put("tmpAuthT6SToken", data.token);
                   } else {
-                    $cookies.remove("tmpAdminT6SToken");
-                    $cookies.put("adminT6SToken", data.token);
+                    $cookies.remove("tmpAuthT6SToken");
+                    $cookies.put("authT6SToken", data.token);
                   }
 
                   $route.reload();
@@ -93,8 +93,8 @@ angular
 
                 var failBackendInit = function(errorDesc) {
                   console.error(errorDesc);
-                  $cookies.remove("adminT6SToken");
-                  $cookies.remove("tmpAdminT6SToken");
+                  $cookies.remove("authT6SToken");
+                  $cookies.remove("tmpAuthT6SToken");
 
                   $rootScope.header = "login";
                   if (!$rootScope.$$phase) {
@@ -110,8 +110,8 @@ angular
 
               })
               .error(function(data, status, headers, config) {
-                $cookies.remove("adminT6SToken");
-                $cookies.remove("tmpAdminT6SToken");
+                $cookies.remove("authT6SToken");
+                $cookies.remove("tmpAuthT6SToken");
                 $rootScope.header = "login";
                 if (!$rootScope.$$phase) {
                   $rootScope.$apply(function () {
