@@ -1,0 +1,6 @@
+<div ng-class="{'loading-md-grid-tile-content loading-md-grid-tile-content-not-loaded' : imgLoading != '', 'loading-md-grid-tile-content loading-md-grid-tile-content-loaded' : imgLoading == ''}" ng-mouseenter="onEnter()" ng-mouseleave="onLeave()" >
+  <md-progress-circular class="md-accent" md-mode="{{imgLoading}}"></md-progress-circular>
+  <md-grid-tile-footer ng-show="showFooter">
+    <ng-transclude></ng-transclude>
+  </md-grid-tile-footer>
+</div>

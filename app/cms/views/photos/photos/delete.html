@@ -1,0 +1,30 @@
+<md-dialog md-theme="altTheme" aria-label="Delete Photo"  ng-cloak>
+  <form novalidate name="deletePhotoForm">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{'CMS.PHOTOS.DELETE_PHOTO_DIALOG.TITLE' | translate}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="closeForm()">
+          <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg" aria-label="Close"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout="column" layout-margin>
+          {{'CMS.PHOTOS.DELETE_PHOTO_DIALOG.CONTENT' | translate}}
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-progress-circular md-mode="{{deleteInProgression}}"></md-progress-circular>
+      <md-button ng-hide="deleteInProgression != ''" class="md-accent" type="submit" ng-click="closeForm()" style="margin-right:20px;">
+        {{'CMS.PHOTOS.DELETE_PHOTO_DIALOG.CANCEL' | translate}}
+      </md-button>
+      <md-button ng-hide="deleteInProgression != ''" class="md-primary" type="submit" ng-click="deletePhoto()" style="margin-right:20px;">
+        {{'CMS.PHOTOS.DELETE_PHOTO_DIALOG.CONFIRM' | translate}}
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

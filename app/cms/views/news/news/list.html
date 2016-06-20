@@ -1,0 +1,60 @@
+<md-subheader md-theme="altTheme" class="md-primary">
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / {{collection.name}}
+
+  <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
+    <md-fab-trigger>
+      <md-button class="md-fab md-primary" aria-label="New Menu">
+        <md-icon md-svg-src="./bower_components/material-design-icons/navigation/svg/production/ic_more_vert_48px.svg"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <md-button aria-label="New news" class="md-fab md-raised md-mini md-primary" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/add')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.NEWS.NEW_NEWS' | translate}}
+        </md-tooltip>
+      </md-button>
+      <md-button aria-label="Delete Feed" class="md-fab md-raised md-mini md-primary" ng-click="showDeleteConfirmationForm($event)">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+        <md-tooltip md-direction="left">
+          {{'CMS.NEWS.DELETE_COLLECTION' | translate}}
+        </md-tooltip>
+      </md-button>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+</md-subheader>
+<md-input-container class="album_title" layout="row">
+  <md-progress-circular md-mode="{{updateFeedInfosFeedback}}"></md-progress-circular>
+  <input aria-label="Feed title" ng-model="collection.name" ng-change="updateFeedInfos()">
+</md-input-container>
+<md-content ng-if="newsLoaded && news.length == 0" flex layout="column" layout-padding layout-align="center center">
+  <img ng-src="./images/logos/pulseTotem_picto_medium.png">
+  {{'CMS.NEWS.NO_NEWS' | translate}}
+</md-content>
+<md-progress-circular class="action-loading md-accent" md-mode="{{actionLoading}}"></md-progress-circular>
+<md-list flex>
+  <md-list-item class="md-2-line" ng-if="news.length > 0" ng-repeat="newsItem in news" ng-click="null">
+    <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
+    <div class="md-list-item-text" layout="column" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id)">
+      <h3>{{newsItem.title}}</h3>
+      <h4 ng-if="(newsItem.begin == undefined || newsItem.begin == null || newsItem.begin == '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.ALWAYS_DISPLAY' | translate}}
+      </h4>
+      <h4 ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.FROM_BEGIN_DISPLAY' | translate: newsItem.translationData}}
+      </h4>
+      <h4 ng-if="(newsItem.begin != undefined && newsItem.begin != null && newsItem.begin != '') && (newsItem.end != undefined && newsItem.end != null && newsItem.end != '')">
+        <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
+        {{'CMS.NEWS.FORM.BEGIN_TO_END_DISPLAY' | translate: newsItem.translationData}}
+      </h4>
+    </div>
+    <md-button class="md-icon-button" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')" aria-label="Edit news">
+      <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
+    </md-button>
+    <md-button class="md-icon-button" ng-click="showDeleteNewsConfirmationForm($event, newsItem.id)" aria-label="Delete news">
+      <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_delete_48px.svg"></md-icon>
+    </md-button>
+  </md-list-item>
+</md-list>

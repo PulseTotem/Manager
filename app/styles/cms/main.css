@@ -1,0 +1,35 @@
+md-grid-list {
+  margin: 8px;
+}
+
+md-grid-list md-grid-tile:focus {
+  outline: none;
+}
+
+.time-date>.control>.full-title {
+  background-color: rgb(103,58,183) !important;
+}
+
+.time-date>.control>.slider>.date-control>.days .day-cell.today {
+  color: rgb(103,58,183) !important;
+}
+
+.time-date>.control>.slider>.date-control>.days .day-cell:active, .time-date>.control>.slider>.date-control>.days .day-cell:hover {
+  background-color: rgb(103,58,183) !important;
+}
+
+.time-date>.control>.slider>.date-control>.days .day-cell.selected {
+  background-color: rgb(103,58,183) !important;
+}
+
+.time-date.full-mode>.buttons {
+  background-color: rgb(103,58,183) !important;
+}
+
+.pulsetotem_editor .ta-editor.ta-html, .pulsetotem_editor .ta-scroll-window.form-control {
+  min-height: 100px !important;
+}
+
+.pulsetotem_editor .ta-scroll-window > .ta-bind {
+  min-height: 100px !important;
+}
