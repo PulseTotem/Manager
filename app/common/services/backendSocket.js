@@ -13,7 +13,7 @@ angular.module('PulseTotemCommon')
     backendSocketFactory.backendSocket = null;
 
     backendSocketFactory.init = function(token, successCB, failCB) {
-      var backendIOSocket = io(CONSTANTS.backendUrl + CONSTANTS.adminBackendPath,
+      var backendIOSocket = io(CONSTANTS.backendUrl + CONSTANTS.managersBackendPath,
         {
           'reconnection': true,
           'reconnectionAttempts': 10,
