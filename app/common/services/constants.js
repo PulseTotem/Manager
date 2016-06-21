@@ -15,7 +15,7 @@ angular.module('PulseTotemCommon')
         //cmsUrl: 'https://cms.pulsetotem.fr/',
         //cmsUrl: 'https://cms-test.pulsetotem.fr/',
 
-        adminBackendPath: 'backendAuth',
+        managersBackendPath: 'managers',
         loginBackendPath: 'login',
         loginFromTokenBackendPath: 'loginFromToken',
 
