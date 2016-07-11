@@ -8,7 +8,7 @@
  * Controller of the PulseTotemCommon
  */
 angular.module('PulseTotemCommon')
-    .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', '$cookies', '$location', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, $cookies, $location, CONSTANTS, $mdSidenav) {
+    .controller('PulseTotemCommon.MenuCtrl', ['$rootScope', '$scope', '$translate', 'backendSocket', 'callbackManager', '$cookies', '$location', 'CONSTANTS', '$mdSidenav', function ($rootScope, $scope, $translate, backendSocket, callbackManager, $cookies, $location, CONSTANTS, $mdSidenav) {
 
         $scope.langList = [
           {
@@ -58,5 +58,20 @@ angular.module('PulseTotemCommon')
               .toggle();
           }
         }
+
+        $scope.manageTeams = function() {
+          backendSocket.on('ManageTeamsAnswer', function(response) {
+            callbackManager(response, function (allSDIs) {
+                alert("OK !");
+              },
+              function (fail) {
+                alert("Fail !");
+                console.error(fail);
+              }
+            );
+          });
+
+          backendSocket.emit('ManageTeams');
+        };
 
     }]);
