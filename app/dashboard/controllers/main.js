@@ -83,13 +83,37 @@ angular.module('PulseTotemManagerDashboard')
     $scope.movePhotosToTeam = function(coll, teamJSON) {
       var team = JSON.parse(teamJSON);
 
-      $http.post(CONSTANTS.cmsUrl + CONSTANTS.cmsPhotosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsPhotosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
         .success(function (data, status, headers, config) {
           alert('Ok');
         })
         .error(function (data, status, headers, config) {
           console.log("fail during move photos coll");
         });
-    }
+    };
+
+    $scope.moveVideosToTeam = function(coll, teamJSON) {
+      var team = JSON.parse(teamJSON);
+
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsVideosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+        .success(function (data, status, headers, config) {
+          alert('Ok');
+        })
+        .error(function (data, status, headers, config) {
+          console.log("fail during move videos coll");
+        });
+    };
+
+    $scope.moveNewsToTeam = function(coll, teamJSON) {
+      var team = JSON.parse(teamJSON);
+
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsNewsCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+        .success(function (data, status, headers, config) {
+          alert('Ok');
+        })
+        .error(function (data, status, headers, config) {
+          console.log("fail during move news coll");
+        });
+    };
 
   }]);
