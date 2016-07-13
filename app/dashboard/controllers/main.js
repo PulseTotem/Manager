@@ -83,7 +83,11 @@ angular.module('PulseTotemManagerDashboard')
     $scope.movePhotosToTeam = function(coll, teamJSON) {
       var team = JSON.parse(teamJSON);
 
-      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsPhotosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsPhotosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {}, {
+        headers: {
+          'Authorization': $rootScope.user.cmsAuthkey
+        }
+      })
         .success(function (data, status, headers, config) {
           alert('Ok');
         })
@@ -95,7 +99,11 @@ angular.module('PulseTotemManagerDashboard')
     $scope.moveVideosToTeam = function(coll, teamJSON) {
       var team = JSON.parse(teamJSON);
 
-      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsVideosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsVideosCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {}, {
+        headers: {
+          'Authorization': $rootScope.user.cmsAuthkey
+        }
+      })
         .success(function (data, status, headers, config) {
           alert('Ok');
         })
@@ -107,7 +115,11 @@ angular.module('PulseTotemManagerDashboard')
     $scope.moveNewsToTeam = function(coll, teamJSON) {
       var team = JSON.parse(teamJSON);
 
-      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsNewsCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {})
+      $http.post(CONSTANTS.cmsUrl + "admin/" + CONSTANTS.cmsNewsCollectionsPath + coll.id + "/" + CONSTANTS.cmsTeamsPath + team.id, {}, {
+        headers: {
+          'Authorization': $rootScope.user.cmsAuthkey
+        }
+      })
         .success(function (data, status, headers, config) {
           alert('Ok');
         })
