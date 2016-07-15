@@ -20,6 +20,7 @@ angular.module('PulseTotemCommon')
         loginFromTokenBackendPath: 'loginFromToken',
 
         cmsUsersPath: 'users/',
+        cmsTeamsPath: 'teams/',
         cmsPhotosCollectionsPath: 'images_collections/',
         cmsPhotosPath: 'images/',
         cmsVideosCollectionsPath: 'videos_collections/',

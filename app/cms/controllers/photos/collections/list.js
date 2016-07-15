@@ -9,6 +9,7 @@
  */
 angular.module('PulseTotemManagerCMS')
   .controller('PulseTotemManagerCMS.Photos.CollectionsListCtrl', ['$rootScope', '$scope', 'PhotosCollection', 'CONSTANTS', '$mdDialog', '$mdMedia', function($rootScope, $scope, PhotosCollection, CONSTANTS, $mdDialog, $mdMedia){
+
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 

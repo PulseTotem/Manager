@@ -32,6 +32,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-usemin');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-bumpup');
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
@@ -433,7 +434,13 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
-    }
+    },
+
+// ---------------------------------------------
+//                                    bump task
+// ---------------------------------------------
+    bumpup: ['package.json', 'bower.json']
+// ---------------------------------------------
   });
 
 

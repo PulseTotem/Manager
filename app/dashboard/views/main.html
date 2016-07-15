@@ -1,3 +1,86 @@
 <md-content>
   Home Dashboard
 </md-content>
+
+<h1>Teams</h1>
+<ul>
+  <li ng-repeat="team in teams"><h3>{{team.name}}</h3>
+    <ul><h4>Users</h4>
+      <li ng-repeat="user in team.users">{{ user.username }} - {{ user.email }}</li>
+    </ul>
+    <ul><h4>Collections</h4>
+      <li><h5>Photos</h5>
+        <ul>
+          <li ng-repeat="pColl in team.imagesCollections">
+            {{pColl.name}}
+          </li>
+        </ul>
+      </li>
+      <li><h5>Videos</h5>
+        <ul>
+          <li ng-repeat="vColl in team.videosCollections">
+            {{vColl.name}}
+          </li>
+        </ul>
+      </li>
+      <li><h5>News</h5>
+        <ul>
+          <li ng-repeat="nColl in team.newsCollections">
+            {{nColl.name}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h1>Users</h1>
+<ul>
+  <li ng-repeat="user in users"><h3>{{ user.username }} - {{ user.email }}</h3>
+    <ul><h4>Photos</h4>
+      <li ng-repeat="pColl in usersCollections[user.id].photosCollections">
+        <table>
+          <td>
+            {{ pColl.name }}
+          </td>
+          <td>
+            <select class="form-control" ng-model="newTeam">
+              <option ng-repeat="team in teams" value="{{team}}">{{team.name}}</option>
+            </select>
+            <button class="btn btn-primary" ng-click="movePhotosToTeam(pColl, newTeam)">Move</button>
+          </td>
+        </table>
+      </li>
+    </ul>
+    <ul><h4>Videos</h4>
+      <li ng-repeat="vColl in usersCollections[user.id].videosCollections">
+        <table>
+          <td>
+            {{ vColl.name }}
+          </td>
+          <td>
+            <select class="form-control" ng-model="newTeam">
+              <option ng-repeat="team in teams" value="{{team}}">{{team.name}}</option>
+            </select>
+            <button class="btn btn-primary" ng-click="moveVideosToTeam(vColl, newTeam)">Move</button>
+          </td>
+        </table>
+      </li>
+    </ul>
+    <ul><h4>News</h4>
+      <li ng-repeat="nColl in usersCollections[user.id].newsCollections">
+        <table>
+          <td>
+            {{ nColl.name }}
+          </td>
+          <td>
+            <select class="form-control" ng-model="newTeam">
+              <option ng-repeat="team in teams" value="{{team}}">{{team.name}}</option>
+            </select>
+            <button class="btn btn-primary" ng-click="moveNewsToTeam(nColl, newTeam)">Move</button>
+          </td>
+        </table>
+      </li>
+    </ul>
+  </li>
+</ul>
