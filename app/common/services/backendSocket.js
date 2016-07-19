@@ -34,6 +34,8 @@ angular.module('PulseTotemCommon')
       backendIOSocket.on("UserDescriptionFromToken", function (response) {
         callbackManager(response, function (userDesc) {
             $rootScope.user = userDesc;
+            $rootScope.currentUser = $rootScope.user;
+            $rootScope.currentTeam = null;
             successCB();
           },
           function (fail) {
