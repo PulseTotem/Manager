@@ -52,7 +52,7 @@ angular.module('PulseTotemManagerCMS')
             $scope.newCollection.description = $scope.collection.description;
             PhotosCollection.resource($rootScope.user.cmsAuthkey).update(
               {
-                userid: $rootScope.user.cmsId,
+                teamid: $rootScope.currentTeam.cmsId,
                 id: $scope.collection.id
               },
               $scope.newCollection,

@@ -30,7 +30,7 @@ angular.module('PulseTotemManagerCMS')
         }
 
         Upload.upload({
-          url: CONSTANTS.cmsUrl + CONSTANTS.cmsUsersPath + $rootScope.user.cmsId + '/' + CONSTANTS.cmsPhotosCollectionsPath + $scope.collectionid + '/' + CONSTANTS.cmsPhotosPath,
+          url: CONSTANTS.cmsUrl + CONSTANTS.cmsTeamsPath + $rootScope.currentTeam.cmsId + '/' + CONSTANTS.cmsPhotosCollectionsPath + $scope.collectionid + '/' + CONSTANTS.cmsPhotosPath,
           headers: {
             'Authorization': $rootScope.user.cmsAuthkey
           },

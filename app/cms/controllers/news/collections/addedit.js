@@ -12,58 +12,64 @@ angular.module('PulseTotemManagerCMS')
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
-    //Add
-    $scope.addInProgression = "";
+    var afterUpdateTeam = function() {
 
-    $scope.newCollection = {};
-    $scope.initNewCollection = function() {
-      var collectionResource = NewsCollection.resource($rootScope.user.cmsAuthkey);
-      $scope.newCollection = new collectionResource();
-      $scope.newCollection.name = "";
-      $scope.newCollection.description = "";
-    };
-    $scope.initNewCollection();
+      //Add
+      $scope.addInProgression = "";
 
-    $scope.addCollection = function() {
-      $scope.addInProgression = "indeterminate";
-      NewsCollection.resource($rootScope.user.cmsAuthkey).save({userid: $rootScope.user.cmsId}, $scope.newCollection, function (collectionDesc) {
-        $scope.addInProgression = "";
-        $scope.initNewCollection();
-        $mdDialog.hide();
-        $rootScope.goTo('/cms/news/collections/' + collectionDesc.id);
-      });
-    };
+      $scope.newCollection = {};
+      $scope.initNewCollection = function () {
+        var collectionResource = NewsCollection.resource($rootScope.user.cmsAuthkey);
+        $scope.newCollection = new collectionResource();
+        $scope.newCollection.name = "";
+        $scope.newCollection.description = "";
+      };
+      $scope.initNewCollection();
 
-    //Delete
-    $scope.deleteInProgression = "";
-    if(typeof($routeParams.collectionid) == "undefined") {
-      $scope.collectionid = null;
-    } else {
-      $scope.collectionid = $routeParams.collectionid;
-    }
+      $scope.addCollection = function () {
+        $scope.addInProgression = "indeterminate";
+        NewsCollection.resource($rootScope.user.cmsAuthkey).save({teamid: $rootScope.currentTeam.cmsId}, $scope.newCollection, function (collectionDesc) {
+          $scope.addInProgression = "";
+          $scope.initNewCollection();
+          $mdDialog.hide();
+          $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/news/collections/' + collectionDesc.id);
+        });
+      };
 
-    $scope.deleteCollection = function() {
-      if($scope.collectionid != null) {
-        $scope.deleteInProgression = "indeterminate";
-        NewsCollection.resource($rootScope.user.cmsAuthkey).delete(
-          {
-            userid: $rootScope.user.cmsId,
-            id: $scope.collectionid
-          },
-          function () {
-            $scope.deleteInProgression = "";
-            $mdDialog.hide();
-            $rootScope.goTo('/cms/news/collections/');
-          }
-        );
+      //Delete
+      $scope.deleteInProgression = "";
+      if (typeof($routeParams.collectionid) == "undefined") {
+        $scope.collectionid = null;
       } else {
-        $rootScope.goTo('/cms/news/collections/');
+        $scope.collectionid = $routeParams.collectionid;
       }
+
+      $scope.deleteCollection = function () {
+        if ($scope.collectionid != null) {
+          $scope.deleteInProgression = "indeterminate";
+          NewsCollection.resource($rootScope.user.cmsAuthkey).delete(
+            {
+              teamid: $rootScope.currentTeam.cmsId,
+              id: $scope.collectionid
+            },
+            function () {
+              $scope.deleteInProgression = "";
+              $mdDialog.hide();
+              $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/news/collections/');
+            }
+          );
+        } else {
+          $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/news/collections/');
+        }
+      };
+
+      $scope.closeForm = function () {
+        $mdDialog.cancel();
+      };
+
     };
 
-    $scope.closeForm = function() {
-      $mdDialog.cancel();
-    };
+    manageCurrentState.updateTeam(afterUpdateTeam);
 
   }]);
 
