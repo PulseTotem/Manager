@@ -1,5 +1,5 @@
 <md-subheader md-theme="altTheme" class="md-primary">
-  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections/' + collection.id)">{{collection.name}}</span> / {{'CMS.NEWS.NEW_NEWS' | translate}}
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / <span class="breadcrumb_item" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections/' + collection.id)">{{collection.name}}</span> / {{'CMS.NEWS.NEW_NEWS' | translate}}
 </md-subheader>
 <form novalidate name="newNewsForm">
   <div layout layout-sm="column" layout-margin>

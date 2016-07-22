@@ -25,6 +25,7 @@ angular
     'scDateTime',
     'textAngular',
     'PulseTotemCommon',
+    'PulseTotemManagerTeams',
     'PulseTotemManagerDashboard',
     'PulseTotemManagerCMS'
     ])
@@ -38,6 +39,8 @@ angular
       $mdThemingProvider.theme('altTheme')
         .primaryPalette('deep-purple')
         .accentPalette('orange');
+    $mdThemingProvider.theme('altThemeBis')
+      .primaryPalette('brown');
     }])
     .run(['$rootScope', '$location', '$cookies', '$http', 'CONSTANTS', 'backendSocket', '$route', function($rootScope, $location, $cookies, $http, CONSTANTS, backendSocket, $route) {
 

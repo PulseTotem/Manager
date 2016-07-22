@@ -11,7 +11,7 @@ angular.module('PulseTotemManagerCMS')
   .factory('NewsCollection', ["$resource", "CONSTANTS", function($resource, CONSTANTS) {
     return {
       resource: function (token) {
-        return $resource(CONSTANTS.cmsUrl + CONSTANTS.cmsUsersPath +':userid/' + CONSTANTS.cmsNewsCollectionsPath + ':id', null,
+        return $resource(CONSTANTS.cmsUrl + CONSTANTS.cmsTeamsPath +':teamid/' + CONSTANTS.cmsNewsCollectionsPath + ':id', null,
           {
             'get':    {
               method:'GET',

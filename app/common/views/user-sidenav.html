@@ -1,0 +1,46 @@
+<md-toolbar md-theme="altTheme">
+  <div class="md-toolbar-tools">
+
+    <div class="md-accent menu_sidebar_switch" layout layout-align="center center" ng-click="toggleRight()">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/social/svg/production/ic_person_48px.svg"></md-icon>
+    </div>
+
+    &nbsp; {{user.username}}
+
+    <span flex></span>
+
+    <div class="md-accent menu_sidebar_switch" layout layout-align="center center" ng-click="toggleRight()">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/navigation/svg/production/ic_close_48px.svg"></md-icon>
+    </div>
+
+  </div>
+</md-toolbar>
+<md-content layout-padding>
+  <md-list>
+    <md-menu md-position-mode="target-right target" >
+      <md-list-item ng-click="$mdOpenMenu($event)">
+        <md-icon md-svg-icon="./bower_components/material-design-icons/content/svg/production/ic_flag_48px.svg"></md-icon>
+        <p>{{ 'COMMON.LANG' | translate }}</p>
+        <md-divider inset></md-divider>
+      </md-list-item>
+      <md-menu-content width="4" >
+        <md-menu-item ng-repeat="lang in langList">
+          <md-button ng-click="changeLanguage(lang.key)">
+            <div layout="row">
+              <img md-menu-align-target ng-src="{{lang.flag}}" />
+              <span flex></span>
+              <p>
+                {{ lang.title | translate }}
+              </p>
+            </div>
+          </md-button>
+        </md-menu-item>
+      </md-menu-content>
+    </md-menu>
+    <md-list-item ng-click="logout()">
+      <md-icon md-svg-icon="./bower_components/material-design-icons/action/svg/production/ic_exit_to_app_48px.svg"></md-icon>
+      <p>{{ 'COMMON.LOGOUT' | translate }}</p>
+      <md-divider inset></md-divider>
+    </md-list-item>
+  </md-list>
+</md-content>

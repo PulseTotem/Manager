@@ -38,7 +38,7 @@
   md-row-height-gt-md="1:1" md-row-height="1:1"
   md-gutter="12px" md-gutter-gt-sm="8px" >
 
-  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/cms/photos/collections/' + collection.id)">
+  <md-grid-tile ng-repeat="collection in collections" ng-click="goTo('/teams/' + currentTeam.name + '/cms/photos/collections/' + collection.id)">
     <loading-md-grid-tile-content url="collection.coverPath">
       <md-icon class="md-primary" md-svg-src="./bower_components/material-design-icons/image/svg/production/ic_photo_album_48px.svg"></md-icon><span>{{collection.name}}</span>
     </loading-md-grid-tile-content>
