@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.Videos
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia){
+  .controller('PulseTotemManagerCMS.Videos.VideosListCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'VideosCollection', 'Video', '$mdDialog', '$mdMedia', 'manageCurrentState', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, VideosCollection, Video, $mdDialog, $mdMedia, manageCurrentState){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 

@@ -1,5 +1,5 @@
 <md-subheader md-theme="altTheme" class="md-primary">
-  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / {{collection.name}}
+  {{'CMS.NEWS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections')">{{'CMS.NEWS.COLLECTIONS' | translate}}</span> / {{collection.name}}
 
   <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
     <md-fab-trigger>
@@ -8,7 +8,7 @@
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <md-button aria-label="New news" class="md-fab md-raised md-mini md-primary" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/add')">
+      <md-button aria-label="New news" class="md-fab md-raised md-mini md-primary" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections/' + collection.id + '/news/add')">
         <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
         <md-tooltip md-direction="left">
           {{'CMS.NEWS.NEW_NEWS' | translate}}
@@ -35,7 +35,7 @@
 <md-list flex>
   <md-list-item class="md-2-line" ng-if="news.length > 0" ng-repeat="newsItem in news" ng-click="null">
     <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
-    <div class="md-list-item-text" layout="column" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id)">
+    <div class="md-list-item-text" layout="column" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections/' + collection.id + '/news/' + newsItem.id)">
       <h3>{{newsItem.title}}</h3>
       <h4 ng-if="(newsItem.begin == undefined || newsItem.begin == null || newsItem.begin == '') && (newsItem.end == undefined || newsItem.end == null || newsItem.end == '')">
         <md-icon md-svg-src="./bower_components/material-design-icons/action/svg/production/ic_date_range_48px.svg"></md-icon>
@@ -50,7 +50,7 @@
         {{'CMS.NEWS.FORM.BEGIN_TO_END_DISPLAY' | translate: newsItem.translationData}}
       </h4>
     </div>
-    <md-button class="md-icon-button" ng-click="goTo('/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')" aria-label="Edit news">
+    <md-button class="md-icon-button" ng-click="goTo('/teams/' + currentTeam.name + '/cms/news/collections/' + collection.id + '/news/' + newsItem.id + '/edit')" aria-label="Edit news">
       <md-icon md-svg-src="./bower_components/material-design-icons/editor/svg/production/ic_mode_edit_48px.svg"></md-icon>
     </md-button>
     <md-button class="md-icon-button" ng-click="showDeleteNewsConfirmationForm($event, newsItem.id)" aria-label="Delete news">

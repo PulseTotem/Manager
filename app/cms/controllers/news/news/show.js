@@ -8,7 +8,7 @@
  * Controller of the PulseTotemManagerCMS.News
  */
 angular.module('PulseTotemManagerCMS')
-  .controller('PulseTotemManagerCMS.News.NewsShowCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'NewsCollection', 'News', '$mdDialog', '$mdMedia', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, NewsCollection, News, $mdDialog, $mdMedia){
+  .controller('PulseTotemManagerCMS.News.NewsShowCtrl', ['$rootScope', '$scope', '$routeParams', '$timeout', 'CONSTANTS', 'NewsCollection', 'News', '$mdDialog', '$mdMedia', 'manageCurrentState', function($rootScope, $scope, $routeParams, $timeout, CONSTANTS, NewsCollection, News, $mdDialog, $mdMedia, manageCurrentState){
     $rootScope.activeMenu = 'cms';
     $rootScope.activeNavbar = 'cms';
 
