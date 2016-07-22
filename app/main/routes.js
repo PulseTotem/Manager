@@ -75,7 +75,7 @@ angular
 
       // Routes for CMS -> News
       .when('/teams/:teamname/cms/news', {
-        redirectTo: '/cms/news/collections'
+        redirectTo: '/teams/:teamname/cms/news/collections'
       })
       .when('/teams/:teamname/cms/news/collections', {
         templateUrl: '../cms/views/news/collections/list.html',
