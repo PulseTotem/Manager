@@ -90,13 +90,23 @@
     </div>
 
     <div ng-if="header == 'default'" layout="column">
-      <md-toolbar class="menu-default" ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
+      <!-- md-toolbar class="menu-default" ng-include="'common/views/menu-default.html'" ng-controller="PulseTotemCommon.MenuCtrl">
+      </md-toolbar -->
+      <md-toolbar class="menu-default" ng-include="'common/views/menu-default.html'">
 
       </md-toolbar>
 
-      <md-sidenav ng-if="activeNavbar != ''" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+      <!-- md-sidenav ng-if="activeNavbar != ''" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
                   ng-controller="PulseTotemCommon.MenuCtrl"
                   ng-include="'' + activeNavbar + '/views/sidenav/' + activeNavbar + '.html'">
+      </md-sidenav -->
+      <md-sidenav ng-if="activeNavbar != ''" class="md-sidenav-left md-whiteframe-z2" md-component-id="left"
+                  ng-include="'' + activeNavbar + '/views/sidenav/' + activeNavbar + '.html'">
+      </md-sidenav>
+
+      <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right"
+                  ng-controller="PulseTotemCommon.MenuCtrl"
+                  ng-include="'common/views/user-sidenav.html'">
       </md-sidenav>
 
       <div layout="column" layout-fill ng-view>
@@ -164,12 +174,17 @@
     <script src="common/services/constants.js"></script>
     <script src="common/services/backendSocket.js"></script>
     <script src="common/services/callbackManager.js"></script>
+    <script src="common/services/manageCurrentState.js"></script>
     <script src="common/services/team.js"></script>
     <script src="common/services/user.js"></script>
     <script src="common/directives/loading-md-grid-tile-content.js"></script>
     <script src="common/controllers/global.js"></script>
     <script src="common/controllers/menu.js"></script>
     <script src="common/controllers/login.js"></script>
+
+    <!-- teams -->
+    <script src="teams/teams.js"></script>
+    <script src="teams/controllers/list.js"></script>
 
     <!-- dashboard -->
     <script src="dashboard/dashboard.js"></script>

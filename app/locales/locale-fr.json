@@ -19,11 +19,17 @@
     },
     "REQUIRED_FIELD" : "Ce champs est requis.",
     "NAME" : "Nom",
-    "DESCRIPTION" : "Description"
+    "DESCRIPTION" : "Description",
+    "LANG" : "Langue"
   },
   "MENU" : {
+    "CHOOSE_TEAM" : "Choisissez une équipe",
     "DASHBOARD" : "Tableau de bord",
-    "LIBRARY" : "Ma Bibliothèque"
+    "LIBRARY" : "Bibliothèque"
+  },
+  "TEAMS" : {
+    "YOUR_TEAMS" : "Vos équipes",
+    "CHOOSE_TEAM" : "Choisissez une équipe pour continuer."
   },
   "CMS" : {
     "PHOTOS" : {

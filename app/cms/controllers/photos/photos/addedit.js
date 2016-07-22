@@ -23,14 +23,14 @@ angular.module('PulseTotemManagerCMS')
           $scope.newCollection = new collectionResource();
           $scope.newCollection.name = "Album " + moment().format('YYYY-MM-DD HH:mm:ss');
           $scope.newCollection.description = "";
-          PhotosCollection.resource($rootScope.user.cmsAuthkey).save({userid: $rootScope.user.cmsId}, $scope.newCollection, function (collectionDesc) {
+          PhotosCollection.resource($rootScope.user.cmsAuthkey).save({teamid: $rootScope.currentTeam.cmsId}, $scope.newCollection, function (collectionDesc) {
             $scope.collectionid = collectionDesc.id;
             $scope.uploadFiles(files);
           });
         }
 
         Upload.upload({
-          url: CONSTANTS.cmsUrl + CONSTANTS.cmsUsersPath + $rootScope.user.cmsId + '/' + CONSTANTS.cmsPhotosCollectionsPath + $scope.collectionid + '/' + CONSTANTS.cmsPhotosPath,
+          url: CONSTANTS.cmsUrl + CONSTANTS.cmsTeamsPath + $rootScope.currentTeam.cmsId + '/' + CONSTANTS.cmsPhotosCollectionsPath + $scope.collectionid + '/' + CONSTANTS.cmsPhotosPath,
           headers: {
             'Authorization': $rootScope.user.cmsAuthkey
           },
@@ -42,7 +42,7 @@ angular.module('PulseTotemManagerCMS')
             if(typeof($routeParams.collectionid) != "undefined") {
               $scope.$parent.loadPhotos();
             } else {
-              $rootScope.goTo('/cms/photos/collections/' + $scope.collectionid);
+              $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/photos/collections/' + $scope.collectionid);
             }
           });
         }, function (response) {
@@ -69,7 +69,7 @@ angular.module('PulseTotemManagerCMS')
         $scope.deleteInProgression = "indeterminate";
         Photo.resource($rootScope.user.cmsAuthkey).delete(
           {
-            userid: $rootScope.user.cmsId,
+            teamid: $rootScope.currentTeam.cmsId,
             collectionid: $scope.collectionid,
             id: $scope.currentDisplayPhoto.id
           },
@@ -81,7 +81,7 @@ angular.module('PulseTotemManagerCMS')
             if($scope.collectionid != null) {
               $scope.loadPhotos();
             } else {
-              $rootScope.goTo('/cms/photos/collections/');
+              $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/photos/collections/');
             }
           }
         );
@@ -90,7 +90,7 @@ angular.module('PulseTotemManagerCMS')
         if($scope.collectionid != null) {
           $scope.loadPhotos();
         } else {
-          $rootScope.goTo('/cms/photos/collections/');
+          $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/photos/collections/');
         }
       }
     };

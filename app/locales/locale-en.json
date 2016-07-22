@@ -19,11 +19,17 @@
     },
     "REQUIRED_FIELD" : "This field is required.",
     "NAME" : "Name",
-    "DESCRIPTION" : "Description"
+    "DESCRIPTION" : "Description",
+    "LANG" : "Language"
   },
   "MENU" : {
+    "CHOOSE_TEAM" : "Choose a team",
     "DASHBOARD" : "Dashboard",
-    "LIBRARY" : "My Library"
+    "LIBRARY" : "Library"
+  },
+  "TEAMS" : {
+    "YOUR_TEAMS" : "Your Teams",
+    "CHOOSE_TEAM" : "Choose a team to continue."
   },
   "CMS" : {
     "PHOTOS" : {

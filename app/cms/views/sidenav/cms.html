@@ -14,19 +14,22 @@
     </div>
   </div>
 </md-toolbar>
+<md-toolbar md-theme="altThemeBis" ng-include="'teams/views/sidenav/teams.html'">
+
+</md-toolbar>
 <md-content layout-padding>
   <md-list>
-    <md-list-item ng-click="goTo('/cms/photos')">
+    <md-list-item ng-click="goTo('/teams/' + currentTeam.name + '/cms/photos')">
       <md-icon md-svg-icon="./bower_components/material-design-icons/image/svg/production/ic_collections_48px.svg"></md-icon>
       <p>{{'CMS.PHOTOS.TITLE' | translate}}</p>
       <md-divider inset></md-divider>
     </md-list-item>
-    <md-list-item ng-click="goTo('/cms/videos')">
+    <md-list-item ng-click="goTo('/teams/' + currentTeam.name + '/cms/videos')">
       <md-icon md-svg-icon="./bower_components/material-design-icons/av/svg/production/ic_video_library_48px.svg"></md-icon>
       <p>{{'CMS.VIDEOS.TITLE' | translate}}</p>
       <md-divider inset></md-divider>
     </md-list-item>
-    <md-list-item ng-click="goTo('/cms/news')">
+    <md-list-item ng-click="goTo('/teams/' + currentTeam.name + '/cms/news')">
       <md-icon md-svg-icon="./bower_components/material-design-icons/action/svg/production/ic_announcement_48px.svg"></md-icon>
       <p>{{'CMS.NEWS.TITLE' | translate}}</p>
       <md-divider inset></md-divider>

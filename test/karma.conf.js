@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js',
       'bower_components/angular-translate-handler-log/angular-translate-handler-log.js',
       'bower_components/moment/moment.js',
+      'bower_components/moment/locale/fr.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/ng-file-upload/ng-file-upload.js',

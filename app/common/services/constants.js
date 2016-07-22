@@ -30,5 +30,5 @@ angular.module('PulseTotemCommon')
         cmsNewsPicturePath: 'picture/',
 
         loginRoute: '/',
-        afterLoginRoute: '/cms'
+        afterLoginRoute: '/teams'
     });

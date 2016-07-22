@@ -26,11 +26,11 @@ angular.module('PulseTotemManagerCMS')
 
     $scope.addCollection = function() {
       $scope.addInProgression = "indeterminate";
-      VideosCollection.resource($rootScope.user.cmsAuthkey).save({userid: $rootScope.user.cmsId}, $scope.newCollection, function (collectionDesc) {
+      VideosCollection.resource($rootScope.user.cmsAuthkey).save({teamid: $rootScope.currentTeam.cmsId}, $scope.newCollection, function (collectionDesc) {
         $scope.addInProgression = "";
         $scope.initNewCollection();
         $mdDialog.hide();
-        $rootScope.goTo('/cms/videos/collections/' + collectionDesc.id);
+        $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/videos/collections/' + collectionDesc.id);
       });
     };
 
@@ -47,17 +47,17 @@ angular.module('PulseTotemManagerCMS')
         $scope.deleteInProgression = "indeterminate";
         VideosCollection.resource($rootScope.user.cmsAuthkey).delete(
           {
-            userid: $rootScope.user.cmsId,
+            teamid: $rootScope.currentTeam.cmsId,
             id: $scope.collectionid
           },
           function () {
             $scope.deleteInProgression = "";
             $mdDialog.hide();
-            $rootScope.goTo('/cms/videos/collections/');
+            $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/videos/collections/');
           }
         );
       } else {
-        $rootScope.goTo('/cms/videos/collections/');
+        $rootScope.goTo('/teams/' + $rootScope.currentTeam.name + '/cms/videos/collections/');
       }
     };
 

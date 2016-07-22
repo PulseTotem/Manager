@@ -1,5 +1,5 @@
 <md-subheader md-theme="altTheme" class="md-primary">
-  {{'CMS.VIDEOS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/cms/videos/collections')">{{'CMS.VIDEOS.COLLECTIONS' | translate}}</span> / {{collection.name}}
+  {{'CMS.VIDEOS.TITLE' | translate}} / <span class="breadcrumb_item" ng-click="goTo('/teams/' + currentTeam.name + '/cms/videos/collections')">{{'CMS.VIDEOS.COLLECTIONS' | translate}}</span> / {{collection.name}}
 
   <md-fab-speed-dial md-open="false" md-direction="down" class="md-fling md-fab-top-right right" ng-cloak>
     <md-fab-trigger>
